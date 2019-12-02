@@ -1,17 +1,17 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { HomepageComponent } from './features/homepage/homepage.component';
-import { ExperiencesComponent } from './features/experiences/experiences.component';
-import { ExperienceComponent } from './features/experience/experience.component';
-import { HowItWorksComponent } from './features/how-it-works/how-it-works.component';
-import { BecomeHostComponent } from './features/become-host/become-host.component';
-import { BecomeHelperComponent } from './features/become-helper/become-helper.component';
-import { LegalNoticeComponent } from './features/legal/legal-notice/legal-notice.component';
-import { PrivacyPolicyComponent } from './features/legal/privacy-policy/privacy-policy.component';
-import { ConditionsOfUseComponent } from './features/legal/conditions-of-use/conditions-of-use.component';
-import { ConditionsOfSaleComponent } from './features/legal/conditions-of-sale/conditions-of-sale.component';
-import { SitemapComponent } from './features/sitemap/sitemap.component';
-import { PageNotFoundComponent } from './features/page-not-found/page-not-found.component';
+import { HomepageComponent } from './components/homepage/homepage.component';
+import { ExperiencesComponent } from './components/experiences/experiences.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { HowItWorksComponent } from './components/how-it-works/how-it-works.component';
+import { BecomeHostComponent } from './components/become-host/become-host.component';
+import { BecomeHelperComponent } from './components/become-helper/become-helper.component';
+import { LegalNoticeComponent } from './components/legal/legal-notice/legal-notice.component';
+import { PrivacyPolicyComponent } from './components/legal/privacy-policy/privacy-policy.component';
+import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/conditions-of-use.component';
+import { ConditionsOfSaleComponent } from './components/legal/conditions-of-sale/conditions-of-sale.component';
+import { SitemapComponent } from './components/sitemap/sitemap.component';
+import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },

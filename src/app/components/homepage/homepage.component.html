@@ -17,6 +17,11 @@
     
         <section>
             <h3>Fresh published experiences</h3>
+            <div>
+                <div *ngFor="let experience of experiences">
+                    {{ experience.title }}
+                </div>
+            </div>
             <a routerLink="/experiences">See all experiences</a>
         </section>
     
