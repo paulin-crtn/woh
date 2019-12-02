@@ -1,0 +1,23 @@
+.call-to-action-card {
+    height: 190px;
+    border-radius: 10px;
+    figure {
+        width: 350px;
+        height: 140px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        overflow: hidden;
+        border-top-left-radius: 10px;
+        border-top-right-radius: 10px;
+        img {
+            width: 350px;
+        }
+    }
+    h5 {
+        padding: 15px;
+        font-size: 1.1rem;
+        font-weight: 400;
+        color: #000000;
+    }
+}

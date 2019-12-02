@@ -18,6 +18,7 @@ import { ConditionsOfSaleComponent } from './components/legal/conditions-of-sale
 import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/conditions-of-use.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExperienceCardComponent } from './shared/experience-card/experience-card.component';
+import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-action-card.component';
 
 @NgModule({
   declarations: [
@@ -37,6 +38,7 @@ import { ExperienceCardComponent } from './shared/experience-card/experience-car
     ConditionsOfUseComponent,
     PageNotFoundComponent,
     ExperienceCardComponent,
+    CallToActionCardComponent,
   ],
   imports: [
     BrowserModule,

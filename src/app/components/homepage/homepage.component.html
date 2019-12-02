@@ -20,8 +20,9 @@
             <div class="experience-cards">
                 <!-- Experience Card Component-->
                 <app-experience-card 
-                *ngFor="let experience of experiences"
-                [experience]="experience"></app-experience-card>
+                    *ngFor="let experience of experiences"
+                    [experience]="experience">
+                </app-experience-card>
             </div>
             <a routerLink="/experiences">See all experiences</a>
         </section>
@@ -82,31 +83,29 @@
     
         <section>
             <h3>You're a host ? Find your volunteer !</h3>
-            <div class="columns-text-and-cat">
+            <div class="columns-text-and-cat-card">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at lorem lacus. Mauris rhoncus blandit rutrum. Fusce vitae consectetur tellus, vitae posuere erat. In vel ante ornare, tristique magna quis, gravida libero. Praesent volutpat maximus justo, vitae convallis elit tempor a. Sed facilisis facilisis iaculis. Ut molestie ultricies tempor. Aenean fringilla laoreet congue. Sed molestie nulla sit amet risus tincidunt vehicula. In vestibulum augue ut vulputate gravida. Fusce pulvinar eleifend leo vel porta. Suspendisse at dapibus tellus. Ut sed justo vel diam ullamcorper ullamcorper at et ligula.</p>
-                <div class="call-to-action-card box-shadow">
-                    <a routerLink="/become-a-host">
-                        <figure>
-                            <img src="assets/img/become-a-host.jpg" alt="">
-                        </figure>
-                        <h5>Register as a host</h5>
-                    </a>
-                </div>
+                <!-- Call to action Card Component-->
+                <app-call-to-action-card
+                    title="Register as a host"
+                    img="become-a-host.jpg"
+                    alt=""
+                    href="become-a-host">
+                </app-call-to-action-card>
             </div>
         </section>
     
         <section>
             <h3>How does Worldhelpers work ?</h3>
-            <div class="columns-text-and-cat">
+            <div class="columns-text-and-cat-card">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed at lorem lacus. Mauris rhoncus blandit rutrum. Fusce vitae consectetur tellus, vitae posuere erat. In vel ante ornare, tristique magna quis, gravida libero. Praesent volutpat maximus justo, vitae convallis elit tempor a. Sed facilisis facilisis iaculis. Ut molestie ultricies tempor. Aenean fringilla laoreet congue. Sed molestie nulla sit amet risus tincidunt vehicula. In vestibulum augue ut vulputate gravida. Fusce pulvinar eleifend leo vel porta. Suspendisse at dapibus tellus. Ut sed justo vel diam ullamcorper ullamcorper at et ligula.</p>
-                <div class="call-to-action-card box-shadow">
-                    <a routerLink="/how-it-works">
-                        <figure>
-                            <img src="assets/img/how-it-works-worldhelpers.jpg" alt="">
-                        </figure>
-                        <h5>See the steps</h5>
-                    </a>
-                </div>
+                <!-- Call to action Card Component-->
+                <app-call-to-action-card
+                    title="See the steps"
+                    img="how-it-works-worldhelpers.jpg"
+                    alt=""
+                    href="how-it-works">
+                </app-call-to-action-card>
             </div>
         </section>
     </div>

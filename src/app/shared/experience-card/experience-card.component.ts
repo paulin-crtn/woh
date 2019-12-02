@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { Experience } from 'src/app/core/experience/experience';
 
 @Component({
@@ -11,8 +11,6 @@ export class ExperienceCardComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log(this.experience);
-  
   }
 
 }
