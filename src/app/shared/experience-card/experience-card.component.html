@@ -1,0 +1,16 @@
+<div class="experience-card">
+    <h4 class="experience-title">{{ experience.title }}</h4>
+    <span class="experience-property-type">{{ experience.property.type }}</span>
+    <span class="experience-location">{{ experience.property.city }}, {{ experience.property.country }}</span>
+    <div class="expericence-chips">
+        <span>{{ experience.min_weeks }}-{{ experience.max_weeks }} <span> weeks stay</span></span>
+        <span>{{ experience.volunteer_hours }} <span> hours volunteer a day</span></span>
+        <span>{{ experience.days_off }}<span></span> days off per week</span>
+        <span>{{ experience.accomodation_type }}</span>
+        <span>Up to <span>{{ experience.number_volunteers }}</span> helpers</span>
+    </div>
+    <div>
+        <span>{{ experience.rating }}</span>
+        <span>{{ experience.number_comments }} comments</span>
+    </div>
+</div>

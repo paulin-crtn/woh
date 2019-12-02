@@ -17,19 +17,20 @@
     
         <section>
             <h3>Fresh published experiences</h3>
-            <div>
-                <div *ngFor="let experience of experiences">
-                    {{ experience.title }}
-                </div>
+            <div class="experience-cards">
+                <!-- Experience Card Component-->
+                <app-experience-card 
+                *ngFor="let experience of experiences"
+                [experience]="experience"></app-experience-card>
             </div>
             <a routerLink="/experiences">See all experiences</a>
         </section>
     
         <section>
             <h3>Searching for a specific travel experience ?</h3>
-            <div class="experiences-cards">
+            <div class="property-type-cards">
                 <!-- Hostel & Hotel -->
-                <div class="experience-card box-shadow">
+                <div class="property-type-card box-shadow">
                     <a routerLink="/experiences">
                         <figure>
                             <img src="assets/img/hostel-volunteer.jpg" alt="">
@@ -41,7 +42,7 @@
                     </a>
                 </div>
                 <!-- Farm -->
-                <div class="experience-card box-shadow">
+                <div class="property-type-card box-shadow">
                     <a routerLink="/experiences">
                         <figure>
                             <img src="assets/img/farm-volunteer.jpg" alt="">
@@ -53,7 +54,7 @@
                     </a>
                 </div>
                 <!-- Homestay-->
-                <div class="experience-card box-shadow">
+                <div class="property-type-card box-shadow">
                     <a routerLink="/experiences">
                         <figure>
                             <img src="assets/img/homestay-volunteer.jpg" alt="">
@@ -65,7 +66,7 @@
                     </a>
                 </div>
                 <!-- School-->
-                <div class="experience-card box-shadow">
+                <div class="property-type-card box-shadow">
                     <a routerLink="/experiences">
                         <figure>
                             <img src="assets/img/school-volunteer.jpg" alt="">
