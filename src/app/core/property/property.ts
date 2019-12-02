@@ -2,7 +2,7 @@ export interface Property {
     type: string;
     name: string;
     address: string;
-    zipcode: number;
+    zipcode: string;
     city: string;
     country: string;
 }

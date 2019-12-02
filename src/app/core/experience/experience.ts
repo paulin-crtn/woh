@@ -8,8 +8,8 @@ export interface Experience {
     property: Property;
     title: string;
     description: string;
-    min_week: number;
-    max_week: number;
+    min_weeks: number;
+    max_weeks: number;
     number_volunteers: number;
     volunteer_hours: number;
     days_off: number;
@@ -19,6 +19,8 @@ export interface Experience {
     has_diner: number;
     has_food_allowance: number;
     has_free_activities: number;
+    rating: number;
+    number_comments: number;
     url: string;
     cover_picture_url: string;
     other_pictures_url?: Photo[];
