@@ -1,0 +1,17 @@
+a {
+    color: #000000;
+    text-decoration: none;
+}
+
+ul, figure {
+    margin: 0;
+    padding: 0;
+}
+
+li {
+    list-style-type: none;
+}
+
+.box-shadow {
+    box-shadow: 5px 10px 10px $light-2;
+}

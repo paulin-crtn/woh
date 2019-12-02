@@ -1,0 +1,24 @@
+.btn {
+    display: inline-block;
+    margin: 0;
+    padding: 10px 18px;
+    border-radius: 9999px;
+    box-sizing: border-box;
+}
+
+.btn-primary-solid {
+    background-color: $primary;
+    color: #ffffff;
+    border: 1px solid $primary;
+}
+
+.btn-primary-outline {
+    background-color: #ffffff;
+    color: $primary;
+    border: 1px solid $primary;
+}
+
+.link-primary {
+    color: $primary;
+    cursor: pointer;
+}

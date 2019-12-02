@@ -1,0 +1,24 @@
+@import '../../../sass/_variables';
+
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 30px;
+    border-bottom: 1px solid $light-2;
+    .worldhelpers-logo {
+        width: 95px;
+    }
+    ul {
+        display: flex;
+        align-items: center;
+        font-size: 0.9rem;
+        font-weight: 300;
+        li {
+            margin-left: 20px;
+        }
+        li:last-child {
+            margin-left: 10px;
+        }
+    }
+}
