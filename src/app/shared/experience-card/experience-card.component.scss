@@ -12,17 +12,8 @@
     .experience-cover {
         flex: 1; // Allow resizing
         align-self: stretch; // Same height as (heigher) sibling
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        height: 192px;
-        background-color: #000000;
         border-top-left-radius: 10px;
         border-bottom-left-radius: 10px;
-        overflow: hidden;
-        img {
-            width: 100%;
-        }
     }
     .experience-info {
         flex: 0 0 240px; // Disallow resizing

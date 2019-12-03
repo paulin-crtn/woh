@@ -1,7 +1,8 @@
 <div class="experience-card box-shadow">
-    <figure class="experience-cover">
-        <img src="{{experience.cover_picture_url}}" alt="">
-    </figure>
+    <div class="experience-cover" 
+    [style.background]="getBackgroundImageUrl()"
+    [style.backgroundSize]="'cover'">
+    </div>
     <div class="experience-info">
         <h4 class="experience-title">{{ experience.title }}</h4>
         <div class="experience-type-and-location">
