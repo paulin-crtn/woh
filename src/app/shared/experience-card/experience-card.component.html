@@ -1,16 +1,34 @@
-<div class="experience-card">
-    <h4 class="experience-title">{{ experience.title }}</h4>
-    <span class="experience-property-type">{{ experience.property.type }}</span>
-    <span class="experience-location">{{ experience.property.city }}, {{ experience.property.country }}</span>
-    <div class="expericence-chips">
-        <span>{{ experience.min_weeks }}-{{ experience.max_weeks }} weeks stay</span>
-        <span>{{experience.volunteer_hours}} {experience.volunteer_hours, plural, =1 {hour} other {hours}} volunteer a day</span>
-        <span>{{ experience.days_off }} {experience.days_off, plural, =1 {day} other {days}} off per week</span>
-        <span>{{ experience.accomodation_type }}</span>
-        <span>Up to {{ experience.number_volunteers }} {experience.number_volunteers, plural, =1 {helper} other {helpers}}</span>
+<div class="experience-card box-shadow">
+    <figure class="experience-cover">
+        <img src="{{experience.cover_picture_url}}" alt="">
+    </figure>
+    <div class="experience-info">
+        <h4 class="experience-title">{{ experience.title }}</h4>
+        <div class="experience-type-and-location">
+            <div class="experience-property-type">
+                {{ experience.property.type }}
+            </div>
+            <div class="experience-location">
+                {{ experience.property.country }}
+            </div>
+        </div>
+        <p class="expericence-chips">
+            {{ experience.min_weeks }}-{{ experience.max_weeks }} weeks stay 
+            &#8226; {{experience.volunteer_hours}} {experience.volunteer_hours, plural, =1 {hour} other {hours}} volunteer a day 
+            &#8226; {{ experience.days_off }} {experience.days_off, plural, =1 {day} other {days}} off per week 
+            &#8226; {{ experience.accomodation_type }} 
+            &#8226; Up to {{ experience.number_volunteers }} {experience.number_volunteers, plural, =1 {helper} other {helpers}}
+        </p>
+        <div class="experience-review">
+            <div>
+                <img src="assets/icons/star.svg" alt="">
+            </div>
+            <div>
+                {{ experience.rating }} | {{ experience.number_comments }} {experience.number_comments, plural, =1 {comment} other {comments}}
+            </div>
+        </div>
     </div>
-    <div>
-        <span>{{ experience.rating }}</span>
-        <span>{{ experience.number_comments }} {experience.number_comments, plural, =1 {comment} other {comments}}</span>
+    <div class="experience-favorite">
+        <img src="assets/icons/heart-outline.svg" alt="">
     </div>
 </div>

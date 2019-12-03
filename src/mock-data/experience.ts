@@ -46,7 +46,7 @@ export const MOCK_EXPERIENCES: Experience[] = [
         rating: 4,
         number_comments: 1,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'http://lorempixel.com/900/600/nature',
+        cover_picture_url: 'http://lorempixel.com/800/600/city',
         other_pictures_url: null,
     },
     {
@@ -142,7 +142,7 @@ export const MOCK_EXPERIENCES: Experience[] = [
         rating: 4,
         number_comments: 1,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'http://lorempixel.com/900/600/nature',
+        cover_picture_url: 'http://lorempixel.com/400/600/people',
         other_pictures_url: null,
     },
     {
@@ -190,7 +190,7 @@ export const MOCK_EXPERIENCES: Experience[] = [
         rating: 4,
         number_comments: 1,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'http://lorempixel.com/900/600/nature',
+        cover_picture_url: 'http://lorempixel.com/900/900/nature',
         other_pictures_url: null,
     }
 ] 

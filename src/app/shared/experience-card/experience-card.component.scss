@@ -1,0 +1,80 @@
+@import '../../../sass/_variables';
+
+.experience-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    height: 192px; // Figure element will be too high otherwise
+    margin-bottom: 20px;
+    line-height: 0; // Bug fix
+    border-radius: 10px;
+    background-color: #ffffff;
+    .experience-cover {
+        flex: 1; // Allow resizing
+        align-self: stretch; // Same height as (heigher) sibling
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 192px;
+        background-color: #000000;
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        overflow: hidden;
+        img {
+            width: 100%;
+        }
+    }
+    .experience-info {
+        flex: 0 0 240px; // Disallow resizing
+        padding: 15px;
+        h4 {
+            margin-bottom: 5px;
+            font-size: 1rem;
+            line-height: 1.2rem;
+            color: #000000;
+        }
+        .experience-type-and-location {
+            display: flex;
+            align-items: center;
+            .experience-property-type {
+                padding: 5px 7px;
+                font-size: 0.7rem;
+                line-height: 0.7rem;
+                color: #ffffff;
+                background-color: $primary;
+                border-radius: 3px;
+            }
+            .experience-location {
+                margin-left: 7px;
+                color: $primary;
+                font-size: 0.85rem;
+                font-weight: 400;
+            }
+        }
+        .expericence-chips {
+            margin: 10px 0;
+            font-size: 0.9rem;
+            font-weight: 300;
+            line-height: 1.3rem;
+        }
+        .experience-review {
+            display: flex;
+            align-items: center;
+            font-size: 0.8rem;
+            color: $dark-1;
+            img {
+                width: 15px;
+                margin-right: 7px;
+            }
+        }
+    }
+    .experience-favorite {
+        flex: 0 0 20px; // Disallow resizing
+        text-align: right;
+        padding: 15px;
+        img {
+            width: 20px;
+            cursor: pointer;
+        }
+    }
+}

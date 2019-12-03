@@ -23,6 +23,17 @@ h3 {
     font-size: 1.8rem;
 }
 
+app-experience-card{
+    width: 49%;
+}
+
+.experience-cards {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
 .property-type-cards {
     display: flex;
     justify-content: space-between;
@@ -34,6 +45,7 @@ h3 {
     width: 23%;
     min-width: 260px;
     border-radius: 10px;
+    background-color: #ffffff;
     figure {
         height: 135px;
         display: flex;
