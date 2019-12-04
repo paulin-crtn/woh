@@ -1,9 +1,17 @@
-main {
-    min-height: calc(100vh - 292.883px);
-    margin: 60px 0 100px 0;
+.container-without-page-title, .container-with-page-title {
+    padding: 60px 0 100px 0;
 }
 
-.container {
+.container-without-page-title {
+    min-height: calc(100vh - 491.883px);
+    border-top: 1px solid $light-2;
+}
+
+.container-with-page-title {
+    min-height: calc(100vh - 574.9997px);
+}
+
+.wrapper {
     width: 85%;
     max-width: 1600px;
     margin: 0 auto;

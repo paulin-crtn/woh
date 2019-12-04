@@ -15,3 +15,14 @@ li {
 .box-shadow {
     box-shadow: 0px 2px 8px $light-2 // 7px 7px 15px $light-2;
 }
+
+.page-title {
+    background-color: $primary;
+    h1 {
+        padding: 25px 0;
+        font-family: $title;
+        font-size: 1.8rem;
+        font-weight: 600;
+        color: #ffffff;
+    }
+}
