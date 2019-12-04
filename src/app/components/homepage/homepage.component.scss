@@ -11,7 +11,7 @@
     background-color: rgba($color: #ffffff, $alpha: 0.8);
 }
 
-section {
+section:not(:last-child) {
     margin-bottom: 60px;
 }
 
