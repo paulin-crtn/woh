@@ -69,3 +69,32 @@
         }
     }
 }
+
+@media screen and (max-width: 1140px) {
+    .experience-card {
+        position: relative;
+        display: block;
+        height: auto;
+        .experience-cover {
+            height: 160px;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 0;
+            border-top-right-radius: 10px;
+        }
+        .experience-favorite {
+            display: inline-block;
+            position: absolute;
+            top: 7px;
+            right: 7px;
+            figure {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 35px;
+                height: 35px;
+                background-color: #ffffff;
+                border-radius: 50%;
+            }
+        }
+    }
+}
