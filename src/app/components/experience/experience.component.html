@@ -1,10 +1,139 @@
 <main>
     <div class="page-title">
-        <h1 class="wrapper">Experience title</h1>
+        <h1 class="wrapper">{{ experience.title }}</h1>
     </div>
     <div class="container-with-page-title">
         <div class="wrapper">
-            <p>experience-works!</p>
+            <div class="experience-type-and-location-and-fav">
+                <div class="experience-type-and-location">
+                    <div class="experience-property-type">
+                        {{ experience.property.type }}
+                    </div>
+                    <div class="experience-location">
+                        {{ experience.property.city }}, {{ experience.property.country }}
+                    </div>
+                </div>
+                <div class="experience-favorite">
+                    <figure>
+                        <img src="assets/icons/heart-outline.svg" alt="">
+                    </figure>
+                </div>
+            </div>
+            <div 
+            class="experience-cover" 
+            [style.background]="getBackgroundImageUrl()"
+            [style.backgroundSize]="'cover'"
+            [style.backgroundPosition]="'center'">
+                <div class="btn btn-primary-light">See all pictures</div>
+            </div>
+            <div class="experience-container">
+                <div class="experience-content">
+
+                    <section>
+                        <h2>Experience description</h2>
+                        <div class="experience-chips">
+                            <!-- Duration -->
+                            <div class="experience-chip">
+                                <img src="assets/icons/calendar.svg" alt="">
+                                <div>
+                                    {{ experience.min_weeks }}-{{ experience.max_weeks }} weeks stay
+                                </div>
+                            </div>
+                            <!-- Volunteering hours -->
+                            <div class="experience-chip">
+                                <img src="assets/icons/clock.svg" alt="">
+                                <div>
+                                    {{experience.volunteer_hours}} {experience.volunteer_hours, plural, =1 {hour} other {hours}} volunteer a day 
+                                </div>
+                            </div>
+                            <!-- Day off -->
+                            <div class="experience-chip">
+                                <img src="assets/icons/sunset.svg" alt="">
+                                <div>
+                                    {{ experience.days_off }} {experience.days_off, plural, =1 {day} other {days}} off per week 
+                                </div>
+                            </div>
+                            <!-- Room -->
+                            <div class="experience-chip">
+                                <img src="assets/icons/key.svg" alt="">
+                                <div>
+                                    {{ experience.accomodation_type }} 
+                                </div>
+                            </div>
+                            <!-- How many helpers -->
+                            <div class="experience-chip">
+                                <img src="assets/icons/users.svg" alt="">
+                                <div>
+                                    Up to {{ experience.number_volunteers }} {experience.number_volunteers, plural, =1 {helper} other {helpers}}
+                                </div>
+                            </div>
+                            <!-- Breakfast -->
+                            <div 
+                            class="experience-chip"
+                            *ngIf="experience.has_breakfast">
+                                <img src="assets/icons/cutlery.svg" alt="">
+                                <div>
+                                    Breakfast included
+                                </div>
+                            </div>
+                            <!-- Lunch -->
+                            <div 
+                            class="experience-chip"
+                            *ngIf="experience.has_lunch">
+                                <img src="assets/icons/cutlery.svg" alt="">
+                                <div>
+                                    Lunch included
+                                </div>
+                            </div>
+                            <!-- Diner -->
+                            <div 
+                            class="experience-chip"
+                            *ngIf="experience.has_diner">
+                                <img src="assets/icons/cutlery.svg" alt="">
+                                <div>
+                                    Diner included
+                                </div>
+                            </div>
+                            <!-- Food allowance -->
+                            <div 
+                            class="experience-chip" 
+                            *ngIf="experience.has_food_allowance">
+                                <img src="assets/icons/food-allowance.svg" alt="">
+                                <div>
+                                    Food allowance 
+                                </div>
+                            </div>
+                            <!-- Free activities -->
+                            <div 
+                            class="experience-chip"
+                            *ngIf="experience.has_free_activities">
+                                <img src="assets/icons/hot-air-balloon.svg" alt="">
+                                <div>
+                                    Free activities
+                                </div>
+                            </div>
+                        </div>
+                        <p>{{ experience.description }}</p>
+                    </section>
+                    
+                    <section>
+                        <h2>Requirements</h2>
+                        <p *ngIf="experience.requirements; else noRequirement">{{ experience.requirements }}</p>
+                        <ng-template #noRequirement>No requirement needed.</ng-template>
+                    </section>
+
+                    <section>
+                        <h2>Host informations</h2>
+                    </section>
+
+                    <section>
+                        <h2>Reviews</h2>
+                    </section>
+                </div>
+                <div class="experience-apply">
+
+                </div>
+            </div>
         </div>
     </div>
 </main>

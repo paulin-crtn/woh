@@ -1,4 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
+
+import { Experience } from 'src/app/core/experience/experience';
+import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
 
 @Component({
   selector: 'app-experience',
@@ -7,9 +11,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ExperienceComponent implements OnInit {
 
-  constructor() { }
+  experience: Experience;
+
+  constructor(
+    private titleService: Title,
+    private meta: Meta,
+    private sanitizer: DomSanitizer,
+    private experienceService: ExperienceMockService) {}
 
   ngOnInit() {
-  }
+    // PAGE TITLE
+    this.titleService.setTitle(' | Worldhelpers');
+    // META DESCRIPTION
+    this.meta.updateTag({name: 'description', content: ''});
+    // EXPERIENCE
+    this.experienceService.getExperience(1).subscribe(experience => {
+      this.experience = experience;
+      console.log(this.experience);
+    });
 
+  }
+  
+  getBackgroundImageUrl() {
+    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.cover_picture_url}')`);
+  }
 }
