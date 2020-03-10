@@ -1,7 +1,57 @@
 <main>
-    <div class="container-without-page-title">
-        <div class="wrapper">
-            <p>become-a-host works!</p>
+    <div class="background-image">
+        <div class="background-opacity">
+            <div class="container-without-page-title">
+                <div class="wrapper">
+                    <h1>Host one or more volunteers in exchange for their help</h1>
+                    <div class="flexbox">
+                        <div class="landing-arguments">
+                            <div class="landing-text">
+                                <h2>Many volunteers around the world are ready to help you for a few hours a day in exchange for accommodation.</h2>
+                                <h3>Your needs may relate to a cultural or linguistic exchange, housework, gardening, childcare, webmarketing or meet other needs.</h3>
+                            </div>
+                            <ul class="landing-bullets">
+                                <li class="landing-bullet">
+                                    <img src="assets/icons/chrono.svg" alt="">
+                                    <p>Create your ad in less than 10 minutes</p>
+                                </li>
+                                <li class="landing-bullet">
+                                    <img src="assets/icons/loupe.svg" alt="">
+                                    <p>Choose from different requests</p>
+                                </li>
+                                <li class="landing-bullet">
+                                    <img src="assets/icons/paper-plane.svg" alt="">
+                                    <p>Exchange by message with the volunteers</p>
+                                </li>
+                                <li class="landing-bullet">
+                                    <img src="assets/icons/arrows.svg" alt="">
+                                    <p>Track arrivals and departures from the dashboard</p>
+                                </li>
+                                <li class="landing-bullet">
+                                    <img src="assets/icons/free.svg" alt="">
+                                    <p>Sign up now, it's free !</p>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="landing-form">
+                            <form (ngSubmit)="register()" [formGroup]="registerForm">
+                                <input type="text" formControlName="firstname" placeholder="Firstname">
+                                <input type="text" formControlName="lastname" placeholder="Lastname">
+                                <input type="text" formControlName="email" placeholder="Email">
+                                <input type="text" formControlName="password" placeholder="Password">
+                                <div class="checkbox">
+                                    <input type="checkbox" formControlName="gdpr" id="check">
+                                    <label for="check">
+                                        <div><span><!-- This span is needed to create the "checkbox" element --></span></div>
+                                        <div class="consent">I acknowledge having read and accepted the <a routerLink="/privacy-policy">privacy policy</a>, <a routerLink="/conditions-of-use">GCU</a> and <a routerLink="/legal-notice">legal notices</a></div>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-success-solid">Register as a host</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </main>

@@ -25,6 +25,12 @@
     color: #000000;
 }
 
+.btn-success-solid {
+    background-color: $success;
+    color: #ffffff;
+    border: 1px solid $success;
+}
+
 .link-primary {
     color: $primary;
     cursor: pointer;
