@@ -35,7 +35,6 @@ header {
         .icons-container {
             display: flex;
             justify-content: center;
-            align-items: center;
             width: 50px;
             height: 50px;
             background-color: $primary;
@@ -45,25 +44,46 @@ header {
                 position: relative;
             }
             .navlines div {
+                position: absolute;
+                left: -13px;
                 width: 24px;
                 border: 1px solid #ffffff;
                 border-radius: 9px;
             }
-            .navlines.is-close div:nth-child(2) {
-                margin: 7px auto;
+            .navlines.is-close {
+                div:nth-child(1) {
+                    transform: rotate(0);
+                    top: 18px;
+                    transition: all 0.5s ease-in;
+                }
+                div:nth-child(2) {
+                    top: 25px;
+                    border: 1px solid #ffffff;
+                    transition: all 0.5s ease-in;
+                }
+                div:nth-child(3) {
+                    transform: rotate(0);
+                    top: 32px;
+                    transition: all 0.5s ease-in;
+                }
             }
-            .navlines.is-open div {
-                position: absolute;
-                left: -13px;
-            }
-            .navlines.is-open div:nth-child(2) {
-                display: none;
-            }
-            .navlines.is-open div:nth-child(1) {
-                transform: rotate(45deg);
-            }
-            .navlines.is-open div:nth-child(3) {
-                transform: rotate(-45deg);
+            .navlines.is-open {
+                div:nth-child(1) {
+                    top: 25px;
+                    transform: rotate(45deg);
+                    transition: all 0.5s ease-in;
+                }
+                div:nth-child(2) {
+                    top: 25px;
+                    width: 0px;
+                    border: 1px solid transparent;
+                    transition: all 0.5s ease-in;
+                }
+                div:nth-child(3) {
+                    top: 25px;
+                    transform: rotate(-45deg);
+                    transition: all 0.5s ease-in;
+                }
             }
         }
     }
