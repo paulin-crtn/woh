@@ -1,6 +1,6 @@
 <header>
     <a routerLink="/"><img class="worldhelpers-logo" src="assets/img/worldhelpers-logo.svg" alt=""></a>
-    <nav>
+    <nav class="navbar-classic">
         <ul>
             <li class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
@@ -9,4 +9,23 @@
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
     </nav>
+    <nav class="navbar-mobile">
+        <ul>
+            <li class="link-primary">EN</li>
+            <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
+            <li class="link-primary">Login</li>
+            <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
+            <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
+        </ul>
+    </nav>
+    <div (click)="toggleMenuBurger()" class="icons-container">
+        <div 
+        class="navlines" 
+        [class.is-open]="isMenuBurgerOpen"
+        [class.is-close]="!isMenuBurgerOpen">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
 </header>

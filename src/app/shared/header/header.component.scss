@@ -8,16 +8,63 @@ header {
     .worldhelpers-logo {
         width: 95px;
     }
-    ul {
-        display: flex;
-        align-items: center;
-        font-size: 0.9rem;
-        font-weight: 300;
-        li {
-            margin-left: 20px;
+    .navbar-classic {
+        ul {
+            display: flex;
+            align-items: center;
+            font-size: 0.9rem;
+            font-weight: 300;
+            li {
+                margin-left: 20px;
+            }
+            li:last-child {
+                margin-left: 10px;
+            }
         }
-        li:last-child {
-            margin-left: 10px;
+    }
+    .navbar-mobile, .icons-container {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 920px) {
+    header {
+        .navbar-classic {
+            display: none;
+        }
+        .icons-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            background-color: $primary;
+            border-radius: 50%;
+            cursor: pointer;
+            .navlines {
+                position: relative;
+            }
+            .navlines div {
+                width: 24px;
+                border: 1px solid #ffffff;
+                border-radius: 9px;
+            }
+            .navlines.is-close div:nth-child(2) {
+                margin: 7px auto;
+            }
+            .navlines.is-open div {
+                position: absolute;
+                left: -13px;
+            }
+            .navlines.is-open div:nth-child(2) {
+                display: none;
+            }
+            .navlines.is-open div:nth-child(1) {
+                transform: rotate(45deg);
+            }
+            .navlines.is-open div:nth-child(3) {
+                transform: rotate(-45deg);
+            }
         }
     }
 }
