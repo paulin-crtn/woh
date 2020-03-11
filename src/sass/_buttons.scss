@@ -37,25 +37,16 @@
 }
 
 // DISABLE
-button:disabled::before {
-    content:"";
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100%;
-    width: 100%;
-    z-index: 1;
-    background-color: rgba(255, 255, 255, .4);
-    border: 1px solid rgba(255, 255, 255, .4);
-    border-radius: 9999px;
+.btn-success-disabled {
+    background-color: $success-light;
+    border-color: $success-light;
 }
 
 // LOADER 
 .spinner > div {
-    width: 12px;
-    height: 12px;
-    margin: 0 4px;
+    width: 10px;
+    height: 10px;
+    margin: 2px;
     background-color: #ffffff;
     border-radius: 100%;
     display: inline-block;
@@ -64,13 +55,13 @@ button:disabled::before {
 }
 
 .spinner .bounce1 {
-    -webkit-animation-delay: -0.44s;
-    animation-delay: -0.44s;
+    -webkit-animation-delay: -0.40s;
+    animation-delay: -0.40s;
 }
 
 .spinner .bounce2 {
-    -webkit-animation-delay: -0.22s;
-    animation-delay: -0.22s;
+    -webkit-animation-delay: -0.20s;
+    animation-delay: -0.20s;
 }
 
 @-webkit-keyframes sk-bouncedelay {

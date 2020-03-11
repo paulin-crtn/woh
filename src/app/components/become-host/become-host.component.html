@@ -85,9 +85,10 @@
                                 </div>
                                 <!-- Submit -->
                                 <button
-                                    type="submit"
-                                    [disabled]="registerForm.invalid || submitted" 
-                                    class="btn btn-success-solid">
+                                type="submit"
+                                class="btn btn-success-solid"
+                                [class.btn-success-disabled]="registerForm.invalid || submitted"
+                                [disabled]="registerForm.invalid || submitted">
                                     <div *ngIf="!submitted">Register as a host</div>
                                     <div *ngIf="submitted" class="spinner">
                                         <div class="bounce1"></div>
