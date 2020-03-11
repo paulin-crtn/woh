@@ -35,3 +35,55 @@
     color: $primary;
     cursor: pointer;
 }
+
+// DISABLE
+button:disabled::before {
+    content:"";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 1;
+    background-color: rgba(255, 255, 255, .4);
+    border: 1px solid rgba(255, 255, 255, .4);
+    border-radius: 9999px;
+}
+
+// LOADER 
+.spinner > div {
+    width: 12px;
+    height: 12px;
+    margin: 0 4px;
+    background-color: #ffffff;
+    border-radius: 100%;
+    display: inline-block;
+    -webkit-animation: sk-bouncedelay 2s infinite ease-in-out both;
+    animation: sk-bouncedelay 2s infinite ease-in-out both;
+}
+
+.spinner .bounce1 {
+    -webkit-animation-delay: -0.44s;
+    animation-delay: -0.44s;
+}
+
+.spinner .bounce2 {
+    -webkit-animation-delay: -0.22s;
+    animation-delay: -0.22s;
+}
+
+@-webkit-keyframes sk-bouncedelay {
+    0%, 80%, 100% { -webkit-transform: scale(0) }
+    40% { -webkit-transform: scale(1.0) }
+}
+
+@keyframes sk-bouncedelay {
+    0%, 80%, 100% { 
+        -webkit-transform: scale(0);
+        transform: scale(0);
+    } 40% { 
+        -webkit-transform: scale(1.0);
+        transform: scale(1.0);
+    }
+}
