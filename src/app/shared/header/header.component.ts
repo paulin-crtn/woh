@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isMenuBurgerClicked: Boolean;
   isMenuBurgerOpen : Boolean;
 
   constructor() { }
@@ -14,11 +15,8 @@ export class HeaderComponent implements OnInit {
   }
 
   toggleMenuBurger() {
-    if (this.isMenuBurgerOpen) {
-      this.isMenuBurgerOpen = false;
-    } else {
-      this.isMenuBurgerOpen = true;
-    }
+    this.isMenuBurgerClicked = true;
+    this.isMenuBurgerOpen = !this.isMenuBurgerOpen;
   }
 
 }

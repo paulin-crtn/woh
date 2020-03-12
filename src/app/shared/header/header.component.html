@@ -18,14 +18,18 @@
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
     </nav>
-    <div (click)="toggleMenuBurger()" class="icons-container">
+
+    <!-- MENU BURGER BUTTON -->
+    <div 
+    class="menu-burger-button" 
+    (click)="toggleMenuBurger()">
         <div 
-        class="navlines" 
-        [class.is-open]="isMenuBurgerOpen"
-        [class.is-close]="!isMenuBurgerOpen">
-            <div></div>
-            <div></div>
-            <div></div>
+        class="icons" 
+        [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked" 
+        [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
+          <span></span>
+          <span></span>
+          <span></span>
         </div>
-    </div>
+      </div>
 </header>
