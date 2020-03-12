@@ -19,4 +19,8 @@ export class HeaderComponent implements OnInit {
     this.isMenuBurgerOpen = !this.isMenuBurgerOpen;
   }
 
+  closeNavbarMobile() {
+    this.isMenuBurgerOpen = false;
+  }
+
 }

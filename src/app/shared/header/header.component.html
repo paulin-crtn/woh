@@ -1,5 +1,11 @@
 <header>
-    <a routerLink="/"><img class="worldhelpers-logo" src="assets/img/worldhelpers-logo.svg" alt=""></a>
+    <a routerLink="/">
+        <img 
+        class="worldhelpers-logo" 
+        (click)="closeNavbarMobile()"
+        src="assets/img/worldhelpers-logo.svg"
+        alt="">
+    </a>
     <nav class="navbar-classic">
         <ul>
             <li class="link-primary">EN</li>
@@ -11,7 +17,7 @@
     </nav>
     <nav class="navbar-mobile" [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked" 
     [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
-        <ul>
+        <ul (click)="closeNavbarMobile()">
             <li class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
             <li class="link-primary">Login</li>
