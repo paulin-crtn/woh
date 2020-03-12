@@ -9,7 +9,8 @@
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
     </nav>
-    <nav class="navbar-mobile">
+    <nav class="navbar-mobile" [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked" 
+    [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
         <ul>
             <li class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
