@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-page-not-found',
@@ -8,16 +7,9 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class PageNotFoundComponent implements OnInit {
 
-  constructor(
-    private titleService: Title,
-    private meta: Meta,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    // PAGE TITLE
-    this.titleService.setTitle('Page not found | Worldhelpers');
-    // META DESCRIPTION
-    this.meta.updateTag({name: 'description', content: ''});
   }
 
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Title, Meta } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-how-it-works',
@@ -8,16 +7,9 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class HowItWorksComponent implements OnInit {
 
-  constructor(
-    private titleService: Title,
-    private meta: Meta,
-  ) { }
+  constructor() { }
 
   ngOnInit() {
-    // PAGE TITLE
-    this.titleService.setTitle('How it works | Worldhelpers');
-    // META DESCRIPTION
-    this.meta.updateTag({name: 'description', content: ''});
   }
 
 }
