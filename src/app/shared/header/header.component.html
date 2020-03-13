@@ -15,7 +15,8 @@
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
     </nav>
-    <nav class="navbar-mobile" [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked" 
+    <nav class="navbar-mobile" 
+    [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked"
     [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
         <ul (click)="closeNavbarMobile()">
             <li class="link-primary">EN</li>
