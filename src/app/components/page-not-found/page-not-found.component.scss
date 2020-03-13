@@ -1,0 +1,53 @@
+.background-image {
+    background-image: url('../../../assets/icons/alien.svg');
+    background-size: 30%;
+    background-repeat: no-repeat;
+    background-position: center right calc(10% + 80px); // 20%/2 correspondant à la marge du wrapper + 80px correspondant à la marge gauche du content
+}
+
+.background-opacity {
+    background-color: rgba($color: #ffffff, $alpha: 0.8);
+}
+
+.content {
+    margin: 80px 0 80px 100px;
+    p {
+        width: 45%;
+        margin: 30px 0 30px 0;
+        font-size: 1.4rem;
+        line-height: 2.2rem;   
+    }
+    a {
+        margin-right: 10px;
+    }
+}
+
+@media screen and (max-width: 900px) {
+    .background-image {
+        background-size: 0;
+    }
+    .content {
+        margin-left: 0;;
+        p {
+            width: 100%;
+        }
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .content {
+        margin: 40px 0;
+        h1 {
+            font-size: 2rem;
+        }
+        p {
+            font-size: 1.2rem;
+            line-height: 1.8rem;
+        }
+        .buttons a {
+            display: block;
+            margin-bottom: 10px;
+            text-align: center;
+        }
+    }
+}
