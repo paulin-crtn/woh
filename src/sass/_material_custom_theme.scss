@@ -1,0 +1,117 @@
+// Custom Theming for Angular Material
+// For more information: https://material.angular.io/guide/theming
+@import '~@angular/material/theming';
+
+// Define the palettes for your theme using the Material Design palettes available in palette.scss
+// (imported above). For each palette, you can optionally specify a default, lighter, and darker
+// hue. Available color palettes: https://material.io/design/color/
+$woh-primary: (
+    50: #ebe8f8,
+    100: #cdc5ed,
+    200: #aba0e2,
+    300: #8979d7,
+    400: #6d5cce,
+    500: #443DBF, // MAIN
+    600: #443DBF, // MAIN
+    700: #3235b6,
+    800: #1e30ae,
+    900: #0025a0,
+    A100: #ffffff,
+    A200: #FF5B6B,
+    A400: #e65f6c,
+    A700: black,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    )
+);
+
+$woh-accent: (
+    50: #ebe8f8,
+    100: #cdc5ed,
+    200: #aba0e2,
+    300: #8979d7,
+    400: #6d5cce,
+    500: #443DBF, // MAIN
+    600: #443DBF, // MAIN
+    700: #3235b6,
+    800: #1e30ae,
+    900: #0025a0,
+    A100: #ffffff,
+    A200: #FF5B6B,
+    A400: #e65f6c,
+    A700: black,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    )
+);
+
+$woh-warn: (
+    50: #ebe8f8,
+    100: #cdc5ed,
+    200: #aba0e2,
+    300: #8979d7,
+    400: #6d5cce,
+    500: #443DBF, // MAIN
+    600: #443DBF, // MAIN
+    700: #3235b6,
+    800: #1e30ae,
+    900: #0025a0,
+    A100: #ffffff,
+    A200: #FF5B6B,
+    A400: #e65f6c,
+    A700: black,
+    contrast: (
+        50: #000000,
+        100: #000000,
+        200: #000000,
+        300: #000000,
+        400: #000000,
+        500: #ffffff,
+        600: #ffffff,
+        700: #ffffff,
+        800: #ffffff,
+        900: #ffffff,
+        A100: #000000,
+        A200: #000000,
+        A400: #000000,
+        A700: #000000,
+    )
+);
+
+$accent: mat-palette($woh-accent);
+$primary: mat-palette($woh-primary);
+$warn: mat-palette($woh-warn);
+
+// Create the theme object (a Sass map containing all of the palettes).
+$woh-theme: mat-light-theme($primary, $accent, $warn);
+
+// https://material.angular.io/guide/typography
+$custom-typography: mat-typography-config(
+    $font-family: 'Cabin',
+);

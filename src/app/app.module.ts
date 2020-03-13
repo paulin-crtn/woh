@@ -1,6 +1,9 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MatTabsModule } from '@angular/material/tabs'; 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -45,6 +48,8 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
+    BrowserAnimationsModule,
+    MatTabsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -1,7 +1,19 @@
 @import 'normalize.css';
-@import 'sass/_variables.scss';
-@import 'sass/_layout.scss';
+@import 'sass/_variables';
+@import 'sass/_layout';
 @import 'sass/_main';
-@import 'sass/_typography.scss';
-@import 'sass/_buttons.scss';
-@import 'sass/_form.scss';
+@import 'sass/_typography';
+@import 'sass/_buttons';
+@import 'sass/_form';
+
+// ANGULAR MATERIAL
+@import 'sass/_material_custom_theme';
+// Include the common styles for Angular Material. We include this here so that you only
+// have to load a single css file for Angular Material in your app.
+// Be sure that you only ever include this mixin once!
+@include mat-core();
+// Include theme styles for core and each component used in your app.
+// Alternatively, you can import and @include the theme mixins for each component
+// that you are using.
+@include angular-material-theme($woh-theme);
+@include angular-material-typography($custom-typography);
