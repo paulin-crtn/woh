@@ -1,3 +1,9 @@
+/*
+//
+// IMPORTS
+//
+*/
+
 @import 'normalize.css';
 @import 'sass/_variables';
 @import 'sass/_layout';
@@ -6,7 +12,12 @@
 @import 'sass/_buttons';
 @import 'sass/_form';
 
-// ANGULAR MATERIAL
+/*
+//
+// ANGULAR MATERIAL THEME
+//
+*/
+
 @import 'sass/_material_custom_theme';
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -17,3 +28,19 @@
 // that you are using.
 @include angular-material-theme($woh-theme);
 @include angular-material-typography($custom-typography);
+
+
+/*
+//
+// ANGULAR MATERIAL COMPONENTS
+//
+*/
+
+.mat-tab-label, .mat-tab-link {
+    font-size: 1.1rem;
+}
+
+.mat-tab-label.mat-tab-label-active {
+    opacity: 1;
+}
+
