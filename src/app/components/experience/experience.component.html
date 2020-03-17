@@ -124,6 +124,51 @@
 
                     <section>
                         <h2>Host informations</h2>
+                        <div class="experience-host">
+                            <!-- Host profile -->
+                            <div class="host-profile-container">
+                                <div class="host-profile">
+                                    <div 
+                                    class="host-profile-picture"
+                                    [style.background]="getHostImageUrl()"
+                                    [style.backgroundSize]="'cover'"
+                                    [style.backgroundPosition]="'center'">
+                                    </div>
+                                    <div>
+                                        <div class="host-firstname">{{ experience.host.firstname }}</div>
+                                        <span 
+                                            *ngIf="experience.host.recently_online"
+                                            class="online">&#8226; Recently online
+                                        </span>
+                                        <div class="host-stat">
+                                            <div 
+                                            *ngIf="experience.host.response_time < 13" 
+                                            class="host-response-time">Replies in {{ experience.host.response_time }} hours
+                                            </div>
+                                            <div 
+                                            *ngIf="experience.host.response_time > 12 && experience.host.response_time < 25" 
+                                            class="host-response-time">Replies in less than a day
+                                            </div>
+                                            <div 
+                                            *ngIf="experience.host.response_time > 24" 
+                                            class="host-response-time">Replies in more than a day
+                                            </div>
+                                            <div class="host-response-rate">{{ experience.host.response_rate | percent }} response rate</div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <p class="host-description">{{ experience.host.description }}</p>
+                            </div>
+                            <!-- Modal signin and signup -->
+                            <div class="registration">
+                                <div class="registration-title">
+                                    <img src="assets/icons/warning.svg" alt="">
+                                    <p>Want to know more ?</p>
+                                </div>
+                                <p class="registration-text">You need to <a routerLink="/">login</a> or <a routerLink="/">signup</a> in order to access contact details.</p>
+                            </div>
+
+                        </div>
                     </section>
 
                     <section>

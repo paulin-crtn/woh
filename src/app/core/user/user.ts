@@ -7,12 +7,12 @@ export interface User {
     lastname: string;
     email: string;
     phone: string;
-    old: number;
+    age: number;
     description: string;
     city: string;
     country: string;
     profile_picture_url: string;
-    last_login: Date;
+    recently_online: number;
     response_rate?: number;
     response_time?:  number;
 }

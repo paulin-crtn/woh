@@ -35,4 +35,8 @@ export class ExperienceComponent implements OnInit {
   getBackgroundImageUrl() {
     return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.cover_picture_url}')`);
   }
+
+  getHostImageUrl() {
+    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.host.profile_picture_url}')`);
+  }
 }

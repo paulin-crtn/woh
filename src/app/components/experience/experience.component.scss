@@ -70,3 +70,61 @@ section {
         }
     }
 }
+
+.experience-host {
+    .host-profile-container {
+        .host-profile {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            .host-profile-picture {
+                width: 90px;
+                height: 90px;
+                margin-right: 20px;
+                border-radius: 50%;
+            }
+            .host-firstname {
+                display: inline-block;
+                margin-right: 10px;
+                font-size: 1.1rem;
+                font-weight: 500;
+            }
+            .online {
+                color: $success;
+                font-weight: 400;
+            }
+            .host-stat{
+                margin-top: 5px;
+                font-size: 0.9rem;
+                line-height: 1.3rem;
+            }
+        }
+        .host-description {
+            margin-top: 20px;
+        }
+    }
+    .registration {
+        display: inline-block;
+        margin-top: 30px;
+        padding: 15px;
+        background-color: $light-1;
+        border-radius: 10px;
+        .registration-title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            font-weight: 500;
+            img {
+                width: 20px;
+                margin-right: 10px;
+            }
+        }
+        .registration-text {
+            margin-top: 7px;
+            a {
+                border-bottom: 1px solid #000000;
+            }
+        }
+    }
+
+}
