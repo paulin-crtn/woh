@@ -1,5 +1,6 @@
 export interface User {
     is_valid: number;
+    is_premium: number;
     is_host: number;
     is_helper: number;
     premium_until: Date;

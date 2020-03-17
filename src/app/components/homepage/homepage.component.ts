@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 
-import { Experience } from 'src/app/core/experience/experience';
+import { Experience_Preview } from 'src/app/core/experience/experience';
 import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
 
 @Component({
@@ -11,7 +11,7 @@ import { ExperienceMockService } from 'src/app/core/experience/experience.mock.s
 })
 export class HomepageComponent implements OnInit {
 
-  experiences: Experience[];
+  experiences: Experience_Preview[];
   
   constructor(
     private titleService: Title,

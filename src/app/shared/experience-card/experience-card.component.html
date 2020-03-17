@@ -25,9 +25,10 @@
             <div>
                 <img src="assets/icons/star.svg" alt="">
             </div>
-            <div>
-                {{ experience.rating }} | {{ experience.number_comments }} {experience.number_comments, plural, =1 {comment} other {comments}}
+            <div *ngIf="experience.average_ratings != null; else noRatings">
+                {{ experience.average_ratings }} | {{ experience.number_comments }} {experience.number_comments, plural, =0 {comment} =1 {comment} other {comments}}
             </div>
+            <ng-template #noRatings>No rating</ng-template>
         </div>
     </div>
     <div class="experience-favorite">

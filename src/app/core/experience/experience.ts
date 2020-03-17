@@ -1,28 +1,34 @@
 import { User } from '../user/user';
-import { Property } from '../property/property';
+import { Property_Preview, Property } from '../property/property';
+import { Review } from '../review/review';
 
-export interface Experience {
+export interface Experience_Preview {
     id: number;
     status: number;
-    host: User;
-    property: Property;
     title: string;
-    description: string;
-    requirements: string;
     min_weeks: number;
     max_weeks: number;
     number_volunteers: number;
     volunteer_hours: number;
     days_off: number;
     accomodation_type: string;
+    property: Property_Preview;
+    average_ratings: number;
+    number_comments: number;
+    url: string;
+    cover_picture_url: string;
+}
+
+export interface Experience extends Experience_Preview {
     has_breakfast: number;
     has_lunch: number;
     has_diner: number;
     has_food_allowance: number;
     has_free_activities: number;
-    rating: number;
-    number_comments: number;
-    url: string;
-    cover_picture_url: string;
+    description: string;
+    requirements: string;
+    host: User;
+    property: Property;
+    reviews: Review;
     other_pictures_url?: string[];
 }

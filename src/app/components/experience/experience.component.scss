@@ -126,5 +126,19 @@ section {
             }
         }
     }
+}
 
+.experience-reviews {
+    .reviews-preview {
+        display: flex;
+        align-items: center;
+        font-size: 1.2rem;
+        img {
+            width: 25px;
+            margin-right: 10px;
+        }
+        .separator {
+            margin: 0 7px;
+        }
+    }
 }
