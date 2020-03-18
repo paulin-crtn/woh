@@ -1,15 +1,22 @@
 @import '../../../sass/_variables';
 
 section {
-    margin-bottom: 30px;
+    margin-bottom: 40px;
     h2{
-        margin-bottom: 20px;
+        margin-bottom: 30px;
         font-size: 1.6rem;
         font-weight: 400;
     }
     p {
         line-height: 1.5rem;
     }
+}
+
+.section-reviews {
+    background-image: url('../../../assets/icons/stars.svg');
+    background-size: 50%;
+    background-repeat: no-repeat;
+    background-position: top right;
 }
 
 .experience-type-and-location-and-fav {
@@ -106,7 +113,7 @@ section {
     .registration {
         display: inline-block;
         margin-top: 30px;
-        padding: 15px;
+        padding: 20px 25px;
         background-color: $light-1;
         border-radius: 10px;
         .registration-title {
@@ -120,9 +127,14 @@ section {
             }
         }
         .registration-text {
-            margin-top: 7px;
+            margin: 12px 0 15px 0;
             a {
                 border-bottom: 1px solid #000000;
+            }
+        }
+        .registration-buttons {
+            a:first-child {
+                margin-right: 10px;
             }
         }
     }
@@ -140,5 +152,68 @@ section {
         .separator {
             margin: 0 7px;
         }
+    }
+    .ratings {
+        margin-top: 20px;
+        .rating {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            margin-bottom: 10px;
+            .rating-title {
+                width: 140px;
+                font-weight: 400;
+            }
+            mat-progress-bar {
+                display: inline-block;
+                width: 200px;
+                margin-right: 20px;
+            }
+        }
+    }
+    .comments {
+        margin-top: 40px;
+        .comment {
+            margin-bottom: 30px;
+            &:last-child {
+                margin-bottom: 60px;
+            }
+            .review-user {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .review-user-profile-picture {
+                    width: 60px;
+                    height: 60px;
+                    margin-right: 20px;
+                    border-radius: 50%;
+                }
+                .review-user-firstname {
+                    font-weight: 400;
+                }
+                .review-date {
+                    margin-top: 5px;
+                    font-size: 0.9rem;
+                    color: $dark-1;
+                }
+            }
+            .review-comment {
+                margin-top: 15px;
+            }
+        }
+    }
+}
+
+.experience-report {
+    padding-top: 30px;
+    border-top: 1px solid #000000;
+    p {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    img {
+        width: 20px;
+        margin-right: 10px;
     }
 }

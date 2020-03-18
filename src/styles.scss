@@ -44,3 +44,11 @@
     opacity: 1;
 }
 
+.mat-progress-bar-fill::after {
+    color: $alert;
+    background-color: $alert;
+}
+
+.mat-progress-bar-buffer {
+    background-color: #fde4b4; // $alert lighter color
+}

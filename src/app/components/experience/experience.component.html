@@ -130,7 +130,7 @@
                                 <div class="host-profile">
                                     <div 
                                     class="host-profile-picture"
-                                    [style.background]="getHostImageUrl()"
+                                    [style.background]="getHostPictureUrl()"
                                     [style.backgroundSize]="'cover'"
                                     [style.backgroundPosition]="'center'">
                                     </div>
@@ -165,32 +165,107 @@
                                     <img src="assets/icons/warning.svg" alt="">
                                     <p>Want to know more ?</p>
                                 </div>
-                                <p class="registration-text">You need to <a routerLink="/">login</a> or <a routerLink="/">signup</a> in order to access contact details.</p>
+                                <p class="registration-text">You need to become a premium member in order to access contact details.</p>
+                                <div class="registration-buttons">
+                                    <a class="btn btn-transparent" routerLink="/">Login</a>
+                                    <a class="btn btn-transparent" routerLink="/">Signup</a>
+                                </div>
                             </div>
 
                         </div>
                     </section>
 
-                    <section>
-                        <h2>Reviews</h2>
-                        <div class="experience-reviews">
+                    <section class="section-reviews">
+                        <div class="background-opacity">
+                            <h2>Reviews</h2>
+                            <div class="experience-reviews">
 
-                            <div class="reviews-preview">
-                                <img src="assets/icons/star.svg" alt="">
-                                <div *ngIf="experience.average_ratings != null; else noRatings">
-                                    {{ experience.average_ratings }}<span class="separator">|</span>{{ experience.number_comments }} {experience.number_comments, plural, =0 {comment} =1 {comment} other {comments}}
+                                <div class="reviews-preview">
+                                    <img src="assets/icons/star.svg" alt="">
+                                    <div *ngIf="experience.average_ratings != null; else noRatings">
+                                        {{ experience.average_ratings }}<span class="separator">|</span>{{ experience.number_comments }} {experience.number_comments, plural, =0 {comment} =1 {comment} other {comments}}
+                                    </div>
+                                    <ng-template #noRatings>No rating</ng-template>
                                 </div>
-                                <ng-template #noRatings>No rating</ng-template>
+
+                                <div class="ratings" *ngIf="experience.average_ratings != null">
+                                    <!-- Rating Host -->
+                                    <div class="rating">
+                                        <div class="rating-title">Host</div>
+                                        <mat-progress-bar
+                                        class="example-margin"
+                                        [color]="primary"
+                                        [mode]="determinate"
+                                        [value]="experience.reviews.ratings.host*20"
+                                        [bufferValue]="100">
+                                        </mat-progress-bar>
+                                        <div class="rating-value">{{ experience.reviews.ratings.host }}</div>
+                                    </div>
+                                    <!-- Rating Assigments -->
+                                    <div class="rating">
+                                        <div class="rating-title">Assigments</div>
+                                        <mat-progress-bar
+                                        class="example-margin"
+                                        [color]="primary"
+                                        [mode]="determinate"
+                                        [value]="experience.reviews.ratings.assigments*20"
+                                        [bufferValue]="100">
+                                        </mat-progress-bar>
+                                        <div class="rating-value">{{ experience.reviews.ratings.assigments }}</div>
+                                    </div>
+                                    <!-- Rating Atmosphere -->
+                                    <div class="rating">
+                                        <div class="rating-title">Atmosphere</div>
+                                        <mat-progress-bar
+                                        class="example-margin"
+                                        [color]="primary"
+                                        [mode]="determinate"
+                                        [value]="experience.reviews.ratings.atmosphere*20"
+                                        [bufferValue]="100">
+                                        </mat-progress-bar>
+                                        <div class="rating-value">{{ experience.reviews.ratings.atmosphere }}</div>
+                                    </div>
+                                    <!-- Rating Accomodation -->
+                                    <div class="rating">
+                                        <div class="rating-title">Accomodation</div>
+                                        <mat-progress-bar
+                                        class="example-margin"
+                                        [color]="primary"
+                                        [mode]="determinate"
+                                        [value]="experience.reviews.ratings.accomodation*20"
+                                        [bufferValue]="100">
+                                        </mat-progress-bar>
+                                        <div class="rating-value">{{ experience.reviews.ratings.accomodation }}</div>
+                                    </div>
+                                </div>
+
+                                <div class="comments" *ngIf="experience.average_ratings != null">
+                                    <div *ngFor="let comment of experience.reviews.comments" class="comment">
+                                        <div class="review-user">
+                                            <div 
+                                            class="review-user-profile-picture"
+                                            [style.background]="getReviewUserProfilePictureUrl(comment.user_profile_picture_url)"
+                                            [style.backgroundSize]="'cover'"
+                                            [style.backgroundPosition]="'center'">
+                                            </div>
+                                            <div>
+                                                <div class="review-user-firstname">{{ comment.user_firstname }}</div>
+                                                <div class="review-date">
+                                                    {{ comment.date }}
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <p class="review-comment">{{ comment.content }}</p>
+                                    </div>
+                                </div>
+
                             </div>
+                        </div>
+                    </section>
 
-                            <div class="ratings">
-
-                            </div>
-
-                            <div class="comments">
-
-                            </div>
-
+                    <section>
+                        <div class="experience-report">
+                            <a [routerLink]=""><p><img src="assets/icons/alarm.svg" alt="report this travel experience">Report this experience</p></a>
                         </div>
                     </section>
                 </div>

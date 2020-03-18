@@ -3,6 +3,7 @@ import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 
 import { Experience } from 'src/app/core/experience/experience';
 import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
+import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-experience',
@@ -36,7 +37,11 @@ export class ExperienceComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.cover_picture_url}')`);
   }
 
-  getHostImageUrl() {
+  getHostPictureUrl() {
     return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.host.profile_picture_url}')`);
+  }
+
+  getReviewUserProfilePictureUrl(url: string) {
+    return this.sanitizer.bypassSecurityTrustStyle(`url('${url}')`);
   }
 }

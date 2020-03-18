@@ -31,6 +31,12 @@
     border: 1px solid $success;
 }
 
+.btn-transparent {
+    background-color: transparent;
+    color: #000000;
+    border: 1px solid #000000;
+}
+
 .link-primary {
     color: $primary;
     cursor: pointer;
