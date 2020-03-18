@@ -162,10 +162,7 @@
                             </div>
                             <!-- Modal signin and signup -->
                             <div class="registration">
-                                <div class="registration-title">
-                                    <img src="assets/icons/warning.svg" alt="">
-                                    <p>Want to know more ?</p>
-                                </div>
+                                <p class="registration-title">Want to know more ?</p>
                                 <p class="registration-text">You need to become a premium member in order to access contact details.</p>
                                 <div class="registration-buttons">
                                     <a class="btn btn-transparent" routerLink="/">Login</a>
@@ -176,7 +173,7 @@
                         </div>
                     </section>
 
-                    <section class="section-reviews">
+                    <section [class.background-reviews]="experience.average_ratings != null">
                         <div class="background-opacity">
                             <h2>Reviews</h2>
                             <div class="experience-reviews">
@@ -271,6 +268,45 @@
 
                 <div class="experience-apply">
 
+                    <!-- Modal signin and signup -->
+                    <div class="apply-alert">
+                        <img src="assets/icons/warning.svg" alt="">
+                        <div>
+                            <p>You need to become a premium member in order to apply : <a routerLink="/">Login</a> or <a routerLink="/">Signup</a></p>
+                        </div>
+                    </div>
+                    
+                    <form 
+                    (ngSubmit)="apply()" 
+                    [formGroup]="applyForm"
+                    class="box-shadow">
+
+                        <!-- Select dates -->
+                        <div>
+                            <label for="dates">Desired dates</label>
+                        </div>
+
+                        <!-- Message -->
+                        <div>
+                            <label for="message">Tell the host why you would like to participate</label>
+                            <textarea id="message" formControlName="message"></textarea>
+                        </div>
+
+                        <!-- Submit -->
+                        <button
+                        type="submit"
+                        class="btn btn-success-solid"
+                        [class.btn-success-disabled]="applyForm.invalid || submitted"
+                        [disabled]="applyForm.invalid || submitted">
+                            <div *ngIf="!submitted">Apply</div>
+                            <div *ngIf="submitted" class="spinner">
+                                <div class="bounce1"></div>
+                                <div class="bounce2"></div>
+                                <div class="bounce3"></div>
+                            </div>
+                        </button>
+
+                    </form>
                 </div>
 
             </div>

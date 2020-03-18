@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 
 import { Experience } from 'src/app/core/experience/experience';
@@ -11,12 +12,16 @@ import { ExperienceMockService } from 'src/app/core/experience/experience.mock.s
 })
 export class ExperienceComponent implements OnInit {
 
+  applyForm: FormGroup;
+  submitted: Boolean;
+
   experience: Experience;
 
   constructor(
     private titleService: Title,
     private meta: Meta,
     private sanitizer: DomSanitizer,
+    private fb: FormBuilder,
     private experienceService: ExperienceMockService) {}
 
   ngOnInit() {
@@ -29,6 +34,15 @@ export class ExperienceComponent implements OnInit {
       this.experience = experience;
       console.log(this.experience);
     });
+    // FORM
+    this.applyForm = this.fb.group({
+      date: this.fb.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
+      message: this.fb.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
+    });
+  }
+
+  apply() {
+    console.log(this.applyForm.value);
   }
 
   getBackgroundImageUrl() {
