@@ -25,7 +25,6 @@
             class="experience-cover" 
             [style.background]="getBackgroundImageUrl()">
                 <div 
-                (click)="openGallery()"
                 class="btn btn-primary-light">See all pictures
                 </div>
             </div>
@@ -196,8 +195,8 @@
                                         <div class="rating-title">Host</div>
                                         <mat-progress-bar
                                         class="example-margin"
-                                        [color]="primary"
-                                        [mode]="determinate"
+                                        [color]="'primary'"
+                                        [mode]="'determinate'"
                                         [value]="experience.reviews.ratings.host*20"
                                         [bufferValue]="100">
                                         </mat-progress-bar>
@@ -208,8 +207,8 @@
                                         <div class="rating-title">Assigments</div>
                                         <mat-progress-bar
                                         class="example-margin"
-                                        [color]="primary"
-                                        [mode]="determinate"
+                                        [color]="'primary'"
+                                        [mode]="'determinate'"
                                         [value]="experience.reviews.ratings.assigments*20"
                                         [bufferValue]="100">
                                         </mat-progress-bar>
@@ -220,8 +219,8 @@
                                         <div class="rating-title">Atmosphere</div>
                                         <mat-progress-bar
                                         class="example-margin"
-                                        [color]="primary"
-                                        [mode]="determinate"
+                                        [color]="'primary'"
+                                        [mode]="'determinate'"
                                         [value]="experience.reviews.ratings.atmosphere*20"
                                         [bufferValue]="100">
                                         </mat-progress-bar>
@@ -232,8 +231,8 @@
                                         <div class="rating-title">Accomodation</div>
                                         <mat-progress-bar
                                         class="example-margin"
-                                        [color]="primary"
-                                        [mode]="determinate"
+                                        [color]="'primary'"
+                                        [mode]="'determinate'"
                                         [value]="experience.reviews.ratings.accomodation*20"
                                         [bufferValue]="100">
                                         </mat-progress-bar>
@@ -275,11 +274,6 @@
                 </div>
 
             </div>
-
-            <ngx-image-gallery 
-            [images]="images" 
-            [conf]="conf"
-            ></ngx-image-gallery>
 
         </div>
     </div>

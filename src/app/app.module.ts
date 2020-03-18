@@ -6,8 +6,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
 
-import { NgxImageGalleryModule } from 'ngx-image-gallery';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -52,7 +50,6 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
     AppRoutingModule,
     ReactiveFormsModule,
     BrowserAnimationsModule,
-    NgxImageGalleryModule,
     MatTabsModule,
     MatProgressBarModule,
   ],
