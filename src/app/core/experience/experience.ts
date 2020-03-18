@@ -16,7 +16,7 @@ export interface Experience_Preview {
     average_ratings: number;
     number_comments: number;
     url: string;
-    cover_picture_url: string;
+    gallery_pictures_url: string[];
 }
 
 export interface Experience extends Experience_Preview {
@@ -30,5 +30,4 @@ export interface Experience extends Experience_Preview {
     host: User;
     property: Property;
     reviews: Review;
-    other_pictures_url?: string[];
 }

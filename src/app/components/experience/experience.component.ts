@@ -3,7 +3,6 @@ import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 
 import { Experience } from 'src/app/core/experience/experience';
 import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
-import { ThemePalette } from '@angular/material/core';
 
 @Component({
   selector: 'app-experience',
@@ -32,9 +31,15 @@ export class ExperienceComponent implements OnInit {
     });
 
   }
+
+  displayGallery() {
+    for (const url of this.experience.gallery_pictures_url) {
+      console.log(url);
+    }
+  }
   
   getBackgroundImageUrl() {
-    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.cover_picture_url}')`);
+    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.gallery_pictures_url[0]}')`);
   }
 
   getHostPictureUrl() {

@@ -16,7 +16,7 @@ export class ExperienceCardComponent implements OnInit {
   }
 
   getBackgroundImageUrl() {
-    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.cover_picture_url}')`);
+    return this.sanitizer.bypassSecurityTrustStyle(`url('${this.experience.gallery_pictures_url[0]}')`);
   }
 
 }

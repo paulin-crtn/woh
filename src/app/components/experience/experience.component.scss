@@ -53,6 +53,9 @@ section {
     height: 350px;
     margin: 30px 0;
     border-radius: 10px;
+    background-color: $light-1;
+    background-size: cover !important;
+    background-position: center !important;
     .btn {
         position: absolute;
         bottom: 20px;

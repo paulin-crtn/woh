@@ -21,10 +21,11 @@
             </div>
             <div 
             class="experience-cover" 
-            [style.background]="getBackgroundImageUrl()"
-            [style.backgroundSize]="'cover'"
-            [style.backgroundPosition]="'center'">
-                <div class="btn btn-primary-light">See all pictures</div>
+            [style.background]="getBackgroundImageUrl()">
+                <div 
+                (click)="displayGallery()"
+                class="btn btn-primary-light">See all pictures
+                </div>
             </div>
             <div class="experience-container">
                 <div class="experience-content">

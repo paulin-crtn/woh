@@ -18,7 +18,7 @@ export const MOCK_EXPERIENCES_PREVIEW: Experience_Preview[] = [
         average_ratings: 3.9,
         number_comments: 1,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg',
+        gallery_pictures_url: ['https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg', 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&w=1000&q=80'],
     },
     {
         id: 1,
@@ -37,7 +37,7 @@ export const MOCK_EXPERIENCES_PREVIEW: Experience_Preview[] = [
         average_ratings: 4.3,
         number_comments: 3,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg',
+        gallery_pictures_url: ['https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg', 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&w=1000&q=80'],
     },
     {
         id: 1,
@@ -56,7 +56,7 @@ export const MOCK_EXPERIENCES_PREVIEW: Experience_Preview[] = [
         average_ratings: null,
         number_comments: 0,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg',
+        gallery_pictures_url: ['https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg', 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&w=1000&q=80'],
     },
     {
         id: 1,
@@ -75,7 +75,7 @@ export const MOCK_EXPERIENCES_PREVIEW: Experience_Preview[] = [
         average_ratings: 2.7,
         number_comments: 10,
         url: 'join-our-amazing-team-in-the-heart-of-scotland',
-        cover_picture_url: 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg',
+        gallery_pictures_url: ['https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg', 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&w=1000&q=80'],
     }
 ] 
 
@@ -92,7 +92,7 @@ export const MOCK_EXPERIENCE: Experience = {
     average_ratings: 4.2,
     number_comments: 2,
     url: 'join-our-amazing-team-in-the-heart-of-scotland',
-    cover_picture_url: 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg',
+    gallery_pictures_url: ['https://i.ytimg.com/vi/c7oV1T2j5mc/maxresdefault.jpg', 'https://cdn.pixabay.com/photo/2016/01/02/03/39/landscape-1117910_960_720.jpg', 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&w=1000&q=80'],
     has_breakfast: 1,
     has_lunch: 1,
     has_diner: 1,
@@ -149,5 +149,4 @@ export const MOCK_EXPERIENCE: Experience = {
             },
         ],
     },
-    other_pictures_url: ['http://lorempixel.com/800/600/city', 'http://lorempixel.com/800/600/city', 'http://lorempixel.com/800/600/city'],
 }
