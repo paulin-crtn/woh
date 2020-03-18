@@ -1,4 +1,4 @@
-import 'hammerjs'; // Prerequis ngx-image-gallery 
+ // Prerequis ngx-image-gallery 
 
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
