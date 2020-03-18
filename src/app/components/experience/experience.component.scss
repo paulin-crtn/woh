@@ -48,14 +48,18 @@ section {
     }
 }
 
+// BUG FIX pour conserver les dimensions des images lors du clic pour ouvrir la gallerie
+.experience-cover, .host-profile-picture, .review-user-profile-picture {
+    background-color: $light-1;
+    background-size: cover !important;
+    background-position: center !important;
+}
+
 .experience-cover {
     position: relative;
     height: 350px;
     margin: 30px 0;
     border-radius: 10px;
-    background-color: $light-1;
-    background-size: cover !important;
-    background-position: center !important;
     .btn {
         position: absolute;
         bottom: 20px;

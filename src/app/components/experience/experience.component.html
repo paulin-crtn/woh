@@ -4,6 +4,7 @@
     </div>
     <div class="container-with-page-title">
         <div class="wrapper">
+
             <div class="experience-type-and-location-and-fav">
                 <div class="experience-type-and-location">
                     <div class="experience-property-type">
@@ -19,14 +20,16 @@
                     </figure>
                 </div>
             </div>
+
             <div 
             class="experience-cover" 
             [style.background]="getBackgroundImageUrl()">
                 <div 
-                (click)="displayGallery()"
+                (click)="openGallery()"
                 class="btn btn-primary-light">See all pictures
                 </div>
             </div>
+
             <div class="experience-container">
                 <div class="experience-content">
 
@@ -131,9 +134,7 @@
                                 <div class="host-profile">
                                     <div 
                                     class="host-profile-picture"
-                                    [style.background]="getHostPictureUrl()"
-                                    [style.backgroundSize]="'cover'"
-                                    [style.backgroundPosition]="'center'">
+                                    [style.background]="getHostPictureUrl()">
                                     </div>
                                     <div>
                                         <div class="host-firstname">{{ experience.host.firstname }}</div>
@@ -245,9 +246,7 @@
                                         <div class="review-user">
                                             <div 
                                             class="review-user-profile-picture"
-                                            [style.background]="getReviewUserProfilePictureUrl(comment.user_profile_picture_url)"
-                                            [style.backgroundSize]="'cover'"
-                                            [style.backgroundPosition]="'center'">
+                                            [style.background]="getReviewUserProfilePictureUrl(comment.user_profile_picture_url)">
                                             </div>
                                             <div>
                                                 <div class="review-user-firstname">{{ comment.user_firstname }}</div>
@@ -276,6 +275,12 @@
                 </div>
 
             </div>
+
+            <ngx-image-gallery 
+            [images]="images" 
+            [conf]="conf"
+            ></ngx-image-gallery>
+
         </div>
     </div>
 </main>
