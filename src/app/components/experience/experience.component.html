@@ -247,7 +247,7 @@
                                             <div>
                                                 <div class="review-user-firstname">{{ comment.user_firstname }}</div>
                                                 <div class="review-date">
-                                                    {{ comment.date }}
+                                                    {{ comment.date | date: 'MMMM yyyy' }}
                                                 </div>
                                             </div>
                                         </div>
@@ -272,7 +272,7 @@
                     <div class="apply-alert">
                         <img src="assets/icons/warning.svg" alt="">
                         <div>
-                            <p>You need to become a premium member in order to apply : <a routerLink="/">Login</a> or <a routerLink="/">Signup</a></p>
+                            <p>You need to become a premium member in order to apply : <a routerLink="/">login</a> or <a routerLink="/">signup</a></p>
                         </div>
                     </div>
                     
@@ -282,6 +282,7 @@
                     class="box-shadow">
 
                         <!-- Select dates -->
+                        <!-- Source https://github.com/SaturnTeam/saturn-datepicker -->
                         <div>
                             <label for="dates">Desired dates</label>
                             <div class="date-container">
@@ -289,6 +290,7 @@
                                 class="date" 
                                 matInput
                                 formControlName="date"
+                                [min]="minDate"
                                 [satDatepicker]="picker">
                                 <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
                                 <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
@@ -298,13 +300,27 @@
                         <!-- Message -->
                         <div>
                             <label for="message">Tell the host why you would like to participate</label>
+                            <p class="sub-label">Volunteers who describes precisely what they are looking for have more chances to get selected.</p>
                             <textarea id="message" formControlName="message"></textarea>
+                        </div>
+
+                        <!-- Error -->
+                        <div *ngIf="message.invalid && (message.dirty || message.touched)" class="error">
+                            <div *ngIf="message.errors.required">
+                                Message is required.
+                            </div>
+                            <div *ngIf="message.errors.minlength">
+                                Message must be at least 80 characters long.
+                            </div>
+                            <div *ngIf="message.errors.maxlength">
+                                Message must be at most 1000 characters long.
+                            </div>
                         </div>
 
                         <!-- Submit -->
                         <button
                         type="submit"
-                        class="btn btn-success-solid"
+                        class="btn btn-success-solid box-shadow"
                         [class.btn-success-disabled]="applyForm.invalid || submitted"
                         [disabled]="applyForm.invalid || submitted">
                             <div *ngIf="!submitted">Apply</div>

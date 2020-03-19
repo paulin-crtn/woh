@@ -14,5 +14,5 @@ export interface Comment {
     user_firstname: string;
     user_profile_picture_url: string;
     content: string;
-    date: Date;
+    date: string;
 }

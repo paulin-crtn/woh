@@ -218,7 +218,7 @@ section {
 
 .experience-report {
     padding-top: 30px;
-    border-top: 1px solid #000000;
+    border-top: 1px solid $neutral;
     p {
         display: flex;
         justify-content: flex-start;
@@ -262,6 +262,13 @@ section {
             margin-bottom: 10px;
             font-weight: 400;
         }
+        .sub-label {
+            margin-top: -5px;
+            margin-bottom: 10px;
+            font-size: 0.9rem;
+            line-height: 1.3rem;
+            color: $dark-1;
+        }
         .date-container {
             margin-bottom: 20px;
             display: flex;
@@ -285,6 +292,7 @@ section {
             height: 160px;
             border: 1px solid $light-2;
             padding: 12px;
+            font-weight: 300;
             box-sizing: border-box;
             border-radius: 5px;
             resize: none;
@@ -297,6 +305,11 @@ section {
             left: 50%;
             transform: translateX(-50%);
             font-size: 1.1rem;
+        }
+        .error {
+            font-size: 0.9rem;
+            margin-top: 5px;
+            color: $warn; 
         }
     }
 }

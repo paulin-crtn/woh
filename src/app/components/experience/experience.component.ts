@@ -13,6 +13,7 @@ import { ExperienceMockService } from 'src/app/core/experience/experience.mock.s
 export class ExperienceComponent implements OnInit {
 
   applyForm: FormGroup;
+  minDate: Date = new Date();
   submitted: Boolean;
 
   experience: Experience;
@@ -37,12 +38,19 @@ export class ExperienceComponent implements OnInit {
     // FORM
     this.applyForm = this.fb.group({
       date: this.fb.control('', [Validators.required]),
-      message: this.fb.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
+      message: this.fb.control('', [Validators.required, Validators.minLength(80), Validators.maxLength(1000)]),
     });
   }
 
   apply() {
     console.log(this.applyForm.value);
+    const data = {
+      begin_date: this.applyForm.value.date.begin.toJSON().slice(0, 10),
+      end_date: this.applyForm.value.date.end.toJSON().slice(0, 10),
+      message: this.applyForm.value.message,
+    }
+    console.log(data);
+    this.submitted = true;
   }
 
   getBackgroundImageUrl() {
@@ -56,4 +64,8 @@ export class ExperienceComponent implements OnInit {
   getReviewUserProfilePictureUrl(url: string) {
     return this.sanitizer.bypassSecurityTrustStyle(`url('${url}')`);
   }
+
+    // SHORTCUT TO DISPLAY FORM ERROR MESSAGES IN THE TEMPLATE
+    get date() { return this.applyForm.get('date'); }
+    get message() { return this.applyForm.get('message'); }
 }
