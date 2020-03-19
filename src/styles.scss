@@ -1,6 +1,6 @@
 /*
 //
-// IMPORTS
+// MAIN IMPORTS
 //
 */
 
@@ -11,6 +11,16 @@
 @import 'sass/_typography';
 @import 'sass/_buttons';
 @import 'sass/_form';
+
+
+/*
+//
+// DATE PICKER
+//
+*/
+
+@import '~saturn-datepicker/bundle.css';
+
 
 /*
 //
@@ -51,4 +61,16 @@
 
 .mat-progress-bar-buffer {
     background-color: #fde4b4; // $alert lighter color
+}
+
+.mat-calendar-body-selected, .mat-calendar-body-selected:hover, .mat-calendar-cell-over > .mat-calendar-body-cell-content {
+    background-color: $success;
+}
+
+.mat-calendar-cell-over > .mat-calendar-body-cell-content {
+    border-color: $success;
+}
+
+.mat-calendar-cell-semi-selected, .mat-calendar-body-begin-range:not(.mat-calendar-body-end-range), .mat-calendar-body-end-range:not(.mat-calendar-body-begin-range) {
+    background-color: #a3e5d4; // $success lighter color
 }

@@ -284,6 +284,15 @@
                         <!-- Select dates -->
                         <div>
                             <label for="dates">Desired dates</label>
+                            <div class="date-container">
+                                <input
+                                class="date" 
+                                matInput
+                                formControlName="date"
+                                [satDatepicker]="picker">
+                                <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
+                                <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+                            </div>
                         </div>
 
                         <!-- Message -->

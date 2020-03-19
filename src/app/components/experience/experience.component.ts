@@ -36,7 +36,7 @@ export class ExperienceComponent implements OnInit {
     });
     // FORM
     this.applyForm = this.fb.group({
-      date: this.fb.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
+      date: this.fb.control('', [Validators.required]),
       message: this.fb.control('', [Validators.required, Validators.minLength(2), Validators.maxLength(100)]),
     });
   }

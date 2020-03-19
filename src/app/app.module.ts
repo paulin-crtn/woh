@@ -5,6 +5,9 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+import { MatDatepickerModule } from '@angular/material/datepicker'; 
+
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -52,6 +55,9 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
     BrowserAnimationsModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatDatepickerModule,
+    SatDatepickerModule,
+    SatNativeDateModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
