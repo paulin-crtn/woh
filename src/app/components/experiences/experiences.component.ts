@@ -9,7 +9,8 @@ import { Title, Meta } from '@angular/platform-browser';
 export class ExperiencesComponent implements OnInit {
 
   searchValue: string = '';
-  countriesList: string[] = ['One', 'Two', 'Three'];
+  // TO DO : IMPORT REAL COUNTRIES DATA
+  countriesList: string[] = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
   countriesFiltered: string[]  = [];
   searchActive: Boolean = false;
 
@@ -28,6 +29,7 @@ export class ExperiencesComponent implements OnInit {
   applyCountry(country: string) {
     this.closeList();
     this.searchValue = country;
+    this.countriesFiltered  = [country];
     // TO DO : Update navbar parameters
     // TO DO : Observable & Subscription
     // TO DO : Call service, load & display data
@@ -40,9 +42,6 @@ export class ExperiencesComponent implements OnInit {
   searchCountry(event: any) {
     this.searchValue = event.target.value.toLowerCase();
     this.countriesFiltered = this.countriesList.filter(country => country.toLowerCase().includes(this.searchValue));
-
-    console.log(this.searchValue);
-    console.log(this.countriesFiltered);
   }
 
 }

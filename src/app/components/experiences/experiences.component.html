@@ -8,14 +8,18 @@
             <div class="experiences-search">
                 <h2>Where would you like to travel ?</h2>
 
-                <input (keyup)="searchCountry($event)" (click)="searchActive=true" [value]="searchValue" class="search-bar" type="text">
-                <ul *ngIf="searchValue && countriesFiltered.length && searchActive" class="search-list">
-                    <li 
-                    *ngFor="let country of countriesFiltered"
-                    (click)="applyCountry(country)"
-                    class="country">{{ country }}
-                    </li>
-                </ul>
+                <div (clickOutside)="closeList()">
+                    <input (keyup)="searchCountry($event)" (click)="searchActive=true" [value]="searchValue" class="search-bar" type="text">
+                    <ul 
+                    *ngIf="searchValue && countriesFiltered.length && searchActive" 
+                    class="search-list">
+                        <li 
+                        *ngFor="let country of countriesFiltered"
+                        (click)="applyCountry(country)"
+                        class="country">{{ country }}
+                        </li>
+                    </ul>
+                </div>
 
                 <ul class="filters">
                     <li class="filter">Hostel</li>

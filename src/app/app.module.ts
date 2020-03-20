@@ -9,6 +9,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
+import { ClickOutsideDirective } from './directives/click-outside.directive';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header.component';
@@ -31,6 +33,7 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
 @NgModule({
   declarations: [
     AppComponent,
+    ClickOutsideDirective,
     HeaderComponent,
     FooterComponent,
     HomepageComponent,
