@@ -8,6 +8,11 @@ import { Title, Meta } from '@angular/platform-browser';
 })
 export class ExperiencesComponent implements OnInit {
 
+  searchValue: string = '';
+  countriesList: string[] = ['One', 'Two', 'Three'];
+  countriesFiltered: string[]  = [];
+  searchActive: Boolean = false;
+
   constructor(
     private titleService: Title,
     private meta: Meta,
@@ -18,6 +23,26 @@ export class ExperiencesComponent implements OnInit {
     this.titleService.setTitle('Search and find the travel experience that suits you | Worldhelpers');
     // META DESCRIPTION
     this.meta.updateTag({name: 'description', content: ''});
+  }
+
+  applyCountry(country: string) {
+    this.closeList();
+    this.searchValue = country;
+    // TO DO : Update navbar parameters
+    // TO DO : Observable & Subscription
+    // TO DO : Call service, load & display data
+  }
+
+  closeList() {
+    this.searchActive = false;
+  }
+
+  searchCountry(event: any) {
+    this.searchValue = event.target.value.toLowerCase();
+    this.countriesFiltered = this.countriesList.filter(country => country.toLowerCase().includes(this.searchValue));
+
+    console.log(this.searchValue);
+    console.log(this.countriesFiltered);
   }
 
 }
