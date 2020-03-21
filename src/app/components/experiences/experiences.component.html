@@ -21,31 +21,31 @@
                         <li 
                         *ngFor="let country of countriesFiltered"
                         (click)="applyCountry(country)"
-                        class="country">{{ country }}
+                        class="country">{{ country.name }}
                         </li>
                     </ul>
                 </div>
 
                 <ul class="categories">
                     <li 
-                    (click)="applyCategory('Hostel')" 
-                    [class.active]="selectedCategories.includes('Hostel')" 
+                    (click)="applyCategory('hostel')" 
+                    [class.active]="selectedCategories.includes('hostel')" 
                     class="category"
                     >Hostel</li>
                     <li 
-                    (click)="applyCategory('Homestay')" 
-                    [class.active]="selectedCategories.includes('Homestay')" 
+                    (click)="applyCategory('homestay')" 
+                    [class.active]="selectedCategories.includes('homestay')" 
                     class="category">Homestay</li>
                     <li 
-                    (click)="applyCategory('Farm')" 
-                    [class.active]="selectedCategories.includes('Farm')" 
+                    (click)="applyCategory('farm')" 
+                    [class.active]="selectedCategories.includes('farm')" 
                     class="category">Farm</li>
                     <li 
-                    (click)="applyCategory('School')" 
-                    [class.active]="selectedCategories.includes('School')" 
+                    (click)="applyCategory('school')" 
+                    [class.active]="selectedCategories.includes('school')" 
                     class="category">School</li>
                 </ul>
-                <div class="reset">Reset search</div>
+                <div (click)="resetSearch()" class="reset">Reset search</div>
             </div>
 
             <div class="experiences-results">

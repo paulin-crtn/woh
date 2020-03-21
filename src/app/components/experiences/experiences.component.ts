@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Title, Meta } from '@angular/platform-browser';
 import { ActivatedRoute, Router } from '@angular/router';
 
+import { Country } from '../../core/country/country';
+import { COUNTRIES_LIST } from '../../core/country/countries.data';
+
 @Component({
   selector: 'app-experiences',
   templateUrl: './experiences.component.html',
@@ -11,8 +14,8 @@ export class ExperiencesComponent implements OnInit {
 
   searchValue: string = '';
   // TO DO : IMPORT REAL COUNTRIES DATA
-  countriesList: string[] = ['One', 'Two', 'Three', 'Four', 'Five', 'Six'];
-  countriesFiltered: string[]  = [];
+  countriesList: Country[] = COUNTRIES_LIST;
+  countriesFiltered: Country[]  = [];
   searchActive: Boolean = false;
   selectedCategories: string[] = [];
 
@@ -28,13 +31,19 @@ export class ExperiencesComponent implements OnInit {
     this.titleService.setTitle('Search and find the travel experience that suits you | Worldhelpers');
     // META DESCRIPTION
     this.meta.updateTag({name: 'description', content: ''});
-    // Retrieve country from URL
+    // RETRIEVE COUNTRY FROM URL
     this.route.queryParams.subscribe(params => {
-      this.searchValue = params['country'] ? params['country'] : '';
-      console.log(params['country']);
+      const indexSearchValue = COUNTRIES_LIST.findIndex(country => country.alpha3 === params['country']);
+      if (indexSearchValue !== -1) {
+        this.countriesFiltered = [COUNTRIES_LIST[indexSearchValue]];
+        this.searchValue = this.countriesFiltered[0].name;
+      } else {
+        this.countriesFiltered = [];
+        this.searchValue = '';
+      }
       // TO DO : Call service, load & display data
     });
-    // Retrieve category from URL
+    // RETRIEVE CATEGORIES URL
     this.route.queryParams.subscribe(params => {
       this.selectedCategories = params['categories'] ? params['categories'].split(',') : [];
       console.log(this.selectedCategories.toString());
@@ -52,7 +61,7 @@ export class ExperiencesComponent implements OnInit {
     this.updateQueryParams();
   }
 
-  applyCountry(country: string) {
+  applyCountry(country: Country) {
     this.closeList();
     this.countriesFiltered = [country];
     this.updateQueryParams();
@@ -62,20 +71,24 @@ export class ExperiencesComponent implements OnInit {
     this.searchActive = false;
   }
 
+  resetSearch() {
+    this.router.navigate(['.'], { relativeTo: this.route, queryParams: {}});
+  }
+
   searchCountry(event: any) {
     this.searchValue = event.target.value.toLowerCase();
-    this.countriesFiltered = this.countriesList.filter(country => country.toLowerCase().includes(this.searchValue));
+    this.countriesFiltered = this.countriesList.filter(country => country.name.toLowerCase().includes(this.searchValue));
   }
 
   updateQueryParams() {
-    if (this.countriesFiltered && this.selectedCategories.length) {
+    if (this.countriesFiltered.length && this.selectedCategories.length) {
       this.router.navigate(['.'], { relativeTo: this.route, queryParams: {
-        country: this.countriesFiltered,
+        country: this.countriesFiltered[0].alpha3,
         categories: this.selectedCategories.toString(),
       }});
-    } else if (this.countriesFiltered && !this.selectedCategories.length) {
+    } else if (this.countriesFiltered.length && !this.selectedCategories.length) {
       this.router.navigate(['.'], { relativeTo: this.route, queryParams: {
-        country: this.countriesFiltered,
+        country: this.countriesFiltered[0].alpha3,
       }});
     } else {
       this.router.navigate(['.'], { relativeTo: this.route, queryParams: {
