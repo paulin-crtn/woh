@@ -36,7 +36,7 @@ export class ExperiencesComponent implements OnInit {
     });
     // Retrieve category from URL
     this.route.queryParams.subscribe(params => {
-      this.selectedCategories = params['categories'].split(',');
+      this.selectedCategories = params['categories'] ? params['categories'].split(',') : [];
       console.log(this.selectedCategories.toString());
       // TO DO : Call service, load & display data
     });
