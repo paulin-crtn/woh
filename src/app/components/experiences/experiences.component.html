@@ -9,7 +9,12 @@
                 <h2>Where would you like to travel ?</h2>
 
                 <div (clickOutside)="closeList()">
-                    <input (keyup)="searchCountry($event)" (click)="searchActive=true" [value]="searchValue" class="search-bar" type="text">
+                    <input 
+                    (keyup)="searchCountry($event)" 
+                    (click)="searchActive=true" 
+                    [value]="searchValue" 
+                    class="search-bar" 
+                    type="text">
                     <ul 
                     *ngIf="searchValue && countriesFiltered.length && searchActive" 
                     class="search-list">
@@ -21,11 +26,24 @@
                     </ul>
                 </div>
 
-                <ul class="filters">
-                    <li class="filter">Hostel</li>
-                    <li class="filter">Homestay</li>
-                    <li class="filter">Farm</li>
-                    <li class="filter">School</li>
+                <ul class="categories">
+                    <li 
+                    (click)="applyCategory('Hostel')" 
+                    [class.active]="selectedCategories.includes('Hostel')" 
+                    class="category"
+                    >Hostel</li>
+                    <li 
+                    (click)="applyCategory('Homestay')" 
+                    [class.active]="selectedCategories.includes('Homestay')" 
+                    class="category">Homestay</li>
+                    <li 
+                    (click)="applyCategory('Farm')" 
+                    [class.active]="selectedCategories.includes('Farm')" 
+                    class="category">Farm</li>
+                    <li 
+                    (click)="applyCategory('School')" 
+                    [class.active]="selectedCategories.includes('School')" 
+                    class="category">School</li>
                 </ul>
                 <div class="reset">Reset search</div>
             </div>
