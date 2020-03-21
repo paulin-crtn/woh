@@ -11,8 +11,8 @@ export class ExperienceMockService {
 
   constructor() { }
 
-  getExperiences(): Observable<Experience_Preview[]> {
-    return of(MOCK_EXPERIENCES_PREVIEW);
+  getExperiences(start: number, stop: number): Observable<Experience_Preview[]> {
+    return of(MOCK_EXPERIENCES_PREVIEW.slice(start, stop));
   }
 
   getExperience(id: number): Observable<Experience> {

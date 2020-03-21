@@ -3,58 +3,92 @@
         <h1 class="wrapper">Volunteer experiences</h1>
     </div>
     <div class="container-with-page-title">
-        <div class="wrapper">
+        <div class="wrapper background-image">
+            <div class="background-opacity">
 
-            <div class="experiences-search">
-                <h2>Where would you like to travel ?</h2>
+                <div class="experiences-search">
 
-                <div (clickOutside)="closeList()">
-                    <input 
-                    (keyup)="searchCountry($event)" 
-                    (click)="searchActive=true" 
-                    [value]="searchValue" 
-                    class="search-bar" 
-                    type="text">
-                    <ul 
-                    *ngIf="searchValue && countriesFiltered.length && searchActive" 
-                    class="search-list">
+                    <h2>Where would you like to travel ?</h2>
+    
+                    <div (clickOutside)="closeList()">
+                        <input 
+                        (keyup)="searchCountry($event)" 
+                        (click)="searchActive=true" 
+                        [value]="searchValue" 
+                        class="search-bar" 
+                        type="text"
+                        placeholder="Country">
+                        <ul 
+                        *ngIf="searchValue && countriesFiltered.length && searchActive" 
+                        class="search-list">
+                            <li 
+                            *ngFor="let country of countriesFiltered"
+                            (click)="applyCountry(country)"
+                            class="country">{{ country.name }}
+                            </li>
+                        </ul>
+                    </div>
+    
+                    <ul class="categories">
                         <li 
-                        *ngFor="let country of countriesFiltered"
-                        (click)="applyCountry(country)"
-                        class="country">{{ country.name }}
-                        </li>
+                        (click)="applyCategory('hostel')" 
+                        [class.active]="selectedCategories.includes('hostel')" 
+                        class="category"
+                        >Hostel</li>
+                        <li 
+                        (click)="applyCategory('homestay')" 
+                        [class.active]="selectedCategories.includes('homestay')" 
+                        class="category"
+                        >Homestay</li>
+                        <li 
+                        (click)="applyCategory('farm')" 
+                        [class.active]="selectedCategories.includes('farm')" 
+                        class="category"
+                        >Farm</li>
+                        <li 
+                        (click)="applyCategory('school')" 
+                        [class.active]="selectedCategories.includes('school')" 
+                        class="category"
+                        >School</li>
                     </ul>
+                    <div (click)="resetSearch()" class="reset">Reset search</div>
+                </div>
+    
+                <div class="experiences-results">
+                    <h3>XX {experiences.length, plural, =0 {experience} =1 {experience} other {experiences}} available</h3>
+                    <div class="experience-cards">
+                        <!-- Experience Card Component-->
+                        <app-experience-card 
+                            *ngFor="let experience of experiences"
+                            [experience]="experience">
+                        </app-experience-card>
+                        <p class="message" *ngIf="!experiences.length">
+                            <span class="emoji">🤧</span>
+                            <span>Ooops, try with a different country or without any category.</span>
+                        </p>
+                    </div>
+                </div>
+    
+                <div *ngIf="loading" class="loader">
+                    <div class="dot1"></div>
+                    <div class="dot2"></div>
+                </div>
+    
+                <div *ngIf="experiences.length === totalExperiencesAvailable" class="no-more-experiences">
+                    <p class="message">No more experience <span class="emoji">🙊</span></p>
+                    <div 
+                    *ngIf="countriesFiltered.length || selectedCategories.length"
+                    (click)="resetSearch()" 
+                    class="reset">Reset search</div>
+                </div>
+    
+                <div 
+                (click)="scrollToTop()"
+                [ngClass]="{'show-scroll': showScroll}"
+                class="scroll-to-top">Scroll to top<span class="arrow">⬆️</span>
                 </div>
 
-                <ul class="categories">
-                    <li 
-                    (click)="applyCategory('hostel')" 
-                    [class.active]="selectedCategories.includes('hostel')" 
-                    class="category"
-                    >Hostel</li>
-                    <li 
-                    (click)="applyCategory('homestay')" 
-                    [class.active]="selectedCategories.includes('homestay')" 
-                    class="category">Homestay</li>
-                    <li 
-                    (click)="applyCategory('farm')" 
-                    [class.active]="selectedCategories.includes('farm')" 
-                    class="category">Farm</li>
-                    <li 
-                    (click)="applyCategory('school')" 
-                    [class.active]="selectedCategories.includes('school')" 
-                    class="category">School</li>
-                </ul>
-                <div (click)="resetSearch()" class="reset">Reset search</div>
             </div>
-
-            <div class="experiences-results">
-                <h3>XX experiences available</h3>
-                <div class="">
-
-                </div>
-            </div>
-
         </div>
     </div>
 </main>

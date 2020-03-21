@@ -24,7 +24,7 @@ export class HomepageComponent implements OnInit {
     // META DESCRIPTION
     this.meta.updateTag({name: 'description', content: 'Travel on a budget by doing volunteer work in exchange for free accommodation on farms, backpacker hostels, schools or families.'});
     // LAST EXPERIENCES
-    this.experienceService.getExperiences().subscribe(experiences => {
+    this.experienceService.getExperiences(0, 4).subscribe(experiences => {
       this.experiences = experiences;
       console.log(this.experiences);
     });

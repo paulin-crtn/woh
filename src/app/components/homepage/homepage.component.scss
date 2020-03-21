@@ -74,10 +74,6 @@ p {
     }
 }
 
-app-experience-card{
-    width: 49%;
-}
-
 .see-all-experiences {
     margin-top: 10px;
     font-size: 0.9rem;
@@ -92,6 +88,11 @@ app-experience-card{
     justify-content: space-between;
     align-items: flex-start;
     flex-wrap: wrap;
+}
+
+app-experience-card{
+    display: inline-block;
+    width: 49%;
 }
 
 .property-type-cards {

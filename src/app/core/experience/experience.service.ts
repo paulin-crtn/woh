@@ -7,12 +7,12 @@ import { Experience, Experience_Preview } from './experience';
 @Injectable({
   providedIn: 'root'
 })
-export class ExperienceService {
+export class ExperienceMockService {
 
   constructor() { }
 
-  getExperiences(): Observable<Experience_Preview[]> {
-    return of(MOCK_EXPERIENCES_PREVIEW);
+  getExperiences(start: number, stop: number): Observable<Experience_Preview[]> {
+    return of(MOCK_EXPERIENCES_PREVIEW.slice(start, stop));
   }
 
   getExperience(id: number): Observable<Experience> {
