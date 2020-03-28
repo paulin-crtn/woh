@@ -1,5 +1,35 @@
-.alert {
+form {
+    border-radius: 10px;
+    box-sizing: border-box;
+    input[type=text], input[type=email], input[type=password] {
+        display: block;
+        width: 100%;
+        height: 45px;
+        line-height: 45px;
+        margin: 10px 0;
+        padding: 5px 10px;
+        border: none;
+        border-radius: 5px;
+        box-sizing: border-box;
+    }
+}
+
+.error {
     font-size: 0.9rem;
-    margin-bottom: 5px;
+}
+
+.error-model-1 {
+    margin-bottom: 15px;
     color: #ffffff;
+}
+
+.error-model-2 {
+    margin-top: 5px;
+    color: $warn; 
+}
+
+.error-model-3 {
+    margin-top: -5px;
+    margin-bottom: 10px;
+    color: $warn; 
 }

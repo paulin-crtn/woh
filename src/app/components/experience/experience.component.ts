@@ -74,21 +74,21 @@ export class ExperienceComponent implements OnInit {
 
   openDialogExperienceReport() {
     const dialogRef = this.dialog.open(ExperienceReportDialogComponent, {
-      width: '350px',
+      width: '400px',
       data: {}
     });
   }
 
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
-      width: '350px',
+      width: '400px',
       data: {}
     });
   }
 
   openDialogSignupAsHelper() {
     const dialogRef = this.dialog.open(SignupHelperDialogComponent, {
-      width: '350px',
+      width: '400px',
       data: {}
     });
   }

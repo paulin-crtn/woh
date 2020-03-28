@@ -37,7 +37,7 @@
                             <form (ngSubmit)="register()" [formGroup]="registerForm">
                                 <!-- Firstname -->
                                 <input type="text" formControlName="firstname" placeholder="Firstname">
-                                <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="alert">
+                                <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="error error-model-1">
                                     <div *ngIf="firstname.errors.required">
                                         Firstname is required.
                                     </div>
@@ -47,7 +47,7 @@
                                 </div>
                                 <!-- Lastname -->   
                                 <input type="text" formControlName="lastname" placeholder="Lastname">
-                                <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="alert">
+                                <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="error error-model-1">
                                     <div *ngIf="lastname.errors.required">
                                         Lastname is required.
                                     </div>
@@ -57,7 +57,7 @@
                                 </div>
                                 <!-- Email -->
                                 <input type="email" formControlName="email" placeholder="Email">
-                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="alert">
+                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error error-model-1">
                                     <div *ngIf="email.errors.required">
                                         Email is required.
                                     </div>
@@ -67,7 +67,7 @@
                                 </div>
                                 <!-- Password -->
                                 <input type="password" formControlName="password" placeholder="Password">
-                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="alert">
+                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error error-model-1">
                                     <div *ngIf="password.errors.required">
                                         Password is required.
                                     </div>

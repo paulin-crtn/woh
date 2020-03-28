@@ -1,1 +1,51 @@
-<p>login-dialog works!</p>
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>
+        <div class="text">Welcome back</div>
+        <div class="emoji">🐼</div>
+    </h2>
+    <mat-dialog-content>
+        <form (ngSubmit)="login()" [formGroup]="loginForm">
+            <!-- Email -->
+            <input type="email" formControlName="email" placeholder="Email">
+            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error error-model-3">
+                <div *ngIf="email.errors.required">
+                    Email is required.
+                </div>
+                <div *ngIf="email.errors.email">
+                    Email must be an email address.
+                </div>
+            </div>
+            <!-- Password -->
+            <input type="password" formControlName="password" placeholder="Password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error error-model-3">
+                <div *ngIf="password.errors.required">
+                    Password is required.
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Password must be at least 6 characters long.
+                </div>
+            </div>
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid"
+            [class.btn-success-disabled]="loginForm.invalid || submitted"
+            [disabled]="loginForm.invalid || submitted">
+                <div *ngIf="!submitted">Login</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+            <div class="password-forgot">Password forgot ?</div>
+        </form>
+        <div class="register">
+            No account ? <span>Register as a helper</span>
+        </div>
+    </mat-dialog-content>
+</div>

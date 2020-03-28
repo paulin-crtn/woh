@@ -1,3 +1,36 @@
-.dialog {
-    
+.close-container {
+    text-align: right;
+    img {
+        width: 20px;
+        opacity: 0.6;
+        cursor: pointer;
+    }
+}
+
+.dialog-container {
+    h2 {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 20px auto 15px auto;
+        padding: 0 25px;
+        font-family: $title;
+        font-size: 1.6rem;
+        font-weight: 400;
+        color: #000000;
+        .emoji {
+            margin-left: 12px;
+            font-size: 2rem;
+        }
+    }
+    form {
+        padding: 0 25px;
+        input {
+            border: 1px solid $light-2;
+        }
+        button {
+            width: 100%;
+            font-size: 1rem;
+        }
+    }
 }
