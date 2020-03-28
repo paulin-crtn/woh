@@ -11,24 +11,8 @@
         <form (ngSubmit)="login()" [formGroup]="loginForm">
             <!-- Email -->
             <input type="email" formControlName="email" placeholder="Email">
-            <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error error-model-3">
-                <div *ngIf="email.errors.required">
-                    Email is required.
-                </div>
-                <div *ngIf="email.errors.email">
-                    Email must be an email address.
-                </div>
-            </div>
             <!-- Password -->
             <input type="password" formControlName="password" placeholder="Password">
-            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error error-model-3">
-                <div *ngIf="password.errors.required">
-                    Password is required.
-                </div>
-                <div *ngIf="password.errors.minlength">
-                    Password must be at least 6 characters long.
-                </div>
-            </div>
             <!-- Submit -->
             <button
             type="submit"
@@ -42,10 +26,10 @@
                     <div class="bounce3"></div>
                 </div>
             </button>
-            <div class="password-forgot">Password forgot ?</div>
+            <div class="password-forgot" (click)="openDialogPasswordForgot()">Password forgot ?</div>
         </form>
         <div class="register">
-            No account ? <span>Register as a helper</span>
+            No account ? <span (click)="openDialogSignupAsHelper()">Register as a helper</span>
         </div>
     </mat-dialog-content>
 </div>

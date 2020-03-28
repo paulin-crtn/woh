@@ -8,12 +8,14 @@
 }
 
 .dialog-container {
+    h2, p, form {
+        padding: 0 30px;
+    }
     h2 {
         display: flex;
         justify-content: center;
         align-items: center;
         margin: 20px auto 15px auto;
-        padding: 0 25px;
         font-family: $title;
         font-size: 1.6rem;
         font-weight: 400;
@@ -24,7 +26,6 @@
         }
     }
     form {
-        padding: 0 25px;
         input {
             border: 1px solid $light-2;
         }
