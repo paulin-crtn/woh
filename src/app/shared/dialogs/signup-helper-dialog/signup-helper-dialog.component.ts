@@ -8,7 +8,6 @@ import { MatDialogRef } from '@angular/material/dialog';
   encapsulation: ViewEncapsulation.None
 })
 export class SignupHelperDialogComponent implements OnInit {
-
   constructor(
     public dialogRef: MatDialogRef<SignupHelperDialogComponent>
   ) { }

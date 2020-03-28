@@ -53,7 +53,7 @@
     class="btn btn-success-solid"
     [class.btn-success-disabled]="registerForm.invalid || submitted"
     [disabled]="registerForm.invalid || submitted">
-        <div *ngIf="!submitted">Register as a host</div>
+        <div *ngIf="!submitted">Register as a {{type}}</div>
         <div *ngIf="submitted" class="spinner">
             <div class="bounce1"></div>
             <div class="bounce2"></div>
