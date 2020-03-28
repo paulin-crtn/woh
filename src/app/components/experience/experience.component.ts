@@ -7,10 +7,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { Experience } from 'src/app/core/experience/experience';
 import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
 
-import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
-import { SignupHelperDialogComponent } from '../dialogs/signup-helper-dialog/signup-helper-dialog.component';
-import { ExperienceReportDialogComponent } from '../dialogs/experience-report-dialog/experience-report-dialog.component';
-import { PasswordForgotDialogComponent } from '../dialogs/password-forgot-dialog/password-forgot-dialog.component';
+import { LoginDialogComponent } from '../../shared/dialogs/login-dialog/login-dialog.component';
+import { SignupHelperDialogComponent } from '../../shared/dialogs/signup-helper-dialog/signup-helper-dialog.component';
+import { ExperienceReportDialogComponent } from '../../shared/dialogs/experience-report-dialog/experience-report-dialog.component';
+import { PasswordForgotDialogComponent } from '../../shared/dialogs/password-forgot-dialog/password-forgot-dialog.component';
 
 @Component({
   selector: 'app-experience',
@@ -76,17 +76,20 @@ export class ExperienceComponent implements OnInit {
   openDialogExperienceReport() {
     const dialogRef = this.dialog.open(ExperienceReportDialogComponent, {
       width: '450px',
-      data: {}
+      data: {},
+      autoFocus: false,
     });
   }
 
   openDialogLogin() {
     const dialogRef = this.dialog.open(LoginDialogComponent, {
       width: '450px',
-      data: {}
+      data: {},
+      autoFocus: false,
     });
 
     dialogRef.afterClosed().subscribe(result => {
+      if (!result) {return false} // Avoid log error when closed without any action
       if (result.action === 'openPassword') {
         this.openDialogPasswordForgot(result.data.email);
       } else if (result.action === 'openSignup') {
@@ -100,14 +103,23 @@ export class ExperienceComponent implements OnInit {
       width: '450px',
       data: {
         email,
-      }
+      },
+      autoFocus: false,
     });
   }
 
   openDialogSignupAsHelper() {
     const dialogRef = this.dialog.open(SignupHelperDialogComponent, {
       width: '450px',
-      data: {}
+      data: {},
+      autoFocus: false,
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {return false} // Avoid log error when closed without any action
+      if (result.action === 'openLogin') {
+        this.openDialogLogin();
+      }
     });
   }
 

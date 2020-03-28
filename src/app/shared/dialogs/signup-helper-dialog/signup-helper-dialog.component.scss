@@ -1,0 +1,71 @@
+@import '../../../../sass/_variables';
+
+
+app-register-form {
+    form {
+        .checkbox {
+            margin: 25px 0;
+            label {
+                a {
+                    border-bottom: 1px solid #000000
+                }
+            }
+        }
+    }
+    .error {
+        margin-top: -5px;
+        color: $warn;
+    }
+}
+
+.login {
+    font-size: 0.9rem;
+    margin: 30px 0 20px 0;
+    padding-top: 15px;
+    border-top: 1px solid $light-2;
+    color: $dark-1;
+    span {
+        cursor: pointer;
+    }
+}
+
+// CHECKBOX COLOR (complete CSS available in _form.scss)
+
+label {
+    span {
+        border: 1px solid $success;
+        &:before {
+            background: $success;
+        }
+        &:after {
+            background: $success;
+        }
+    }
+}
+
+input[type="checkbox"] {
+    &:checked {
+        + label {
+            span {
+                background-color: $success;           
+                &:after {
+                    background: #ffffff;
+                } 
+                &:before {
+                    background: #ffffff;
+                }
+            }
+            &:hover { // copy the states for onMouseOver to avoid flickering
+                span {
+                    background-color: $success;
+                    &:after {
+                        background: #ffffff;
+                    }
+                    &:before {
+                        background: #ffffff;
+                    }
+                }  
+            }
+        }
+    }
+}

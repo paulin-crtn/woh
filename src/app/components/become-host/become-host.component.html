@@ -34,69 +34,7 @@
                             </ul>
                         </div>
                         <div class="landing-form">
-                            <form (ngSubmit)="register()" [formGroup]="registerForm">
-                                <!-- Firstname -->
-                                <input type="text" formControlName="firstname" placeholder="Firstname">
-                                <div *ngIf="firstname.invalid && (firstname.dirty || firstname.touched)" class="error error-model-1">
-                                    <div *ngIf="firstname.errors.required">
-                                        Firstname is required.
-                                    </div>
-                                    <div *ngIf="firstname.errors.minlength">
-                                        Firstname must be at least 2 characters long.
-                                    </div>
-                                </div>
-                                <!-- Lastname -->   
-                                <input type="text" formControlName="lastname" placeholder="Lastname">
-                                <div *ngIf="lastname.invalid && (lastname.dirty || lastname.touched)" class="error error-model-1">
-                                    <div *ngIf="lastname.errors.required">
-                                        Lastname is required.
-                                    </div>
-                                    <div *ngIf="lastname.errors.minlength">
-                                        Lastname must be at least 2 characters long.
-                                    </div>
-                                </div>
-                                <!-- Email -->
-                                <input type="email" formControlName="email" placeholder="Email">
-                                <div *ngIf="email.invalid && (email.dirty || email.touched)" class="error error-model-1">
-                                    <div *ngIf="email.errors.required">
-                                        Email is required.
-                                    </div>
-                                    <div *ngIf="email.errors.email">
-                                        Email must be an email address.
-                                    </div>
-                                </div>
-                                <!-- Password -->
-                                <input type="password" formControlName="password" placeholder="Password">
-                                <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error error-model-1">
-                                    <div *ngIf="password.errors.required">
-                                        Password is required.
-                                    </div>
-                                    <div *ngIf="password.errors.minlength">
-                                        Password must be at least 6 characters long.
-                                    </div>
-                                </div>
-                                <!-- Checkbox -->
-                                <div class="checkbox">
-                                    <input type="checkbox" formControlName="consent" id="check">
-                                    <label for="check">
-                                        <div><span><!-- This span is needed to create the "checkbox" element --></span></div>
-                                        <div class="consent">I acknowledge having read and accepted the <a routerLink="/privacy-policy">privacy policy</a>, <a routerLink="/conditions-of-use">GCU</a> and <a routerLink="/legal-notice">legal notices</a></div>
-                                    </label>
-                                </div>
-                                <!-- Submit -->
-                                <button
-                                type="submit"
-                                class="btn btn-success-solid"
-                                [class.btn-success-disabled]="registerForm.invalid || submitted"
-                                [disabled]="registerForm.invalid || submitted">
-                                    <div *ngIf="!submitted">Register as a host</div>
-                                    <div *ngIf="submitted" class="spinner">
-                                        <div class="bounce1"></div>
-                                        <div class="bounce2"></div>
-                                        <div class="bounce3"></div>
-                                    </div>
-                                </button>
-                            </form>
+                            <app-register-form></app-register-form>
                         </div>
                     </div>
                 </div>

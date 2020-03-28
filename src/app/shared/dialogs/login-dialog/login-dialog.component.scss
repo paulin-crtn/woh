@@ -2,6 +2,13 @@
 
 
 form {
+    .error {
+        margin-top: -5px;
+        color: $warn;
+    }
+    .btn {
+        margin-top: 10px;
+    }
     .password-forgot {
         margin-top: 15px;
         font-size: 0.9rem;
@@ -15,7 +22,6 @@ form {
     border-top: 1px solid $light-2;
     color: $dark-1;
     span {
-        border-bottom: 1px solid $neutral;
         cursor: pointer;
     }
 }

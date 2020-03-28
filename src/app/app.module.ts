@@ -31,10 +31,11 @@ import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/c
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExperienceCardComponent } from './shared/experience-card/experience-card.component';
 import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-action-card.component';
-import { LoginDialogComponent } from './components/dialogs/login-dialog/login-dialog.component';
-import { ExperienceReportDialogComponent } from './components/dialogs/experience-report-dialog/experience-report-dialog.component';
-import { PasswordForgotDialogComponent } from './components/dialogs/password-forgot-dialog/password-forgot-dialog.component';
-import { SignupHelperDialogComponent } from './components/dialogs/signup-helper-dialog/signup-helper-dialog.component';
+import { LoginDialogComponent } from './shared/dialogs/login-dialog/login-dialog.component';
+import { ExperienceReportDialogComponent } from './shared/dialogs/experience-report-dialog/experience-report-dialog.component';
+import { PasswordForgotDialogComponent } from './shared/dialogs/password-forgot-dialog/password-forgot-dialog.component';
+import { SignupHelperDialogComponent } from './shared/dialogs/signup-helper-dialog/signup-helper-dialog.component';
+import { RegisterFormComponent } from './shared/register-form/register-form.component';
 
 @NgModule({
   declarations: [
@@ -60,6 +61,7 @@ import { SignupHelperDialogComponent } from './components/dialogs/signup-helper-
     ExperienceReportDialogComponent,
     PasswordForgotDialogComponent,
     SignupHelperDialogComponent,
+    RegisterFormComponent,
   ],
   imports: [
     BrowserModule,
