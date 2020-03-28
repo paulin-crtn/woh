@@ -165,8 +165,8 @@
                                 <p class="registration-title">Want to know more ?</p>
                                 <p class="registration-text">You need to become a premium member in order to access contact details.</p>
                                 <div class="registration-buttons">
-                                    <a class="btn btn-transparent" routerLink="/">Login</a>
-                                    <a class="btn btn-transparent" routerLink="/">Signup</a>
+                                    <span (click)="openDialogLogin()" class="btn btn-transparent">Login</span>
+                                    <span (click)="openDialogSignupAsHelper()" class="btn btn-transparent">Signup</span>
                                 </div>
                             </div>
 
@@ -260,8 +260,8 @@
                     </section>
 
                     <section>
-                        <div class="experience-report">
-                            <a [routerLink]=""><p><img src="assets/icons/alarm.svg" alt="report this travel experience">Report this experience</p></a>
+                        <div (click)="openDialogExperienceReport()" class="experience-report">
+                            <p><img src="assets/icons/alarm.svg" alt="report this travel experience">Report this experience</p>
                         </div>
                     </section>
                 </div>
@@ -272,7 +272,7 @@
                     <div class="apply-alert">
                         <img src="assets/icons/warning.svg" alt="">
                         <div>
-                            <p>You need to become a premium member in order to apply : <a routerLink="/">login</a> or <a routerLink="/">signup</a></p>
+                            <p>You need to become a premium member in order to apply : <span (click)="openDialogLogin()">login</span> or <span (click)="openDialogSignupAsHelper()">signup</span></p>
                         </div>
                     </div>
                     

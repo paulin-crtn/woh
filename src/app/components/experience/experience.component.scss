@@ -141,10 +141,10 @@ section {
             margin: 5px 0 10px 0;
         }
         .registration-buttons {
-            a:first-child {
+            span:first-child {
                 margin-right: 10px;
             }
-            a {
+            span {
                 padding: 7px 15px;
             }
         }
@@ -229,6 +229,7 @@ section {
         display: flex;
         justify-content: flex-start;
         align-items: center;
+        cursor: pointer;
     }
     img {
         width: 20px;
@@ -254,8 +255,9 @@ section {
             margin-right: 10px;
             padding-top: 4px;
         }
-        a {
+        span {
             border-bottom: 1px solid #000000;
+            cursor: pointer;
         }
     }
     form {

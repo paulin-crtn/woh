@@ -6,6 +6,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+import { MatDialogModule } from '@angular/material/dialog'; 
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
@@ -30,6 +31,10 @@ import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/c
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
 import { ExperienceCardComponent } from './shared/experience-card/experience-card.component';
 import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-action-card.component';
+import { LoginDialogComponent } from './components/dialogs/login-dialog/login-dialog.component';
+import { ExperienceReportDialogComponent } from './components/dialogs/experience-report-dialog/experience-report-dialog.component';
+import { PasswordForgotDialogComponent } from './components/dialogs/password-forgot-dialog/password-forgot-dialog.component';
+import { SignupHelperDialogComponent } from './components/dialogs/signup-helper-dialog/signup-helper-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +56,10 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
     PageNotFoundComponent,
     ExperienceCardComponent,
     CallToActionCardComponent,
+    LoginDialogComponent,
+    ExperienceReportDialogComponent,
+    PasswordForgotDialogComponent,
+    SignupHelperDialogComponent,
   ],
   imports: [
     BrowserModule,
@@ -60,6 +69,7 @@ import { CallToActionCardComponent } from './shared/call-to-action-card/call-to-
     HttpClientModule,
     MatTabsModule,
     MatProgressBarModule,
+    MatDialogModule,
     MatDatepickerModule,
     SatDatepickerModule,
     SatNativeDateModule,

@@ -2,8 +2,14 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Title, Meta, DomSanitizer } from '@angular/platform-browser';
 
+import { MatDialog } from '@angular/material/dialog';
+
 import { Experience } from 'src/app/core/experience/experience';
 import { ExperienceMockService } from 'src/app/core/experience/experience.mock.service';
+
+import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
+import { SignupHelperDialogComponent } from '../dialogs/signup-helper-dialog/signup-helper-dialog.component';
+import { ExperienceReportDialogComponent } from '../dialogs/experience-report-dialog/experience-report-dialog.component';
 
 @Component({
   selector: 'app-experience',
@@ -23,7 +29,8 @@ export class ExperienceComponent implements OnInit {
     private meta: Meta,
     private sanitizer: DomSanitizer,
     private fb: FormBuilder,
-    private experienceService: ExperienceMockService) {}
+    private experienceService: ExperienceMockService,
+    public dialog: MatDialog) {}
 
   ngOnInit() {
     // PAGE TITLE
@@ -65,7 +72,28 @@ export class ExperienceComponent implements OnInit {
     return this.sanitizer.bypassSecurityTrustStyle(`url('${url}')`);
   }
 
-    // SHORTCUT TO DISPLAY FORM ERROR MESSAGES IN THE TEMPLATE
-    get date() { return this.applyForm.get('date'); }
-    get message() { return this.applyForm.get('message'); }
+  openDialogExperienceReport() {
+    const dialogRef = this.dialog.open(ExperienceReportDialogComponent, {
+      width: '350px',
+      data: {}
+    });
+  }
+
+  openDialogLogin() {
+    const dialogRef = this.dialog.open(LoginDialogComponent, {
+      width: '350px',
+      data: {}
+    });
+  }
+
+  openDialogSignupAsHelper() {
+    const dialogRef = this.dialog.open(SignupHelperDialogComponent, {
+      width: '350px',
+      data: {}
+    });
+  }
+
+  // SHORTCUT TO DISPLAY FORM ERROR MESSAGES IN THE TEMPLATE
+  get date() { return this.applyForm.get('date'); }
+  get message() { return this.applyForm.get('message'); }
 }
