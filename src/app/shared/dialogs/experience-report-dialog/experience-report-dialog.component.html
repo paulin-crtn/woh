@@ -8,17 +8,17 @@
     <mat-dialog-content>
         <form (ngSubmit)="sendReport()" [formGroup]="reportForm">
             <!-- Radio -->
-            <div class="option">
+            <div class="input-full-color">
                 <input type="radio" id="suspicious" formControlName="reason" value="suspicious">
                 <label for="suspicious">Suspicious experience or host</label>
             </div>
 
-            <div class="option">
+            <div class="input-full-color">
                 <input type="radio" id="offensive" formControlName="reason" value="offensive">
-                <label for="offensive">Contains inappropriate or offensive content</label>
+                <label for="offensive">Inappropriate or offensive content</label>
             </div>
 
-            <div class="option">
+            <div class="input-full-color">
                 <input type="radio" id="other" formControlName="reason" value="other">
                 <label for="other">It's something else</label>
             </div>
