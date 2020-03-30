@@ -31,7 +31,7 @@ app-register-form {
 
 // CHECKBOX COLOR (complete CSS available in _form.scss)
 
-label {
+label.checkbox-hack {
     span {
         border: 1px solid $success;
         &:before {
@@ -45,7 +45,7 @@ label {
 
 input[type="checkbox"] {
     &:checked {
-        + label {
+        + label.checkbox-hack {
             span {
                 background-color: $success;           
                 &:after {

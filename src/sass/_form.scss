@@ -12,6 +12,15 @@ form {
         border-radius: 5px;
         box-sizing: border-box;
     }
+    textarea {
+        width: 100%;
+        border: 1px solid $light-2;
+        padding: 12px;
+        font-weight: 300;
+        box-sizing: border-box;
+        border-radius: 5px;
+        resize: none;
+    }
 }
 
 .error {
@@ -21,7 +30,7 @@ form {
 // CHECKBOX HACK
 // Source : https://codepen.io/north-of-rapture/pen/rWqega/
 
-label {
+label.checkbox-hack {
     display: flex;
     align-items: flex-start;
     position: relative; // important
@@ -90,7 +99,7 @@ input[type="checkbox"] {
     display: none; // hide the system checkbox
     // Let's add some effects after the checkbox is checked
     &:checked {
-        + label {
+        + label.checkbox-hack {
             span {
                 background-color: #fff;
                 transform: scale(1.1); // enlarge the box

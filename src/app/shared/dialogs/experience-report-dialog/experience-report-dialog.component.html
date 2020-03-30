@@ -1,1 +1,45 @@
-<p>experience-report-dialog works!</p>
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>Why are you reporting this experience ?</h2>
+    <p class="sub-title">This won't be shared with the host</p>
+    <mat-dialog-content>
+        <form (ngSubmit)="sendReport()" [formGroup]="reportForm">
+            <!-- Radio -->
+            <div class="option">
+                <input type="radio" id="suspicious" formControlName="reason" value="suspicious">
+                <label for="suspicious">Suspicious experience or host</label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="offensive" formControlName="reason" value="offensive">
+                <label for="offensive">Contains inappropriate or offensive content</label>
+            </div>
+
+            <div class="option">
+                <input type="radio" id="other" formControlName="reason" value="other">
+                <label for="other">It's something else</label>
+            </div>
+
+            <div class="textarea-container">
+                <label>Tell us more <span>(optional)</span></label>
+                <textarea formControlName="message"></textarea>
+            </div>
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid"
+            [class.btn-success-disabled]="reportForm.invalid || submitted"
+            [disabled]="reportForm.invalid || submitted">
+                <div *ngIf="!submitted">Report</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+        </form>
+    </mat-dialog-content>
+</div>

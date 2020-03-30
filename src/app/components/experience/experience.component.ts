@@ -50,7 +50,7 @@ export class ExperienceComponent implements OnInit {
     });
   }
 
-  apply() {
+  sendApplication() {
     console.log(this.applyForm.value);
     const data = {
       begin_date: this.applyForm.value.date.begin.toJSON().slice(0, 10),
@@ -76,7 +76,9 @@ export class ExperienceComponent implements OnInit {
   openDialogExperienceReport() {
     const dialogRef = this.dialog.open(ExperienceReportDialogComponent, {
       width: '450px',
-      data: {},
+      data: {
+        experience_id: this.experience.id,
+      },
       autoFocus: false,
     });
   }
