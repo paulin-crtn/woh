@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
@@ -13,6 +14,7 @@ export class LoginDialogComponent implements OnInit {
   submitted: Boolean;
 
   constructor(
+    private route: Router,
     private fb: FormBuilder,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LoginDialogComponent>
@@ -29,6 +31,11 @@ export class LoginDialogComponent implements OnInit {
   login() {
     console.log(this.loginForm.value);
     this.submitted = true;
+  }
+
+  navigateToBecomeAHost() {
+    this.dialogRef.close();
+    this.route.navigate(['become-a-host']);
   }
 
   openDialogPasswordForgot() {

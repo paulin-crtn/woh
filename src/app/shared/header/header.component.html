@@ -2,7 +2,6 @@
     <a routerLink="/">
         <img 
         class="worldhelpers-logo" 
-        (click)="closeNavbarMobile()"
         src="assets/img/worldhelpers-logo.svg"
         alt="">
     </a>
@@ -10,7 +9,7 @@
         <ul>
             <li class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
-            <li class="link-primary">Login</li>
+            <li (click)="openDialogLogin()" class="link-primary">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
@@ -18,10 +17,10 @@
     <nav class="navbar-mobile" 
     [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked"
     [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
-        <ul (click)="closeNavbarMobile()">
+        <ul (click)="closeMenuBurger()">
             <li class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
-            <li class="link-primary">Login</li>
+            <li (click)="openDialogLogin()" class="link-primary">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
@@ -30,7 +29,8 @@
     <!-- MENU BURGER BUTTON -->
     <div 
     class="menu-burger-button" 
-    (click)="toggleMenuBurger()">
+    (click)="toggleMenuBurger()"
+    (clickOutside)="closeMenuBurger()">
         <div 
         class="icons" 
         [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked" 

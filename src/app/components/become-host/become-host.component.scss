@@ -56,6 +56,11 @@ h1 {
             width: 380px;
             padding: 30px 30px 60px 30px;
             background-color: $primary;
+            label.checkbox-hack {
+                span {
+                    border: 1px solid #ffffff;
+                }
+            }
             .checkbox {
                 margin-top: 25px;
                 label {

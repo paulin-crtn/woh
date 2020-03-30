@@ -1,0 +1,18 @@
+<div (clickOutside)="closeList()" class="experience-search">
+    <input 
+    (keyup)="searchCountry($event)" 
+    (click)="searchActive=true" 
+    [value]="searchValue" 
+    class="searchbar-input" 
+    type="text"
+    placeholder="Country">
+    <ul 
+    *ngIf="searchValue && countriesFiltered.length && searchActive" 
+    class="search-list">
+        <li 
+        *ngFor="let country of countriesFiltered"
+        (click)="applyCountry(country)"
+        class="country">{{ country.name }}
+        </li>
+    </ul>
+</div>
