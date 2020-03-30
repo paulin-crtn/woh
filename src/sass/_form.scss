@@ -37,13 +37,13 @@ label.checkbox-hack {
   
     // Now we'll create the checkbox object
     span {
+        border: 1px solid #ffffff;
         display: inline-block;
         position: relative;
         background-color: transparent;
         width: 25px;
         height: 25px;
         transform-origin: center;
-        border: 1px solid #fff;
         border-radius: 50%;
         vertical-align: -6px;
         margin-right: 12px;
@@ -177,9 +177,8 @@ input[type="checkbox"] {
         width: 20px;
         height: 20px;
         content: '';
-        border: 1px solid $neutral;
+        border: 1px solid $light-2;
         background-color: #fff;
-        background-image: url("data:image/svg+xml,%3Csvg width='15' height='15' viewBox='0 0 20 15' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.414 11L4 12.414l5.414 5.414L20.828 6.414 19.414 5l-10 10z' fill='%23fff' fill-rule='nonzero'/%3E%3C/svg%3E ");
         background-repeat: no-repeat;
         background-position: 1px 0px;
         border-radius: 50%;
@@ -194,7 +193,7 @@ input[type="checkbox"] {
     }
 
     input:checked ~ label {
-      color: #fff;
+        color: #fff;
         border-color: $primary;
       &:before {
         transform: translate(-50%, -50%) scale3d(56, 56, 1);
@@ -202,8 +201,9 @@ input[type="checkbox"] {
       }
 
       &:after {
-        background-color: $success;
-        border-color: $success;
+        // background: $light-2;
+        background: radial-gradient(circle, $dark-1 30%, #ffffff 30%);
+        border-color: #ffffff;
       }
     }
 
