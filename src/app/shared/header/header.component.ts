@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
 import { PasswordForgotDialogComponent } from '../dialogs/password-forgot-dialog/password-forgot-dialog.component';
 import { SignupHelperDialogComponent } from '../dialogs/signup-helper-dialog/signup-helper-dialog.component';
+import { LanguageDialogComponent } from '../dialogs/language-dialog/language-dialog.component';
 
 @Component({
   selector: 'app-header',
@@ -24,6 +25,14 @@ export class HeaderComponent implements OnInit {
 
   closeMenuBurger() {
     this.isMenuBurgerOpen = false;
+  }
+
+  openDialogLanguage() {
+    const dialogRef = this.dialog.open(LanguageDialogComponent, {
+      width: '450px',
+      data: {},
+      autoFocus: false,
+    });
   }
 
   openDialogLogin() {

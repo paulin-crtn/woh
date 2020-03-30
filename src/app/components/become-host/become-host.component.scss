@@ -14,7 +14,7 @@
     justify-content: space-between;
 }
 
-h1 {
+.landing-title {
     width: 55%;
     margin-bottom: 30px;
 }
@@ -27,7 +27,7 @@ h1 {
         }
         h2, h3 {
             font-family: $text;
-            font-size: 1.2rem;
+            font-size: 1.15rem;
             font-weight: 300;
             line-height: 1.8rem;
             color: #000000;
@@ -42,7 +42,8 @@ h1 {
         }
         p {
             margin-left: 12px;
-            font-size: 1.15rem;
+            font-family: $title;
+            font-size: 1.25rem;
             font-weight: 400;
         }
     }
@@ -56,11 +57,6 @@ h1 {
             width: 380px;
             padding: 30px 30px 60px 30px;
             background-color: $primary;
-            label.checkbox-hack {
-                span {
-                    border: 1px solid #ffffff;
-                }
-            }
             .checkbox {
                 margin-top: 25px;
                 label {
@@ -83,6 +79,50 @@ h1 {
             .error {
                 margin-bottom: 15px;
                 color: #ffffff;
+            }
+        }
+    }
+}
+
+@import '../../../sass/_variables';
+
+
+// CHECKBOX COLOR (complete CSS available in _form.scss)
+
+label.checkbox-hack {
+    span {
+        border: 1px solid #ffffff;
+        &:before {
+            background: #ffffff;
+        }
+        &:after {
+            background: #ffffff;
+        }
+    }
+}
+
+input[type="checkbox"] {
+    &:checked {
+        + label.checkbox-hack {
+            span {
+                background-color: #ffffff;           
+                &:after {
+                    background: $primary;
+                } 
+                &:before {
+                    background: $primary;
+                }
+            }
+            &:hover { // copy the states for onMouseOver to avoid flickering
+                span {
+                    background-color: #ffffff;
+                    &:after {
+                        background: $primary;
+                    }
+                    &:before {
+                        background: $primary;
+                    }
+                }  
             }
         }
     }

@@ -7,7 +7,7 @@
     </a>
     <nav class="navbar-classic">
         <ul>
-            <li class="link-primary">EN</li>
+            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
             <li (click)="openDialogLogin()" class="link-primary">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
@@ -18,7 +18,7 @@
     [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked"
     [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
         <ul (click)="closeMenuBurger()">
-            <li class="link-primary">EN</li>
+            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
             <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
             <li (click)="openDialogLogin()" class="link-primary">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>

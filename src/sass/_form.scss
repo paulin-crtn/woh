@@ -202,7 +202,7 @@ input[type="checkbox"] {
 
       &:after {
         // background: $light-2;
-        background: radial-gradient(circle, $dark-1 30%, #ffffff 30%);
+        background: radial-gradient(circle, $primary 30%, #ffffff 30%);
         border-color: #ffffff;
       }
     }

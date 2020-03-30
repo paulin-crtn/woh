@@ -1,0 +1,26 @@
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>
+        <div class="text">Switch language</div>
+        <div class="emoji">💬</div>
+    </h2>
+    <p class="sub-title">We are working to be able to provide you translations later this year.</p>
+
+    <mat-dialog-content>
+        <form [formGroup]="switchLanguageForm">
+            <!-- Radio -->
+            <div class="input-full-color">
+                <input type="radio" id="english" value="english" formControlName="language">
+                <label for="english">English</label>
+            </div>
+            <!-- Submit -->
+            <button
+            mat-dialog-close
+            class="btn btn-primary-outline">It's gonna be alright
+            </button>
+        </form>
+    </mat-dialog-content>
+</div>
