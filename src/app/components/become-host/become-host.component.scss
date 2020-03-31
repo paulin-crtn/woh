@@ -84,50 +84,6 @@
     }
 }
 
-@import '../../../sass/_variables';
-
-
-// CHECKBOX COLOR (complete CSS available in _form.scss)
-
-label.checkbox-hack {
-    span {
-        border: 1px solid #ffffff;
-        &:before {
-            background: #ffffff;
-        }
-        &:after {
-            background: #ffffff;
-        }
-    }
-}
-
-input[type="checkbox"] {
-    &:checked {
-        + label.checkbox-hack {
-            span {
-                background-color: #ffffff;           
-                &:after {
-                    background: $primary;
-                } 
-                &:before {
-                    background: $primary;
-                }
-            }
-            &:hover { // copy the states for onMouseOver to avoid flickering
-                span {
-                    background-color: #ffffff;
-                    &:after {
-                        background: $primary;
-                    }
-                    &:before {
-                        background: $primary;
-                    }
-                }  
-            }
-        }
-    }
-}
-
 // MEDIA QUERIES
 
 @media screen and (max-width: 1200px) {
@@ -186,5 +142,115 @@ input[type="checkbox"] {
 @media screen and (max-width: 700px) {
     .landing-form form {
         width: 100%;
+    }
+}
+
+// CHECKBOX HACK
+// Source : https://codepen.io/north-of-rapture/pen/rWqega/
+
+.becomeHostCheckbox label {
+    display: flex;
+    align-items: flex-start;
+    position: relative; // important
+  
+    // Now we'll create the checkbox object
+    span {
+        border: 1px solid #ffffff;
+        display: inline-block;
+        position: relative;
+        background-color: transparent;
+        width: 25px;
+        height: 25px;
+        transform-origin: center;
+        border-radius: 50%;
+        vertical-align: -6px;
+        margin-right: 12px;
+        transition: background-color 150ms 200ms, transform 350ms cubic-bezier(.78,-1.22,.17,1.89); // custom ease effect for bouncy animation
+        cursor: pointer;
+  
+        // Now we'll create the "tick" using pseudo elements - those will be basically two lines that will be rotated to form the "tick"
+        &:before {
+            content: "";
+            width: 0px;
+            height: 2px;
+            border-radius: 2px; // so that the tick has nice rounded look
+            background: #fff;
+            position: absolute;
+            transform: rotate(45deg);
+            top: 13px; // you'll need to experiment with placement depending on the dimensions you've chosen
+            left: 9px; // you'll need to experiment with placement depending on the dimensions you've chosen
+            transition: width 50ms ease 50ms;
+            transform-origin: 0% 0%;
+        }
+
+        &:after {
+            content: "";
+            width: 0;
+            height: 2px;
+            border-radius: 2px; // so that the tick has nice rounded look
+            background: #fff;
+            position: absolute;
+            transform: rotate(305deg);
+            top: 16px; // you'll need to experiment with placement depending on the dimensions you've chosen
+            left: 10px; // you'll need to experiment with placement depending on the dimensions you've chosen
+            transition: width 50ms ease;
+            transform-origin: 0% 0%;
+        }
+    }
+
+    // Time to add some life to it
+    &:hover {
+        span {
+            &:before {
+                width: 5px;
+                transition: width 100ms ease;
+            }
+            &:after {
+                width: 10px;
+                transition: width 150ms ease 100ms;
+            }
+        }
+    }
+}
+
+.becomeHostCheckbox input[type="checkbox"] {
+    display: none; // hide the system checkbox
+    // Let's add some effects after the checkbox is checked
+    &:checked {
+        + label {
+            span {
+                background-color: #fff;
+                transform: scale(1.1); // enlarge the box
+                
+                &:after {
+                width: 10px;
+                background: $primary;
+                transition: width 150ms ease 100ms; // enlarge the tick
+                }
+                
+                &:before {
+                width: 5px;
+                background: $primary;
+                transition: width 150ms ease 100ms; // enlarge the tick
+                }
+            }
+            
+            &:hover { // copy the states for onMouseOver to avoid flickering
+                span {
+                    background-color: #fff;
+                    transform: scale(1.1); // enlarge the box
+                    &:after {
+                        width: 10px;
+                        background: $primary;
+                        transition: width 150ms ease 100ms; // enlarge the tick
+                    }
+                    &:before {
+                        width: 5px;
+                        background: $primary;
+                        transition: width 150ms ease 100ms; // enlarge the tick
+                    }
+                }  
+            }
+        }
     }
 }

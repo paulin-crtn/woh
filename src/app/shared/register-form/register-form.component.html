@@ -40,9 +40,9 @@
         </div>
     </div>
     <!-- Checkbox -->
-    <div class="checkbox">
-        <input type="checkbox" formControlName="consent" id="check">
-        <label for="check" class="checkbox-hack">
+    <div class="checkbox" [class]="checkboxClass">
+        <input type="checkbox" formControlName="consent" [attr.id]="checkboxClass">
+        <label [attr.for]="checkboxClass">
             <div><span><!-- This span is needed to create the "checkbox" element --></span></div>
             <div class="consent">I acknowledge having read and accepted the <a href="/privacy-policy" target="_blank">privacy policy</a>, <a href="/conditions-of-use" target="_blank">GCU</a> and <a href="/legal-notice" target="_blank">legal notices</a></div>
         </label>

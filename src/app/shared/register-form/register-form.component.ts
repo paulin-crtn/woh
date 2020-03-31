@@ -9,6 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class RegisterFormComponent implements OnInit {
   @Input() type: string;
   @Input() boxShadow: Boolean = false;
+  @Input() checkboxClass: string;
   registerForm: FormGroup;
   submitted: Boolean;
 
