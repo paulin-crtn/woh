@@ -330,9 +330,10 @@ export const MOCK_EXPERIENCE: Experience = {
     requirements: 'Aenean fringilla laoreet congue. Sed molestie nulla sit amet risus tincidunt vehicula. In vestibulum augue ut vulputate gravida. Fusce pulvinar eleifend leo vel porta. Suspendisse at dapibus tellus. Ut sed justo vel diam ullamcorper ullamcorper at et ligula.',
     host: {
         is_valid: 1,
-        is_premium: 1,
+        is_complete: 1,
         is_host: 1,
         is_helper: 0,
+        is_premium: 1,
         premium_until: null,
         firstname: 'Sophie',
         lastname: 'Cohen',
