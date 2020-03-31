@@ -35,7 +35,6 @@ form {
     display: block;
     margin: 10px 0;
     position: relative;
-
     label {
         position: relative;
         display: block;
@@ -78,6 +77,7 @@ form {
         top: 50%;
         transform: translateY(-50%);
         cursor: pointer;
+        box-sizing: border-box;
         transition: all 200ms ease-in;
       }
     }
@@ -91,9 +91,9 @@ form {
       }
 
       &:after {
-        // background: $light-2;
-        background: radial-gradient(circle, $primary 30%, #ffffff 30%);
-        border-color: #ffffff;
+        background-color: $primary;
+        border: 5px solid #ffffff;
+        box-sizing: border-box;
       }
     }
 
