@@ -27,6 +27,8 @@ const routes: Routes = [
   { path: 'conditions-of-sale', component: ConditionsOfSaleComponent },
   { path: 'sitemap', component: SitemapComponent },
   { path: 'account', component: AccountComponent },
+  { path: 'account/helper', loadChildren: () => import('./components/account-helper/account-helper.module').then(m => m.AccountHelperModule) },
+  { path: 'account/host', loadChildren: () => import('./components/account-host/account-host.module').then(m => m.AccountHostModule) },
   { path: '**', component: PageNotFoundComponent },
 ];
 
