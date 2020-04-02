@@ -31,7 +31,6 @@ import { PrivacyPolicyComponent } from './components/legal/privacy-policy/privac
 import { ConditionsOfSaleComponent } from './components/legal/conditions-of-sale/conditions-of-sale.component';
 import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/conditions-of-use.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
-import { AccountComponent } from './components/account/account.component';
 
 
 @NgModule({
@@ -50,7 +49,6 @@ import { AccountComponent } from './components/account/account.component';
     ConditionsOfSaleComponent,
     ConditionsOfUseComponent,
     PageNotFoundComponent,
-    AccountComponent,
   ],
   imports: [
     BrowserModule,

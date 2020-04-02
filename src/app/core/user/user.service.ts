@@ -10,7 +10,8 @@ import { User } from './user';
 export class UserService {
   user: User;
 
-  constructor() { }
+  constructor() {
+  }
 
   getUser(id: number): Observable<User> {
     return of(MOCK_USER);

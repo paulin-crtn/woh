@@ -4,6 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+import { UserMockService } from 'src/app/core/user/user.mock.service';
+
 @Component({
   selector: 'app-login-dialog',
   templateUrl: './login-dialog.component.html',
@@ -16,6 +18,7 @@ export class LoginDialogComponent implements OnInit {
   constructor(
     private route: Router,
     private fb: FormBuilder,
+    private userService: UserMockService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LoginDialogComponent>
   ) { }
@@ -31,6 +34,12 @@ export class LoginDialogComponent implements OnInit {
   login() {
     console.log(this.loginForm.value);
     this.submitted = true;
+    // TODO : API AUTHENTICATION
+
+      // IF AUTHENTICATION SUCCEED
+      this.dialogRef.close();
+      this.redirectUser();
+      // TODO : ELSE AUTHENTICATION FAILED
   }
 
   navigateToBecomeAHost() {
@@ -50,6 +59,17 @@ export class LoginDialogComponent implements OnInit {
   openDialogSignupAsHelper() {
     this.dialogRef.close({
       action: 'openSignup',
+    });
+  }
+
+  redirectUser() {
+    this.userService.getUser(1).subscribe(user => {
+      this.userService.user = user;
+      if (user.is_helper) {
+        this.route.navigate(['/account/helper']);
+      } else if (user.is_host) {
+        this.route.navigate(['/account/host']);
+      }
     });
   }
   
