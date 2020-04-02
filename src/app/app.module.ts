@@ -38,6 +38,7 @@ import { SignupHelperDialogComponent } from './shared/dialogs/signup-helper-dial
 import { RegisterFormComponent } from './shared/register-form/register-form.component';
 import { SearchBarComponent } from './shared/search-bar/search-bar.component';
 import { LanguageDialogComponent } from './shared/dialogs/language-dialog/language-dialog.component';
+import { AccountComponent } from './components/account/account.component';
 
 @NgModule({
   declarations: [
@@ -66,6 +67,7 @@ import { LanguageDialogComponent } from './shared/dialogs/language-dialog/langua
     RegisterFormComponent,
     SearchBarComponent,
     LanguageDialogComponent,
+    AccountComponent,
   ],
   imports: [
     BrowserModule,

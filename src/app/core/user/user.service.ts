@@ -8,6 +8,7 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class UserService {
+  user: User;
 
   constructor() { }
 

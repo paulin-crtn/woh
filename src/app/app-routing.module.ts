@@ -12,6 +12,7 @@ import { ConditionsOfUseComponent } from './components/legal/conditions-of-use/c
 import { ConditionsOfSaleComponent } from './components/legal/conditions-of-sale/conditions-of-sale.component';
 import { SitemapComponent } from './components/sitemap/sitemap.component';
 import { PageNotFoundComponent } from './components/page-not-found/page-not-found.component';
+import { AccountComponent } from './components/account/account.component';
 
 const routes: Routes = [
   { path: '', component: HomepageComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'conditions-of-use', component: ConditionsOfUseComponent },
   { path: 'conditions-of-sale', component: ConditionsOfSaleComponent },
   { path: 'sitemap', component: SitemapComponent },
+  { path: 'account', component: AccountComponent },
   { path: '**', component: PageNotFoundComponent },
 ];
 

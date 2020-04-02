@@ -8,7 +8,8 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class UserMockService {
-
+  user: User;
+  
   constructor() { }
 
   getUser(id: number): Observable<User> {
