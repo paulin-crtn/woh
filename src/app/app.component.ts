@@ -1,5 +1,8 @@
 import { Component, Inject, LOCALE_ID } from '@angular/core';
 
+import { UserService } from 'src/app/core/user/user.service';
+import { EventEmitter } from 'protractor';
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',

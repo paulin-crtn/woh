@@ -13,8 +13,8 @@ import { LanguageDialogComponent } from '../dialogs/language-dialog/language-dia
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  isMenuBurgerClicked: Boolean;
-  isMenuBurgerOpen : Boolean;
+  isMenuBurgerClicked: boolean;
+  isMenuBurgerOpen: boolean;
 
   constructor(
     public dialog: MatDialog

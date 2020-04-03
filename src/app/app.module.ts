@@ -3,7 +3,8 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms'; //
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http'; //
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; //
+import { HttpRequestInterceptor } from './core/HttpRequestInterceptor';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
@@ -66,7 +67,9 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
   ],
   exports: [
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

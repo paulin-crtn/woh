@@ -1,7 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
-import { MOCK_USER } from 'src/mock-data/user';
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
+import { MOCK_USER } from 'src/mock-data/user'; // TODO 
 import { User } from './user';
 
 @Injectable({
@@ -9,11 +12,19 @@ import { User } from './user';
 })
 export class UserService {
   user: User;
+  
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  constructor() {
+  getLoggedUser(): Observable<User> {
+    return this.http.get(environment.apiUrl + '/user') as Observable<User>;
   }
 
-  getUser(id: number): Observable<User> {
-    return of(MOCK_USER);
+  isUserLogged(): Observable<boolean> {
+    return this.http.get(environment.apiUrl + '/user/logged') as Observable<boolean>;
   }
+
+  // TODO : register
+  
 }

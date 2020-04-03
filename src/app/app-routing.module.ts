@@ -1,5 +1,8 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+
+import { AuthGuardHelperService } from 'src/app/core/auth/authGardHelper';
+
 import { HomepageComponent } from './components/homepage/homepage.component';
 import { ExperiencesComponent } from './components/experiences/experiences.component';
 import { ExperienceComponent } from './components/experience/experience.component';
@@ -25,7 +28,7 @@ const routes: Routes = [
   { path: 'conditions-of-use', component: ConditionsOfUseComponent },
   { path: 'conditions-of-sale', component: ConditionsOfSaleComponent },
   { path: 'sitemap', component: SitemapComponent },
-  { path: 'account/helper', loadChildren: () => import('./components/account-helper/account-helper.module').then(m => m.AccountHelperModule) },
+  { path: 'account/helper', loadChildren: () => import('./components/account-helper/account-helper.module').then(m => m.AccountHelperModule), canActivate: [AuthGuardHelperService] },
   { path: 'account/host', loadChildren: () => import('./components/account-host/account-host.module').then(m => m.AccountHostModule) },
   { path: '**', component: PageNotFoundComponent },
 ];
@@ -34,6 +37,7 @@ const routes: Routes = [
   imports: [RouterModule.forRoot(routes, {
     scrollPositionRestoration: 'top'
  })],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuardHelperService],
 })
 export class AppRoutingModule { }

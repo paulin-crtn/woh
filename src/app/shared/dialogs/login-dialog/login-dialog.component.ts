@@ -4,7 +4,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
-import { UserMockService } from 'src/app/core/user/user.mock.service';
+import { AuthService } from 'src/app/core/auth/auth.service';
+import { UserService } from 'src/app/core/user/user.service';
 
 @Component({
   selector: 'app-login-dialog',
@@ -18,7 +19,8 @@ export class LoginDialogComponent implements OnInit {
   constructor(
     private route: Router,
     private fb: FormBuilder,
-    private userService: UserMockService,
+    private authService: AuthService,
+    private userService: UserService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LoginDialogComponent>
   ) { }
@@ -32,13 +34,16 @@ export class LoginDialogComponent implements OnInit {
   }
 
   login() {
-    console.log(this.loginForm.value);
     this.submitted = true;
-    // TODO : API AUTHENTICATION
-
+    // API AUTHENTICATION
+    this.authService.getApiCredentials().subscribe(() => {
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(() => {
+        this.getUser();
+      })
+    });
       // IF AUTHENTICATION SUCCEED
-      this.dialogRef.close();
-      this.redirectUser();
+      // this.dialogRef.close();
+      // this.redirectUser();
       // TODO : ELSE AUTHENTICATION FAILED
   }
 
@@ -62,9 +67,10 @@ export class LoginDialogComponent implements OnInit {
     });
   }
 
-  redirectUser() {
-    this.userService.getUser(1).subscribe(user => {
+  getUser() {
+    this.userService.getLoggedUser().subscribe(user => {
       this.userService.user = user;
+      console.log(user);
       if (user.is_helper) {
         this.route.navigate(['/account/helper']);
       } else if (user.is_host) {

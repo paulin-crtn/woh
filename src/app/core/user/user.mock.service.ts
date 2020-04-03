@@ -1,6 +1,9 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 
+import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
+
 import { MOCK_USER } from 'src/mock-data/user';
 import { User } from './user';
 
@@ -10,9 +13,11 @@ import { User } from './user';
 export class UserMockService {
   user: User;
   
-  constructor() { }
+  constructor(
+    private http: HttpClient,
+  ) { }
 
-  getUser(id: number): Observable<User> {
-    return of(MOCK_USER);
+  getLoggedUser(): Observable<any> {
+    return this.http.get(environment.apiUrl + '/user');
   }
 }

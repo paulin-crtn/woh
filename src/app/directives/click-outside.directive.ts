@@ -1,6 +1,6 @@
 // Source : https://willtaylor.blog/click-outside-directive/
 
-import { Directive, Input, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
+import { Directive, Output, EventEmitter, ElementRef, HostListener } from '@angular/core';
 
 @Directive({
   selector: '[clickOutside]',
