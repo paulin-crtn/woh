@@ -13,11 +13,7 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
-
 import { SharedModule } from './shared/shared.module';
-
-import { ClickOutsideDirective } from './directives/click-outside.directive';
-
 
 import { AppComponent } from './app.component';
 import { HomepageComponent } from './components/homepage/homepage.component';
@@ -37,7 +33,6 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
 @NgModule({
   declarations: [
     AppComponent,
-    ClickOutsideDirective,
     HomepageComponent,
     ExperiencesComponent,
     ExperienceComponent,
@@ -65,8 +60,7 @@ import { PageNotFoundComponent } from './components/page-not-found/page-not-foun
     SatNativeDateModule,
     SharedModule,
   ],
-  exports: [
-  ],
+  exports: [],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: HttpRequestInterceptor, multi: true }
   ],

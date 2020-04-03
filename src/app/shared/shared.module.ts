@@ -5,6 +5,9 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
 
+import { ClickOutsideDirective } from 'src/app/directives/click-outside.directive';
+import { ShowAuthedDirective } from 'src/app/directives/show-authed.directive';
+
 import { HeaderComponent } from './header/header.component';
 import { FooterComponent } from './footer/footer.component';
 import { ExperienceCardComponent } from './experience-card/experience-card.component';
@@ -21,6 +24,8 @@ import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-pan
 
 @NgModule({
     declarations: [
+        ClickOutsideDirective,
+        ShowAuthedDirective,
         HeaderComponent,
         FooterComponent,
         ExperienceCardComponent,
@@ -45,6 +50,8 @@ import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-pan
         MatDialogModule,
     ],
     exports: [
+        ClickOutsideDirective,
+        ShowAuthedDirective,
         HeaderComponent,
         FooterComponent,
         ExperienceCardComponent,

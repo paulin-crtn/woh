@@ -19,9 +19,11 @@ header {
             li {
                 margin-left: 20px;
             }
-            li:last-child {
-                margin-left: 10px;
-            }
+        }
+        ul.protected {
+          li:last-child {
+            margin-left: 10px;
+        }
         }
     }
     .menu-burger-button {

@@ -37,8 +37,9 @@ export class LoginDialogComponent implements OnInit {
     this.submitted = true;
     // API AUTHENTICATION
     this.authService.getApiCredentials().subscribe(() => {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(() => {
-        this.getUser();
+      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
+        () => {
+          this.getUser();
       })
     });
       // IF AUTHENTICATION SUCCEED
@@ -70,6 +71,7 @@ export class LoginDialogComponent implements OnInit {
   getUser() {
     this.userService.getLoggedUser().subscribe(user => {
       this.userService.user = user;
+      this.dialogRef.close();
       console.log(user);
       if (user.is_helper) {
         this.route.navigate(['/account/helper']);

@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 
 import { MatDialog } from '@angular/material/dialog';
 
+import { AuthService } from 'src/app/core/auth/auth.service';
+
 import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
 import { PasswordForgotDialogComponent } from '../dialogs/password-forgot-dialog/password-forgot-dialog.component';
 import { SignupHelperDialogComponent } from '../dialogs/signup-helper-dialog/signup-helper-dialog.component';
@@ -17,6 +19,7 @@ export class HeaderComponent implements OnInit {
   isMenuBurgerOpen: boolean;
 
   constructor(
+    private authService: AuthService,
     public dialog: MatDialog
   ) { }
 
@@ -25,6 +28,10 @@ export class HeaderComponent implements OnInit {
 
   closeMenuBurger() {
     this.isMenuBurgerOpen = false;
+  }
+
+  logout() {
+    this.authService.logout().subscribe(response => console.log(response));
   }
 
   openDialogLanguage() {
