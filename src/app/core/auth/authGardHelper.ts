@@ -18,22 +18,27 @@ export class AuthGuardHelperService implements CanActivate {
     ) {}
 
     canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
-
-      // En cas de reload de la page, même logged, ces informations vaudront undefined dans un premier temps (app.component.ts les demandes en parallèle)
-      if (typeof this.userService.isLogged === 'undefined' || typeof this.userService.user === 'undefined') {
-        return this.userService.getLoggedUser().pipe(map((user: User) => {
-          if (user.is_helper) {
-            return true;
-          }
-          this.route.navigate(['/']);
-          return false;
-        }));
-      } else {
-        if (this.userService.isLogged && this.userService.user.is_helper) {
-          return true;
+      
+      if (typeof this.userService.user !== 'undefined') {
+        if (this.userService.user.is_helper) {
+          return true
         }
         this.route.navigate(['/']);
-        return false;
+        return false
+      } else {
+        return this.userService.getLoggedUser().pipe(map(
+          user => {
+            if (user !== null && user.is_helper) {
+              return true
+            }
+            this.route.navigate(['/']);
+            return false
+          },
+          () => {
+            this.route.navigate(['/']);
+            return false
+          }
+        ));
       }
     }
 }

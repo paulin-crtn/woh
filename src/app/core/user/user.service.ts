@@ -12,7 +12,7 @@ import { User } from './user';
   providedIn: 'root'
 })
 export class UserService {
-  user: User;
+  user: User | null;
   userChanged$: Subject<User> = new Subject<User>();
   isLogged: boolean;
   isLogged$: Subject<boolean> = new Subject<boolean>();
