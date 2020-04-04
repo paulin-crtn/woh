@@ -1,8 +1,10 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { MatDialog } from '@angular/material/dialog';
 
 import { AuthService } from 'src/app/core/auth/auth.service';
+import { UserService } from 'src/app/core/user/user.service';
 
 import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
 import { PasswordForgotDialogComponent } from '../dialogs/password-forgot-dialog/password-forgot-dialog.component';
@@ -20,6 +22,8 @@ export class HeaderComponent implements OnInit {
 
   constructor(
     private authService: AuthService,
+    private userService: UserService,
+    private route: Router,
     public dialog: MatDialog
   ) { }
 
@@ -31,7 +35,11 @@ export class HeaderComponent implements OnInit {
   }
 
   logout() {
-    this.authService.logout().subscribe(response => console.log(response));
+    this.authService.logout().subscribe(() => {
+      this.userService.isLogged = false;
+      this.userService.isLogged$.next();
+      this.route.navigate(['/']);
+    });
   }
 
   openDialogLanguage() {

@@ -69,13 +69,11 @@ export class LoginDialogComponent implements OnInit {
   }
 
   getUser() {
-    this.userService.getLoggedUser().subscribe(user => {
-      this.userService.user = user;
+    this.userService.getLoggedUser().subscribe(() => {
       this.dialogRef.close();
-      console.log(user);
-      if (user.is_helper) {
+      if (this.userService.user.is_helper) {
         this.route.navigate(['/account/helper']);
-      } else if (user.is_host) {
+      } else if (this.userService.user.is_host) {
         this.route.navigate(['/account/host']);
       }
     });

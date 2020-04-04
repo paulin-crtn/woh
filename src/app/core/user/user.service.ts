@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
-import { Observable, of } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { tap, map } from 'rxjs/operators';
 
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
@@ -12,17 +13,30 @@ import { User } from './user';
 })
 export class UserService {
   user: User;
+  isLogged: boolean;
+  isLogged$: Subject<boolean> = new Subject<boolean>();
   
   constructor(
     private http: HttpClient,
   ) { }
 
   getLoggedUser(): Observable<User> {
-    return this.http.get(environment.apiUrl + '/user') as Observable<User>;
+    return this.http.get(environment.apiUrl + '/user').pipe(
+      tap((user: User) => {
+          this.user = user;
+        }
+      )
+    )
   }
 
   isUserLogged(): Observable<boolean> {
-    return this.http.get(environment.apiUrl + '/user/logged') as Observable<boolean>;
+    return this.http.get(environment.apiUrl + '/user/logged').pipe(
+      tap((response: boolean) => {
+          this.isLogged = response;
+          this.isLogged$.next();
+        }
+      )
+    )
   }
 
   // TODO : register
