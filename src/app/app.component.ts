@@ -19,10 +19,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.userService.isUserLogged().subscribe(() => {
-      if (this.userService.isLogged) {
-        this.userService.getLoggedUser();
-      }
+    this.userService.isUserLogged().subscribe(
+      response => {
+        if (response) {
+          this.userService.getLoggedUser();
+        }
     })
   }
 }

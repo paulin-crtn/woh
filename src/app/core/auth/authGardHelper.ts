@@ -4,6 +4,8 @@ import { CanActivate, ActivatedRouteSnapshot, Router, RouterStateSnapshot } from
 
 import { User } from 'src/app/core/user/user';
 import { UserService } from 'src/app/core/user/user.service'; 
+import { Observable } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 
 @Injectable()
@@ -11,39 +13,27 @@ export class AuthGuardHelperService implements CanActivate {
     response: boolean;
 
     constructor(
-      private router: Router,
+      private route: Router,
       private userService: UserService,
     ) {}
 
-    canActivate(
-      route: ActivatedRouteSnapshot,
-      state: RouterStateSnapshot,
-    ): boolean {
+    canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<boolean> | boolean {
 
-      console.log(this.userService.user);
-      this.userService.isUserLogged().subscribe(result => console.log(result));
-      
-      
-      // Check if user exists
-      if (typeof(this.userService.user) === 'undefined') {  // Cette information a été enregistrée dans le service depuis le composant Login (mais n'existe pas si la page a été rafraichie);
-        this.userService.getLoggedUser().subscribe(user => {
-          this.userService.user = user;
-          console.log(this.userService.user)
-          // Check if user is helper (TODO : and logged in)
-          this.userService.user.is_helper ? this.response = true : this.response = false;
-        });
+      // En cas de reload de la page, même logged, ces informations vaudront undefined dans un premier temps (app.component.ts les demandes en parallèle)
+      if (typeof this.userService.isLogged === 'undefined' || typeof this.userService.user === 'undefined') {
+        return this.userService.getLoggedUser().pipe(map((user: User) => {
+          if (user.is_helper) {
+            return true;
+          }
+          this.route.navigate(['/']);
+          return false;
+        }));
       } else {
-        // Check if user is helper (TODO : and logged in)
-        this.userService.user.is_helper ? this.response = true : this.response = false;
+        if (this.userService.isLogged && this.userService.user.is_helper) {
+          return true;
+        }
+        this.route.navigate(['/']);
+        return false;
       }
-      
-      // canActivate response
-      if (this.response) {
-        return true;
-      } else {
-        this.router.navigate(['/']);
-        return false
-      }
-
     }
 }

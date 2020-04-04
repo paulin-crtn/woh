@@ -19,12 +19,13 @@ export class ShowAuthedDirective implements OnInit {
     }
 
     ngOnInit() {
-        this.userService.isLogged$.subscribe(() => {
-            if (this.userService.isLogged && this.condition || !this.userService.isLogged && !this.condition) {
+        this.userService.isLogged$.subscribe(response => {
+            if (response && this.condition || !response && !this.condition) {
                 this.viewContainer.createEmbeddedView(this.templateRef);
             } else {
                 this.viewContainer.clear();
             }
         });
     }
+
 }

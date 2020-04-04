@@ -33,7 +33,7 @@ export class UserMockService {
     return this.http.get(environment.apiUrl + '/user/logged').pipe(
       tap((response: boolean) => {
           this.isLogged = response;
-          this.isLogged$.next(response);
+          this.isLogged$.next();
         }
       )
     )

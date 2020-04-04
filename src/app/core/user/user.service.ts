@@ -13,6 +13,7 @@ import { User } from './user';
 })
 export class UserService {
   user: User;
+  userChanged$: Subject<User> = new Subject<User>();
   isLogged: boolean;
   isLogged$: Subject<boolean> = new Subject<boolean>();
   
@@ -21,9 +22,13 @@ export class UserService {
   ) { }
 
   getLoggedUser(): Observable<User> {
-    return this.http.get(environment.apiUrl + '/user').pipe(
-      tap((user: User) => {
+    return this.http.get(environment.apiUrl + '/user').pipe(tap(
+        (user: User) => {
           this.user = user;
+          this.userChanged$.next(user);
+        },
+        () => {
+          this.user = null;
         }
       )
     )
@@ -33,7 +38,7 @@ export class UserService {
     return this.http.get(environment.apiUrl + '/user/logged').pipe(
       tap((response: boolean) => {
           this.isLogged = response;
-          this.isLogged$.next();
+          this.isLogged$.next(response);
         }
       )
     )

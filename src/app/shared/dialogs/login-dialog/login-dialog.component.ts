@@ -39,6 +39,8 @@ export class LoginDialogComponent implements OnInit {
     this.authService.getApiCredentials().subscribe(() => {
       this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
         () => {
+          this.userService.isLogged = true;
+          this.userService.isLogged$.next(true);
           this.getUser();
       })
     });
@@ -69,11 +71,11 @@ export class LoginDialogComponent implements OnInit {
   }
 
   getUser() {
-    this.userService.getLoggedUser().subscribe(() => {
+    this.userService.getLoggedUser().subscribe(user => {
       this.dialogRef.close();
-      if (this.userService.user.is_helper) {
+      if (user.is_helper) {
         this.route.navigate(['/account/helper']);
-      } else if (this.userService.user.is_host) {
+      } else if (user.is_host) {
         this.route.navigate(['/account/host']);
       }
     });
