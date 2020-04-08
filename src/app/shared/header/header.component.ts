@@ -46,7 +46,7 @@ export class HeaderComponent implements OnInit {
 
   logout() {
     this.authService.logout().subscribe(() => {
-      this.cookieService.delete('XSRF-TOKEN');
+      this.cookieService.delete('XSRF-TOKEN', '/');
       this.userService.isLogged = false;
       this.userService.isLogged$.next(false);
       this.route.navigate(['/']);
