@@ -5,7 +5,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 import { concatMap, catchError } from 'rxjs/operators';
-import { throwError, of } from 'rxjs';
+import { of } from 'rxjs';
 
 import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/core/auth/auth.service';
@@ -45,14 +45,14 @@ export class LoginDialogComponent implements OnInit {
     this.submitted = true;
     // GET API CREDENTIALS
     this.authService.getApiCredentials()
+    // LOGIN
       .pipe(
         concatMap(() => 
-          // LOGIN
           this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
+          // GET USER
           .pipe(
-            // GET USER
             concatMap(() => this.userService.getUser()),
-            catchError(error => this.handleError(error))
+            catchError(error => this.handleError(error)) // Login error
           )
         )
       )
@@ -72,13 +72,17 @@ export class LoginDialogComponent implements OnInit {
   }
 
   handleError(error: any) {
-    if (error.status === 422) {
-      this.submitted = false;
-      this.apiErrorMessage = 'Password or email incorrect';
+    switch (error.status) {
+      case 422:
+        this.apiErrorMessage = 'Incorrect email or password';
+        break;
+      default:
+        this.apiErrorMessage = 'An error occurred';
+        break;
     }
+    // Reset login
+    this.submitted = false;
     this.cookieService.delete('XSRF-TOKEN', '/');
-    this.userService.isLogged = false;
-    this.userService.isLogged$.next(false);
     return of();
   }
 
