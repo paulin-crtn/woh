@@ -23,19 +23,19 @@ export class AuthGuardHelperService implements CanActivate {
         if (this.userService.user.is_helper) {
           return true
         }
-        this.route.navigate(['/']);
+        this.route.navigate(['/account']);
         return false
       } else {
-        return this.userService.getLoggedUser().pipe(map(
+        return this.userService.getUser().pipe(map(
           user => {
             if (user !== null && user.is_helper) {
               return true
             }
-            this.route.navigate(['/']);
+            this.route.navigate(['/account']);
             return false
           },
           () => {
-            this.route.navigate(['/']);
+            this.route.navigate(['/account']);
             return false
           }
         ));

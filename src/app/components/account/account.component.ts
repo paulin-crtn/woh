@@ -3,61 +3,33 @@ import { Router } from '@angular/router';
 
 import { MatDialog } from '@angular/material/dialog';
 
-import { CookieService } from 'ngx-cookie-service';
-import { AuthService } from 'src/app/core/auth/auth.service';
 import { UserService } from 'src/app/core/user/user.service';
 
-import { LoginDialogComponent } from '../dialogs/login-dialog/login-dialog.component';
-import { PasswordForgotDialogComponent } from '../dialogs/password-forgot-dialog/password-forgot-dialog.component';
-import { SignupHelperDialogComponent } from '../dialogs/signup-helper-dialog/signup-helper-dialog.component';
-import { LanguageDialogComponent } from '../dialogs/language-dialog/language-dialog.component';
+import { LoginDialogComponent } from 'src/app/shared/dialogs/login-dialog/login-dialog.component';
+import { PasswordForgotDialogComponent } from 'src/app/shared/dialogs/password-forgot-dialog/password-forgot-dialog.component';
+import { SignupHelperDialogComponent } from 'src/app/shared/dialogs/signup-helper-dialog/signup-helper-dialog.component';
+
 
 @Component({
-  selector: 'app-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.scss']
+  selector: 'app-account',
+  templateUrl: './account.component.html',
+  styleUrls: ['../page-not-found/page-not-found.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  isMenuBurgerClicked: boolean;
-  isMenuBurgerOpen: boolean;
-  profil: string;
+export class AccountComponent implements OnInit {
 
   constructor(
-    private cookieService: CookieService,
-    private authService: AuthService,
-    private userService: UserService,
     private route: Router,
+    private userService: UserService,
     public dialog: MatDialog,
   ) { }
 
-  ngOnInit() {
+  ngOnInit(): void {
     this.userService.userChanged$.subscribe(user => {
       if (user !== null && user.is_helper) {
-        this.profil = 'helper';
+        this.route.navigate(['account/helper']);
       } else if (user !== null && user.is_host) {
-        this.profil = 'host';
+        this.route.navigate(['account/host']);
       }
-    });
-  }
-
-  closeMenuBurger() {
-    this.isMenuBurgerOpen = false;
-  }
-
-  logout() {
-    this.authService.logout().subscribe(() => {
-      this.cookieService.delete('XSRF-TOKEN');
-      this.userService.isLogged = false;
-      this.userService.isLogged$.next(false);
-      this.route.navigate(['/']);
-    });
-  }
-
-  openDialogLanguage() {
-    const dialogRef = this.dialog.open(LanguageDialogComponent, {
-      width: '450px',
-      data: {},
-      autoFocus: false,
     });
   }
 
@@ -103,8 +75,4 @@ export class HeaderComponent implements OnInit {
     });
   }
 
-  toggleMenuBurger() {
-    this.isMenuBurgerClicked = true;
-    this.isMenuBurgerOpen = !this.isMenuBurgerOpen;
-  }
 }

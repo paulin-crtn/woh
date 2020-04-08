@@ -41,7 +41,14 @@ export class LoginDialogComponent implements OnInit {
         () => {
           this.userService.isLogged = true;
           this.userService.isLogged$.next(true);
-          this.getUser();
+          this.userService.getUser().subscribe(user => {
+            this.dialogRef.close();
+            if (user.is_helper) {
+              this.route.navigate(['/account/helper']);
+            } else if (user.is_host) {
+              this.route.navigate(['/account/host']);
+            }
+          });
       })
     });
       // IF AUTHENTICATION SUCCEED
@@ -67,17 +74,6 @@ export class LoginDialogComponent implements OnInit {
   openDialogSignupAsHelper() {
     this.dialogRef.close({
       action: 'openSignup',
-    });
-  }
-
-  getUser() {
-    this.userService.getLoggedUser().subscribe(user => {
-      this.dialogRef.close();
-      if (user.is_helper) {
-        this.route.navigate(['/account/helper']);
-      } else if (user.is_host) {
-        this.route.navigate(['/account/host']);
-      }
     });
   }
   

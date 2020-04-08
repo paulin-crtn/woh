@@ -17,8 +17,10 @@
         font-size: 1.4rem;
         line-height: 2.2rem;   
     }
-    a {
-        margin-right: 10px;
+    .buttons {
+        a, div {
+            margin-right: 10px;
+        }
     }
 }
 
