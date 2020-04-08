@@ -2,9 +2,14 @@
 
 
 form {
+    .error, .error-api {
+        color: $warn;
+    }
     .error {
         margin-top: -5px;
-        color: $warn;
+    }
+    .error-api {
+        margin-top: 10px;
     }
     .btn {
         margin-top: 10px;

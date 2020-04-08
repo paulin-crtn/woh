@@ -42,6 +42,7 @@
                     <div class="bounce3"></div>
                 </div>
             </button>
+            <div *ngIf="apiErrorMessage" class="error-api">{{apiErrorMessage}}</div>
             <div class="password-forgot" (click)="openDialogPasswordForgot()">Password forgot ?</div>
         </form>
         <div class="register">

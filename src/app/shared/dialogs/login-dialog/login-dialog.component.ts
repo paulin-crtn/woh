@@ -4,8 +4,14 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
+import { concatMap, catchError } from 'rxjs/operators';
+import { throwError, of } from 'rxjs';
+
+import { CookieService } from 'ngx-cookie-service';
 import { AuthService } from 'src/app/core/auth/auth.service';
 import { UserService } from 'src/app/core/user/user.service';
+import { User } from 'src/app/core/user/user';
+
 
 @Component({
   selector: 'app-login-dialog',
@@ -15,12 +21,14 @@ import { UserService } from 'src/app/core/user/user.service';
 export class LoginDialogComponent implements OnInit {
   loginForm: FormGroup;
   submitted: Boolean;
+  apiErrorMessage: string;
 
   constructor(
     private route: Router,
     private fb: FormBuilder,
     private authService: AuthService,
     private userService: UserService,
+    private cookieService: CookieService,
     public dialog: MatDialog,
     public dialogRef: MatDialogRef<LoginDialogComponent>
   ) { }
@@ -35,26 +43,43 @@ export class LoginDialogComponent implements OnInit {
 
   login() {
     this.submitted = true;
-    // API AUTHENTICATION
-    this.authService.getApiCredentials().subscribe(() => {
-      this.authService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe(
-        () => {
+    // GET API CREDENTIALS
+    this.authService.getApiCredentials()
+      .pipe(
+        concatMap(() => 
+          // LOGIN
+          this.authService.login(this.loginForm.value.email, this.loginForm.value.password)
+          .pipe(
+            // GET USER
+            concatMap(() => this.userService.getUser()),
+            catchError(error => this.handleError(error))
+          )
+        )
+      )
+      .subscribe(
+        (user: User) => {
           this.userService.isLogged = true;
           this.userService.isLogged$.next(true);
-          this.userService.getUser().subscribe(user => {
-            this.dialogRef.close();
-            if (user.is_helper) {
-              this.route.navigate(['/account/helper']);
-            } else if (user.is_host) {
-              this.route.navigate(['/account/host']);
-            }
-          });
-      })
-    });
-      // IF AUTHENTICATION SUCCEED
-      // this.dialogRef.close();
-      // this.redirectUser();
-      // TODO : ELSE AUTHENTICATION FAILED
+          this.dialogRef.close();
+          if (user.is_helper) {
+            this.route.navigate(['/account/helper']);
+          } else if (user.is_host) {
+            this.route.navigate(['/account/host']);
+          }
+        },
+        // error => console.log(error)
+      )
+  }
+
+  handleError(error: any) {
+    if (error.status === 422) {
+      this.submitted = false;
+      this.apiErrorMessage = 'Password or email incorrect';
+    }
+    this.cookieService.delete('XSRF-TOKEN', '/');
+    this.userService.isLogged = false;
+    this.userService.isLogged$.next(false);
+    return of();
   }
 
   navigateToBecomeAHost() {
