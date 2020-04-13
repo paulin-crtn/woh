@@ -10,6 +10,7 @@ import { UserService } from 'src/app/core/user/user.service';
 })
 export class UserWelcomePanelComponent implements OnInit {
   user: User;
+  profilePictureUrl: string;
 
   constructor(
     private userService: UserService,
@@ -17,5 +18,6 @@ export class UserWelcomePanelComponent implements OnInit {
 
   ngOnInit(): void {
     this.user = this.userService.user;
+    this.user.profile_picture_url !== null ? this.profilePictureUrl = this.user.profile_picture_url : this.profilePictureUrl = 'assets/icons/default-user-profile-picture.svg';
   }
 }

@@ -1,1 +1,42 @@
-<p>home works!</p>
+<main>
+    <div class="page-title">
+        <h1 class="wrapper">Dashboard</h1>
+    </div>
+    <div class="container-with-page-title">
+        <div class="wrapper">
+
+            <div class="user-welcome-panel-container">
+                <app-user-welcome-panel></app-user-welcome-panel>
+            </div>
+
+            <div class="nav-tabs-container">
+                <mat-tab-group>
+                    <!-- Properties and experiences -->
+                    <mat-tab label="Properties and experiences">
+                        <div class="container-properties">
+                            <div class="title">
+                                <h2>Properties</h2>
+                                <div (click)="openAddPropertyDialog()" class="btn btn-small btn-primary-solid">Add a property</div>
+                            </div>
+                        </div>
+                        <div class="container-experiences">
+                            <div class="title">
+                                <h2>Experiences offers</h2>
+                                <div class="btn btn-small btn-primary-solid">Add an experience</div>
+                            </div>
+                        </div>
+                    </mat-tab>
+                    <!-- Applicants -->
+                    <mat-tab label="Applicants">
+
+                    </mat-tab>
+                    <!-- Volunteers -->
+                    <mat-tab label="Volunteers">
+
+                    </mat-tab>
+                </mat-tab-group>
+            </div>
+              
+        </div>
+    </div>
+</main>

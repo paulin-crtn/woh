@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select'; 
 
 import { ClickOutsideDirective } from 'src/app/directives/click-outside.directive';
 import { ShowAuthedDirective } from 'src/app/directives/show-authed.directive';
@@ -48,6 +49,7 @@ import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-pan
         RouterModule,
         ReactiveFormsModule,
         MatDialogModule,
+        MatSelectModule,
     ],
     exports: [
         ClickOutsideDirective,

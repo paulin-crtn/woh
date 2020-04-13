@@ -1,0 +1,95 @@
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>Add a property</h2>
+    <p class="sub-title">This is the place where the volunteer will carry out his missions</p>
+
+    <mat-dialog-content>
+        <form (ngSubmit)="addProperty()" [formGroup]="propertyForm">
+            <!-- Property type -->
+            <select formControlName="type">
+                <option value="" selected="selected">Property type</option>
+                <option *ngFor="let type of types" 
+                [value]="type">{{type}}</option>
+            </select>
+            <div *ngIf="type.invalid && (type.dirty || type.touched)" class="error">
+                <div *ngIf="type.errors.required">
+                    Property type is required.
+                </div>
+            </div>
+            <!-- Property name -->
+            <input type="text" formControlName="name" placeholder="Property name">
+            <div *ngIf="name.invalid && (name.dirty || name.touched)" class="error">
+                <div *ngIf="name.errors.required">
+                    Property name is required.
+                </div>
+                <div *ngIf="name.errors.minlenght">
+                    Property name must be at least 5 characters long.
+                </div>
+                <div *ngIf="name.errors.maxlenght">
+                    Property name must be at most 100 characters long.
+                </div>
+            </div>
+            <!-- Address 1 -->
+            <input type="text" formControlName="address1" placeholder="Address">
+            <div *ngIf="address1.invalid && (address1.dirty || address1.touched)" class="error">
+                <div *ngIf="address1.errors.required">
+                    Address is required.
+                </div>
+                <div *ngIf="address1.errors.minlenght">
+                    Address must be at least 5 characters long.
+                </div>
+                <div *ngIf="address1.errors.maxlenght">
+                    Address must be at most 100 characters long.
+                </div>
+            </div>
+            <!-- Zipcode -->
+            <input type="text" formControlName="zipcode" placeholder="Zipcode">
+            <div *ngIf="zipcode.invalid && (zipcode.dirty || zipcode.touched)" class="error">
+                <div *ngIf="zipcode.errors.maxlenght">
+                    Zipcode must be at most 10 characters long.
+                </div>
+            </div>
+            <!-- City -->
+            <input type="text" formControlName="city" placeholder="City">
+            <div *ngIf="city.invalid && (city.dirty || city.touched)" class="error">
+                <div *ngIf="city.errors.required">
+                    City is required.
+                </div>
+                <div *ngIf="city.errors.minlenght">
+                    City must be at least 3 characters long.
+                </div>
+                <div *ngIf="city.errors.maxlenght">
+                    City must be at most 100 characters long.
+                </div>
+            </div>
+            <!-- Country -->
+            <select formControlName="country">
+                <option value="" selected="selected">Country</option>
+                <option *ngFor="let country of countries" 
+                [value]="country.alpha3">{{country.name}}</option>
+            </select>
+            <div *ngIf="country.invalid && (country.dirty || country.touched)" class="error">
+                <div *ngIf="country.errors.required">
+                    Country is required.
+                </div>
+            </div>
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid box-shadow"
+            [class.btn-success-disabled]="propertyForm.invalid || submitted"
+            [disabled]="propertyForm.invalid || submitted">
+                <div *ngIf="!submitted">Add</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+            <!--<div *ngIf="apiErrorMessage" class="error-api">{{apiErrorMessage}}</div>-->
+        </form>
+    </mat-dialog-content>
+</div>

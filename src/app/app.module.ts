@@ -1,14 +1,15 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
-import { ReactiveFormsModule } from '@angular/forms'; //
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http'; //
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { ReactiveFormsModule } from '@angular/forms';
 import { HttpRequestInterceptor } from './core/HttpRequestInterceptor';
 
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatProgressBarModule } from '@angular/material/progress-bar'; 
-import { MatDialogModule } from '@angular/material/dialog'; //
+import { MatDialogModule } from '@angular/material/dialog';
+import { MatSelectModule } from '@angular/material/select'; 
 import { MatDatepickerModule } from '@angular/material/datepicker'; 
 
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
@@ -51,12 +52,13 @@ import { AccountComponent } from './components/account/account.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    ReactiveFormsModule,
     BrowserAnimationsModule,
     HttpClientModule,
+    ReactiveFormsModule,
     MatTabsModule,
     MatProgressBarModule,
     MatDialogModule,
+    MatSelectModule,
     MatDatepickerModule,
     SatDatepickerModule,
     SatNativeDateModule,

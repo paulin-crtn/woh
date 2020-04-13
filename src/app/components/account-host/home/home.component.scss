@@ -1,0 +1,21 @@
+.user-welcome-panel-container {
+    margin-bottom: 30px;
+}
+
+.nav-tabs-container {
+    .container-properties, .container-experiences {
+        .title {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            h2 {
+                margin-right: 10px;
+                font-size: 1.6rem;
+                font-weight: 600;
+            }
+            &:first-child {
+                margin-top: 30px;
+            }
+        }
+    }
+}
