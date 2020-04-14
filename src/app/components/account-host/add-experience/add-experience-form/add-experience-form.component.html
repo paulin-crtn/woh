@@ -5,7 +5,11 @@
             <ng-template matStepLabel>Title, place and duration</ng-template>
             <div>
                 <label for="title">Experience title</label>
-                <input type="text" placeholder="Ex: Discover the heart of the Scottish Highlands">
+                <input type="text" formControlName="title" placeholder="Ex: Discover the heart of the Scottish Highlands">
+
+                <div class="buttons">
+                    <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
+                </div>
             </div>
         </mat-step>
 
@@ -14,6 +18,10 @@
             <ng-template matStepLabel>What you ask</ng-template>
             <div>
 
+                <div class="buttons">
+                    <button class="btn btn-transparent-outline" matStepperPrevious type="button">Previous</button>
+                    <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
+                </div>
             </div>
         </mat-step>
 
@@ -22,6 +30,10 @@
             <ng-template matStepLabel>What you offer</ng-template>
             <div>
 
+                <div class="buttons">
+                    <button class="btn btn-transparent-outline" matStepperPrevious type="button">Previous</button>
+                    <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
+                </div>
             </div>
         </mat-step>
 
@@ -30,6 +42,22 @@
             <ng-template matStepLabel>Photos and publication</ng-template>
             <div>
 
+                <div class="buttons">
+                    <button class="btn btn-transparent-outline" matStepperPrevious type="button">Previous</button>
+                    <!-- Submit -->
+                    <button
+                    type="submit"
+                    class="btn btn-success-solid"
+                    [class.btn-success-disabled]="form.invalid || submitted"
+                    [disabled]="form.invalid || submitted">
+                        <div *ngIf="!submitted">Save</div>
+                        <div *ngIf="submitted" class="spinner">
+                            <div class="bounce1"></div>
+                            <div class="bounce2"></div>
+                            <div class="bounce3"></div>
+                        </div>
+                    </button>
+                </div>
             </div>
         </mat-step>
 

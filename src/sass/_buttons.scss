@@ -1,3 +1,7 @@
+button, button:focus {
+    outline: none;
+}
+
 .btn {
     display: inline-block;
     margin: 0;
@@ -36,10 +40,16 @@
     border: 1px solid $success;
 }
 
-.btn-transparent {
+.btn-transparent-solid {
     background-color: transparent;
     color: #000000;
     border: 1px solid #000000;
+}
+
+.btn-transparent-outline {
+    background-color: transparent;
+    color: #000000;
+    border: none;
 }
 
 .link-primary {
