@@ -15,7 +15,8 @@ export class AddPropertyDialogComponent implements OnInit {
   apiErrorMessage: string;
   countries: Country[] = COUNTRIES_LIST;
   types: string[] = [
-    'Hostel & Hotel',
+    'Hostel',
+    'Hotel',
     'Farm',
     'School',
     'Homestay',

@@ -4,12 +4,82 @@
         <mat-step>
             <ng-template matStepLabel>Title, place and duration</ng-template>
             <div>
-                <label for="title">Experience title</label>
-                <input type="text" formControlName="title" placeholder="Ex: Discover the heart of the Scottish Highlands">
+                <!-- Experience title -->
+                <div class="form-field">
+                    <h4 class="label-title" for="title">Experience title</h4>
+                    <input 
+                    type="text" 
+                    formControlName="title" 
+                    id="title"
+                    placeholder="Ex: Discover the heart of the Scottish Highlands">
+                </div>
+
+                <!-- Experience location -->
+                <div class="form-field">
+                    <h4 class="label-title" for="location">Experience location</h4>
+                    <select formControlName="location" id="location">
+                        <option value=""></option><!-- TO DO -->
+                    </select>
+                    <div class="add-property">No property ? <span (click)="addProperty()">Add a property</span></div>
+                </div>
+
+                <!-- Experience duration -->
+                <div class="form-field">
+                    <h4 class="label-title" for="duration">Experience duration</h4>
+
+                </div>
+
+                <!-- Publication -->
+                <div class="form-field">
+                    <h4 class="label-title" for="publication">Publication</h4>
+                    <div *ngIf="form.invalid" class="error">
+                        You must complete all fields to be able to publish now.
+                    </div>
+                    <div class="container-publication-checkbox">
+                        <!-- Later -->
+                        <div class="input-full-color">
+                            <input 
+                            type="radio" 
+                            class="checkbox-large"
+                            id="later" 
+                            value="0" 
+                            formControlName="publication">
+                            <label for="later">Later</label>
+                        </div>
+                        <!-- Now (fake) -->
+                        <div 
+                        *ngIf="form.invalid"
+                        class="input-full-color">
+                            <input 
+                            type="radio" 
+                            class="checkbox-large"
+                            id="null" 
+                            value="null" 
+                            formControlName="publication"
+                            [attr.disabled]="true">
+                            <label 
+                            for="null">Now</label>
+                        </div>
+                        <!-- Now (real) -->
+                        <div 
+                        *ngIf="!form.invalid"
+                        class="input-full-color">
+                            <input 
+                            type="radio" 
+                            class="checkbox-large"
+                            id="now" 
+                            value="1" 
+                            formControlName="publication">
+                            <label 
+                            for="now">Now</label>
+                        </div>
+                    </div>
+                </div>
 
                 <div class="buttons">
                     <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
                 </div>
+
             </div>
         </mat-step>
 
@@ -48,8 +118,8 @@
                     <button
                     type="submit"
                     class="btn btn-success-solid"
-                    [class.btn-success-disabled]="form.invalid || submitted"
-                    [disabled]="form.invalid || submitted">
+                    [class.btn-success-disabled]="submitted"
+                    [disabled]="submitted">
                         <div *ngIf="!submitted">Save</div>
                         <div *ngIf="submitted" class="spinner">
                             <div class="bounce1"></div>

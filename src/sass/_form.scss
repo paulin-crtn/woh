@@ -1,6 +1,9 @@
 form {
     border-radius: 10px;
     box-sizing: border-box;
+    label {
+      display: block;
+    }
     input[type=text], input[type=email], input[type=password], select {
         display: block;
         width: 100%;

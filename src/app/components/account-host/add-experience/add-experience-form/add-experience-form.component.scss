@@ -1,3 +1,48 @@
+@import '../../../../../sass/_variables';
+
+
 .buttons {
     text-align: right;
+}
+
+form {
+    .form-field {
+        margin-bottom: 30px;
+        .label-title {
+            margin-bottom: 20px;
+            font-family: $title;
+            font-size: 1.6rem;
+            color: #000000;
+        }
+        input[type="text"], select {
+            width: 450px;
+        }
+        input[type="text"] {
+            border: 1px solid $light-2;
+        }
+        .add-property {
+            font-size: 0.9rem;
+            font-weight: 400;
+            span {
+                cursor: pointer;
+            }
+        }
+        .container-publication-checkbox {
+            display: flex;
+            justify-content: flex-start;
+            align-items: flex-start;
+            .input-full-color label { // OVERIDE (class already exist in another css file)
+                width: 220px;
+                margin-right: 15px;
+                padding: 15px 25px;
+            }
+        }
+        .error  {
+            margin-top: -10px;
+            margin-bottom: 15px;
+            color: $warn;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+    }
 }
