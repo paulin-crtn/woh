@@ -1,0 +1,37 @@
+<form *ngIf="form" [formGroup]="form" (ngSubmit)="saveExperience()">
+    <mat-horizontal-stepper labelPosition="bottom" linar>
+        <!-- STEP 1 -->
+        <mat-step>
+            <ng-template matStepLabel>Title, place and duration</ng-template>
+            <div>
+                <label for="title">Experience title</label>
+                <input type="text" placeholder="Ex: Discover the heart of the Scottish Highlands">
+            </div>
+        </mat-step>
+
+        <!-- STEP 2 -->
+        <mat-step>
+            <ng-template matStepLabel>What you ask</ng-template>
+            <div>
+
+            </div>
+        </mat-step>
+
+        <!-- STEP 3 -->
+        <mat-step>
+            <ng-template matStepLabel>What you offer</ng-template>
+            <div>
+
+            </div>
+        </mat-step>
+
+        <!-- STEP 4 -->
+        <mat-step>
+            <ng-template matStepLabel>Photos and publication</ng-template>
+            <div>
+
+            </div>
+        </mat-step>
+
+    </mat-horizontal-stepper>
+</form>

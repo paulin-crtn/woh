@@ -30,6 +30,15 @@ li {
     }
 }
 
+.breadcrumb {
+    padding: 12px 0;
+    font-size: 0.85rem;
+    background-color: $light-1;
+    span {
+        margin: 0 10px;
+    }
+}
+
 .background-opacity {
     background-color: rgba($color: #ffffff, $alpha: 0.8);
 }
