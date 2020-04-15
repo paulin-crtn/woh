@@ -25,7 +25,7 @@ export class AddExperienceFormComponent implements OnInit {
   ngOnInit(): void {
     // FORM
     this.form = this.fb.group({
-      title: this.fb.control('', [Validators.required, Validators.minLength(5)]),
+      title: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(80)]),
       location: this.fb.control(''),
       minWeeks: this.fb.control('', [Validators.required]),
       maxWeeks: this.fb.control('', [Validators.required]),
@@ -44,7 +44,10 @@ export class AddExperienceFormComponent implements OnInit {
   isWeeksValid(type: string, selectedWeeks: number) {
     const maxWeeks = this.form.value.maxWeeks;
     const minWeeks = this.form.value.minWeeks;
-    if (minWeeks === '' || maxWeeks === '') { return }
+    if (
+      type === 'min' && maxWeeks === '' || 
+      type === 'max' && minWeeks === ''
+    ) { return }
     if (type === 'min') {
       selectedWeeks > maxWeeks ? 
       this.errorNumberOfWeeks = true : 
