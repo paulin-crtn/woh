@@ -25,7 +25,45 @@
 
                 <!-- Experience duration -->
                 <div class="form-field">
+
                     <h4 class="label-title" for="duration">Experience duration</h4>
+                    <div *ngIf="errorNumberOfWeeks" class="error">
+                        Minimum weeks can't be superior to maximum weeks.
+                    </div>
+                    
+                    <!-- Minimum -->
+                    <h5 class="label-subtitle">Minimum number of weeks</h5>
+
+                    <div class="container-duration-radio">
+                        <div 
+                        class="input-fc-square"
+                        *ngFor="let number of numberOfWeeks"
+                        (click)="isWeeksValid('min', number)">
+                            <input 
+                            type="radio" 
+                            id="minWeeks-{{number}}" 
+                            value="{{number}}" 
+                            formControlName="minWeeks">
+                            <label for="minWeeks-{{number}}">{{number}}</label>
+                        </div>
+                    </div>
+
+                    <!-- Maximum -->
+                    <h5 class="label-subtitle">Maximum number of weeks</h5>
+
+                    <div class="container-duration-radio">
+                        <div 
+                        class="input-fc-square"
+                        *ngFor="let number of numberOfWeeks"
+                        (click)="isWeeksValid('max', number)">
+                            <input 
+                            type="radio" 
+                            id="maxWeeks-{{number}}" 
+                            value="{{number}}" 
+                            formControlName="maxWeeks">
+                            <label for="maxWeeks-{{number}}">{{number}}</label>
+                        </div>
+                    </div>
 
                 </div>
 

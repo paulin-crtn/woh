@@ -14,6 +14,13 @@ form {
             font-size: 1.6rem;
             color: #000000;
         }
+        .label-subtitle {
+            margin-bottom: 10px;
+            font-family: $text;
+            font-size: 1rem;
+            font-weight: 500;
+            color: #000000;
+        }
         input[type="text"], select {
             width: 450px;
         }
@@ -25,6 +32,12 @@ form {
             font-weight: 400;
             span {
                 cursor: pointer;
+            }
+        }
+        .container-duration-radio {
+            margin-bottom: 15px;
+            .input-fc-square {
+                margin-right: 10px;
             }
         }
         .container-publication-checkbox {

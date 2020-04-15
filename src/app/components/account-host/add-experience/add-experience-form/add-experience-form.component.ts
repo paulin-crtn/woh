@@ -14,6 +14,8 @@ import { AddPropertyDialogComponent } from '../../add-property-dialog/add-proper
 export class AddExperienceFormComponent implements OnInit {
   form: FormGroup;
   submitted: boolean;
+  numberOfWeeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
+  errorNumberOfWeeks: boolean;
 
   constructor(
     private fb: FormBuilder,
@@ -25,7 +27,9 @@ export class AddExperienceFormComponent implements OnInit {
     this.form = this.fb.group({
       title: this.fb.control('', [Validators.required, Validators.minLength(5)]),
       location: this.fb.control(''),
-      publication: this.fb.control('', [Validators.required]),
+      minWeeks: this.fb.control('', [Validators.required]),
+      maxWeeks: this.fb.control('', [Validators.required]),
+      publication: this.fb.control('0', [Validators.required]),
     });
   }
 
@@ -35,6 +39,21 @@ export class AddExperienceFormComponent implements OnInit {
       data: {},
       autoFocus: false,
     });
+  }
+
+  isWeeksValid(type: string, selectedWeeks: number) {
+    const maxWeeks = this.form.value.maxWeeks;
+    const minWeeks = this.form.value.minWeeks;
+    if (minWeeks === '' || maxWeeks === '') { return }
+    if (type === 'min') {
+      selectedWeeks > maxWeeks ? 
+      this.errorNumberOfWeeks = true : 
+      this.errorNumberOfWeeks = false;
+    } else if (type === 'max') {
+      selectedWeeks < minWeeks ? 
+      this.errorNumberOfWeeks = true : 
+      this.errorNumberOfWeeks = false;
+    }
   }
 
   saveExperience() {
