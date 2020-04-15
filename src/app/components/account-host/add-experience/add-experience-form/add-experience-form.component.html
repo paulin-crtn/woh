@@ -7,7 +7,7 @@
                 <!-- Experience title -->
                 <div class="form-field">
 
-                    <h4 class="label-title" for="title">Experience title</h4>
+                    <h4 class="label-title">Experience title</h4>
 
                     <div *ngIf="title.invalid && (title.dirty || title.touched)" class="error">
                         <div *ngIf="title.errors.required">
@@ -24,15 +24,14 @@
                     <input 
                     type="text" 
                     formControlName="title" 
-                    id="title"
                     placeholder="Ex: Discover the heart of the Scottish Highlands">
 
                 </div>
 
                 <!-- Experience location -->
                 <div class="form-field">
-                    <h4 class="label-title" for="location">Experience location</h4>
-                    <select formControlName="location" id="location">
+                    <h4 class="label-title">Experience location</h4>
+                    <select formControlName="property">
                         <option value=""></option><!-- TO DO -->
                     </select>
                     <div class="add-property">No property ? <span (click)="addProperty()">Add a property</span></div>
@@ -41,7 +40,7 @@
                 <!-- Experience duration -->
                 <div class="form-field">
 
-                    <h4 class="label-title" for="duration">Experience duration</h4>
+                    <h4 class="label-title">Experience duration</h4>
                     <div *ngIf="errorNumberOfWeeks" class="error">
                         Minimum weeks can't be superior to maximum weeks.
                     </div>
@@ -49,7 +48,7 @@
                     <!-- Minimum -->
                     <h5 class="label-subtitle">Minimum number of weeks</h5>
 
-                    <div class="container-duration-radio">
+                    <div class="container-radio">
                         <div 
                         class="input-fc-square"
                         *ngFor="let number of numberOfWeeks"
@@ -66,7 +65,7 @@
                     <!-- Maximum -->
                     <h5 class="label-subtitle">Maximum number of weeks</h5>
 
-                    <div class="container-duration-radio">
+                    <div class="container-radio">
                         <div 
                         class="input-fc-square"
                         *ngFor="let number of numberOfWeeks"
@@ -82,9 +81,94 @@
 
                 </div>
 
+                <!-- What you're asking -->
+                <div class="form-field">
+
+                    <h4 class="label-title">What you're asking</h4>
+
+                    <!-- Number of volunteer hours per day -->
+                    <h5 class="label-subtitle">Number of volunteer hours per day</h5>
+
+                    <div class="container-radio">
+                        <div 
+                        class="input-fc-square"
+                        *ngFor="let number of numberOfVolunteeringHours">
+                            <input 
+                            type="radio" 
+                            id="hoursPerDay-{{number}}" 
+                            value="{{number}}" 
+                            formControlName="hoursPerDay">
+                            <label for="hoursPerDay-{{number}}">{{number}}</label>
+                        </div>
+                    </div>
+
+                    <!-- Description of the missions -->
+                    <h5 class="label-subtitle">Description of the missions</h5>
+                    <p class="instruction">
+                        Describe with precision the missions that the volunteer will have to accomplish.
+                    </p>
+
+                    <div *ngIf="description.invalid && (description.dirty || description.touched)" class="error">
+                        <div *ngIf="description.errors.required">
+                            Description is required.
+                        </div>
+                        <div *ngIf="description.errors.minlength">
+                            Description must be at least 100 characters long.
+                        </div>
+                        <div *ngIf="description.errors.maxlength">
+                            Description must be at most 2000 characters long.
+                        </div>
+                    </div>
+
+                    <textarea 
+                    class="description" 
+                    formControlName="description"></textarea>
+                    
+                    <!-- Prerequisites -->
+                    <h5 class="label-subtitle">Prerequisites<span class="optional-chip">Optional</span></h5>
+                    <p class="instruction">
+                        It can be a prior experience in your sector of activity, the need to have a driving license, a minimum age or any other constraint related to the completion of missions.
+                    </p>
+
+                    <div *ngIf="prerequisites.invalid && (prerequisites.dirty || prerequisites.touched)" class="error">
+                        <div *ngIf="prerequisites.errors.maxlength">
+                            Prerequisites must be at most 1500 characters long.
+                        </div>
+                    </div>
+                    
+                    <textarea 
+                    class="prerequisites" 
+                    formControlName="prerequisites"></textarea>
+
+                </div>
+
+                <!-- Number of volunteers -->
+                <div class="form-field">
+
+                    <h4 class="label-title">Number of volunteers</h4>
+                    <p class="instruction">
+                        This is the maximum number of volunteers you could receive at the same time.
+                    </p>
+
+                    <div class="container-radio">
+                        <div 
+                        class="input-fc-square"
+                        *ngFor="let number of numberOfVolunteers">
+                            <input 
+                            type="radio" 
+                            id="maxVolunteers-{{number}}" 
+                            value="{{number}}" 
+                            formControlName="maxVolunteers">
+                            <label for="maxVolunteers-{{number}}">{{number}}</label>
+                        </div>
+                    </div>
+
+                </div>
+
+
                 <!-- Publication -->
                 <div class="form-field">
-                    <h4 class="label-title" for="publication">Publication</h4>
+                    <h4 class="label-title">Publication</h4>
                     <div *ngIf="form.invalid" class="error">
                         You must complete all fields to be able to publish now.
                     </div>
@@ -138,7 +222,7 @@
 
         <!-- STEP 2 -->
         <mat-step>
-            <ng-template matStepLabel>What you ask</ng-template>
+            <ng-template matStepLabel>What you're asking</ng-template>
             <div>
 
                 <div class="buttons">
@@ -150,7 +234,7 @@
 
         <!-- STEP 3 -->
         <mat-step>
-            <ng-template matStepLabel>What you offer</ng-template>
+            <ng-template matStepLabel>What you're offering</ng-template>
             <div>
 
                 <div class="buttons">

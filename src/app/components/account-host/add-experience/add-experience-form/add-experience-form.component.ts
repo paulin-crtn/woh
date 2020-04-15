@@ -16,6 +16,8 @@ export class AddExperienceFormComponent implements OnInit {
   submitted: boolean;
   numberOfWeeks: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
   errorNumberOfWeeks: boolean;
+  numberOfVolunteeringHours: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
+  numberOfVolunteers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
 
   constructor(
     private fb: FormBuilder,
@@ -26,9 +28,13 @@ export class AddExperienceFormComponent implements OnInit {
     // FORM
     this.form = this.fb.group({
       title: this.fb.control('', [Validators.required, Validators.minLength(10), Validators.maxLength(80)]),
-      location: this.fb.control(''),
+      property: this.fb.control(''),
       minWeeks: this.fb.control('', [Validators.required]),
       maxWeeks: this.fb.control('', [Validators.required]),
+      hoursPerDay: this.fb.control('', [Validators.required]),
+      description: this.fb.control('', [Validators.required, Validators.minLength(100), Validators.maxLength(2000)]),
+      prerequisites: this.fb.control('', [Validators.maxLength(1500)]),
+      maxVolunteers: this.fb.control('', [Validators.required]),
       publication: this.fb.control('0', [Validators.required]),
     });
   }
@@ -66,7 +72,9 @@ export class AddExperienceFormComponent implements OnInit {
 
   // SHORTCUT TO DISPLAY FORM ERROR MESSAGES IN THE TEMPLATE
   get title() { return this.form.get('title'); }
-  get location() { return this.form.get('location'); }
+  get property() { return this.form.get('property'); }
+  get description() { return this.form.get('description'); }
+  get prerequisites() { return this.form.get('prerequisites'); }
   get publication() { return this.form.get('publication'); }
 
 }
