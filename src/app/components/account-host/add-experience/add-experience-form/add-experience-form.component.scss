@@ -67,11 +67,15 @@ form {
                 margin-right: 10px;
             }
         }
-        .container-publication-checkbox {
+        .container-checkbox {
             display: flex;
             justify-content: flex-start;
             align-items: flex-start;
-            .input-full-color label { // OVERIDE (class already exist in another css file)
+            flex-wrap: wrap;
+            .input-fc-radio, .input-fc-checkbox { // OVERIDE (class already exist in another css file)
+                margin: 5px 0;
+            }
+            .input-fc-radio label, .input-fc-checkbox label { // OVERIDE (class already exist in another css file)
                 width: 220px;
                 margin-right: 15px;
                 padding: 15px 25px;

@@ -37,7 +37,7 @@ form {
 // RADIO AND CHECKBOX FULL BG-COLOR
 // Source : https://codepen.io/BuddyLReno/pen/boGRPO
 
-.input-full-color, .input-fc-square {
+.input-fc-radio, .input-fc-square, .input-fc-checkbox {
     background-color: #fff;
     display: block;
     margin: 10px 0;
@@ -118,6 +118,7 @@ form {
     }
   }
 
+  // INPUT FULL COLOR SQUARE
   .input-fc-square {
     display: inline-block;
     margin: 0;
@@ -136,5 +137,13 @@ form {
         border: none;
       }
     }
+  }
 
+  // INPUT FULL COLOR CHECKBOX
+  .input-fc-checkbox {
+    label {
+      &:after, &:before {
+        border-radius: 3px;
+      }
+    }
   }

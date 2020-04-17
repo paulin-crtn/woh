@@ -165,6 +165,64 @@
 
                 </div>
 
+                <!-- What you're offering -->
+                <div class="form-field">
+
+                    <h4 class="label-title">What you're offering</h4>
+
+                    <!-- Accomodation type -->
+                    <h5 class="label-subtitle">Accomodation type</h5>
+
+                    <div class="container-checkbox">
+                        <div 
+                        class="input-fc-radio"
+                        *ngFor="let accomodation of accomodationTypeList">
+                            <input 
+                            type="radio" 
+                            class="checkbox-large"
+                            id="{{accomodation.type}}" 
+                            value="{{accomodation.type}}" 
+                            formControlName="accomodationType">
+                            <label 
+                            for="{{accomodation.type}}">{{ accomodation.name }}</label>
+                        </div>
+                    </div>
+
+                    <!-- Number of days off per week -->
+                    <h5 class="label-subtitle">Number of days off per week</h5>
+                    <div class="container-radio">
+                        <div 
+                        class="input-fc-square"
+                        *ngFor="let number of numberOfDaysOff">
+                            <input 
+                            type="radio" 
+                            id="daysOff-{{number}}" 
+                            value="{{number}}" 
+                            formControlName="daysOff">
+                            <label for="daysOff-{{number}}">{{number}}</label>
+                        </div>
+                    </div>
+
+                    <!-- Meals -->
+                    <h5 class="label-subtitle">Meals<span class="optional-chip">Optional</span></h5>
+                    <div class="container-checkbox">
+                        <div 
+                        class="input-fc-checkbox"
+                        *ngFor="let meal of mealsList">
+                            <input 
+                            type="checkbox" 
+                            id="{{meal}}" 
+                            value="{{meal}}">
+                            <label 
+                            for="{{meal}}"
+                            (click)="updateCheckedMeal(meal)">{{ meal | titlecase }}</label>
+                        </div>
+                    </div>
+
+                    <!-- Other benefits -->
+                    <h5 class="label-subtitle">Other benefits<span class="optional-chip">Optional</span></h5>
+                
+                </div>
 
                 <!-- Publication -->
                 <div class="form-field">
@@ -172,9 +230,9 @@
                     <div *ngIf="form.invalid" class="error">
                         You must complete all fields to be able to publish now.
                     </div>
-                    <div class="container-publication-checkbox">
+                    <div class="container-checkbox">
                         <!-- Later -->
-                        <div class="input-full-color">
+                        <div class="input-fc-radio">
                             <input 
                             type="radio" 
                             class="checkbox-large"
@@ -186,7 +244,7 @@
                         <!-- Now (fake) -->
                         <div 
                         *ngIf="form.invalid"
-                        class="input-full-color">
+                        class="input-fc-radio">
                             <input 
                             type="radio" 
                             class="checkbox-large"
@@ -200,7 +258,7 @@
                         <!-- Now (real) -->
                         <div 
                         *ngIf="!form.invalid"
-                        class="input-full-color">
+                        class="input-fc-radio">
                             <input 
                             type="radio" 
                             class="checkbox-large"

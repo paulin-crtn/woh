@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators, FormArray } from '@angular/forms';
 
 import { MatDialog } from '@angular/material/dialog';
 
@@ -18,6 +18,14 @@ export class AddExperienceFormComponent implements OnInit {
   errorNumberOfWeeks: boolean;
   numberOfVolunteeringHours: number[] = [1, 2, 3, 4, 5, 6, 7, 8];
   numberOfVolunteers: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+  numberOfDaysOff: number[] = [1, 2, 3, 4, 5, 6];
+  accomodationTypeList = [
+    {type: 'private', name: 'Private room'},
+    {type: 'shared', name: 'Shared room'},
+    {type: 'dormitory', name: 'Dormitory'},
+    {type: 'other', name: 'Other'},
+  ];
+  mealsList: string[] = ['breakfast', 'lunch', 'diner'];
 
   constructor(
     private fb: FormBuilder,
@@ -35,6 +43,10 @@ export class AddExperienceFormComponent implements OnInit {
       description: this.fb.control('', [Validators.required, Validators.minLength(100), Validators.maxLength(2000)]),
       prerequisites: this.fb.control('', [Validators.maxLength(1500)]),
       maxVolunteers: this.fb.control('', [Validators.required]),
+      accomodationType: this.fb.control('', [Validators.required]),
+      daysOff: this.fb.control('', [Validators.required]),
+      meals: this.fb.array([]),
+      otherBenefits: this.fb.array([]),
       publication: this.fb.control('0', [Validators.required]),
     });
   }
@@ -45,6 +57,15 @@ export class AddExperienceFormComponent implements OnInit {
       data: {},
       autoFocus: false,
     });
+  }
+
+  updateCheckedMeal(meal: string): void {
+    const index = this.meals.controls.findIndex((control) => control.value === meal);
+    if (index === -1) {
+      this.meals.push(this.fb.control(meal));
+    } else {
+      this.meals.removeAt(index);
+    }
   }
 
   isWeeksValid(type: string, selectedWeeks: number) {
@@ -76,5 +97,5 @@ export class AddExperienceFormComponent implements OnInit {
   get description() { return this.form.get('description'); }
   get prerequisites() { return this.form.get('prerequisites'); }
   get publication() { return this.form.get('publication'); }
-
+  get meals() { return this.form.get('meals') as FormArray }
 }
