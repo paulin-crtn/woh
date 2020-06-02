@@ -1,0 +1,111 @@
+@import '../../../../sass/_variables';
+
+
+.buttons {
+    text-align: right;
+}
+
+form {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    .edit-profile-picture {
+        width: 200px;
+        figure {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 1px solid $light-2;
+        }
+        input[type="file"] {
+            display: none;
+        }
+        label {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: 400;
+            cursor: pointer;
+        }
+    }
+    .edit-informations {
+        margin: 0 100px 0 60px;
+        .form-field {
+            margin-bottom: 30px;
+            .label-title {
+                margin-bottom: 20px;
+                font-family: $title;
+                font-size: 1.4rem;
+                color: #000000;
+            }
+            .label-subtitle {
+                margin-top: -10px;
+                margin-bottom: 20px;
+                font-family: $text;
+                font-size: 1rem;
+                font-weight: 300;
+                color: #000000;
+            }
+            input[type="text"] {
+                border: 1px solid $light-2;
+            }
+            .user-email-container {
+                display: flex;
+                justify-content: flex-start;
+                align-items: center;
+                .user-update-email-button {
+                    margin-left: 10px;
+                    border-bottom: 1px solid #000000;
+                    cursor: pointer;
+                }
+            }
+            .date-container {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                .date {
+                    width: 100%;
+                    padding: 12px;
+                    border-radius: 5px;
+                    border: 1px solid $light-2;
+                }
+                .mat-datepicker-toggle {
+                    margin-left: 10px;
+                    color: $success;
+                    border-radius: 50%;
+                    border: 1px solid $success;
+                }
+            }
+            .description {
+                height: 200px;
+            }
+            .optional-chip {
+                margin-left: 7px;
+                padding: 3px 8px;
+                font-size: 0.8rem;
+                font-weight: 400;
+                background-color: $neutral;
+                color: #ffffff;
+                border-radius: 3px;
+            }
+            .error  {
+                margin-top: -10px;
+                margin-bottom: 15px;
+                color: $warn;
+                font-size: 0.95rem;
+                font-weight: 400;
+            }
+        }
+    }
+    .indications {
+        width: 300px;
+        padding: 25px;
+        color: #ffffff;
+        background-color: $primary;
+        border-radius: 10px;
+        p:not(:first-child) {
+            margin-top: 15px;
+            line-height: 1.4rem;
+        }
+    }
+}

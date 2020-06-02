@@ -53,8 +53,8 @@ export class ExperienceComponent implements OnInit {
   sendApplication() {
     console.log(this.applyForm.value);
     const data = {
-      begin_date: this.applyForm.value.date.begin.toJSON().slice(0, 10),
-      end_date: this.applyForm.value.date.end.toJSON().slice(0, 10),
+      begin_date: this.applyForm.value.date.begin.toJSON().slice(0, 10), // DO NOT WORK (-1 day)
+      end_date: this.applyForm.value.date.end.toJSON().slice(0, 10), // DO NOT WORK (-1 day)
       message: this.applyForm.value.message,
     }
     console.log(data);

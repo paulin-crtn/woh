@@ -1,0 +1,142 @@
+<form [formGroup]="form" (ngSubmit)="saveUser()">
+
+    <div class="edit-profile-picture">
+        <figure>
+            <img src="" alt="user profile picture">
+        </figure>
+        <input type="file" id="profile-picture">
+        <label for="profile-picture">Update picture</label>
+    </div>
+    
+    <div class="edit-informations">
+
+        <!-- Firstname -->
+        <div class="form-field">
+            <label
+            for="firstname" 
+            class="label-title">Firstname</label>
+
+            <input 
+            type="text"
+            formControlName="firstname"
+            id="firstname">
+        </div>
+
+        <!-- Lastname -->
+        <div class="form-field">
+            <label
+            for="lastname" 
+            class="label-title">Lastname</label>
+
+            <input 
+            type="text"
+            formControlName="lastname"
+            id="lastname">
+        </div>
+
+        <!-- Email -->
+        <div class="form-field">
+            <h4 class="label-title">Email</h4>
+            <div class="user-email-container">
+                <p class="user-email-value">email</p>
+                <span
+                (click)="updateEmail()"
+                class="user-update-email-button">Update</span>
+            </div>
+        </div>
+
+        <!-- Country -->
+        <div class="form-field">
+            <h4 class="label-title">Country</h4>
+            <h5 class="label-subtitle">Where you currently live.</h5>
+
+            <select formControlName="country">
+                <option value="" selected="selected">Select option</option>
+                <option *ngFor="let country of countries" 
+                [value]="country.alpha3">{{country.name}}</option>
+            </select>
+            <div *ngIf="country.invalid && (country.dirty || country.touched)" class="error">
+                <div *ngIf="country.errors.required">
+                    Country is required.
+                </div>
+            </div>
+        </div>
+
+        <!-- Date of birth -->
+        <div class="form-field">
+            <h4 class="label-title">Date of birth</h4>
+            <h5 class="label-subtitle">Only used to calculate your age.</h5>
+            
+            <!-- Select dates -->
+            <!-- Source https://github.com/SaturnTeam/saturn-datepicker -->
+            <div class="date-container">
+                <input
+                class="date" 
+                matInput
+                formControlName="dateOfBirth"
+                [readonly]="true"
+                [min]="minDate"
+                [max]="maxDate"
+                [satDatepicker]="picker">
+                <sat-datepicker 
+                #picker 
+                [rangeMode]="false" 
+                [startView]="'multi-year'"></sat-datepicker>
+                <sat-datepicker-toggle 
+                matSuffix 
+                [for]="picker"></sat-datepicker-toggle>
+            </div>
+        </div>
+            
+        <!-- Description -->
+        <div class="form-field">
+            <label 
+            for="description"
+            class="label-title">Description</label>
+    
+            <div *ngIf="description.invalid && (description.dirty || description.touched)" class="error">
+                <div *ngIf="description.errors.required">
+                    Description is required.
+                </div>
+                <div *ngIf="description.errors.minlength">
+                    Description must be at least 100 characters long.
+                </div>
+                <div *ngIf="description.errors.maxlength">
+                    Description must be at most 2000 characters long.
+                </div>
+            </div>
+    
+            <textarea 
+            class="description" 
+            formControlName="description"
+            id="description"></textarea>
+        </div>
+        
+
+        <div class="buttons">
+            <a 
+            routerLink="/account"
+            class="btn btn-transparent-outline">Cancel</a>
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid"
+            [class.btn-success-disabled]="submitted"
+            [disabled]="submitted">
+                <div *ngIf="!submitted">Save</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+        </div>
+
+    </div>
+
+    <div class="indications">
+        <p>Take time to fill in all the information requested, this will allow the host to get a better idea of who you are.</p>
+        <p>Some hosts can be contacted by several volunteers and the difference can be made on a full profile or not.</p>
+    </div>
+
+</form>

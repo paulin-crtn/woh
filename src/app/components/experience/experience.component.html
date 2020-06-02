@@ -290,10 +290,15 @@
                                 class="date" 
                                 matInput
                                 formControlName="date"
+                                [readonly]="true"
                                 [min]="minDate"
                                 [satDatepicker]="picker">
-                                <sat-datepicker #picker [rangeMode]="true"></sat-datepicker>
-                                <sat-datepicker-toggle matSuffix [for]="picker"></sat-datepicker-toggle>
+                                <sat-datepicker 
+                                #picker 
+                                [rangeMode]="true"></sat-datepicker>
+                                <sat-datepicker-toggle 
+                                matSuffix 
+                                [for]="picker"></sat-datepicker-toggle>
                             </div>
                         </div>
 

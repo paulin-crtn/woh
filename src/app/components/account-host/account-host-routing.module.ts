@@ -5,11 +5,13 @@ import { AuthGuardHostService } from 'src/app/core/auth/authGardHost';
 
 import { HomeComponent } from './home/home.component';
 import { AddExperienceComponent } from './add-experience/add-experience.component';
+import { UserEditProfileComponent } from 'src/app/shared/user-edit-profile/user-edit-profile.component';
 
 
 const routes: Routes = [
   { path: '', component: HomeComponent, canActivate: [AuthGuardHostService] },
   { path: 'add-experience', component: AddExperienceComponent, canActivate: [AuthGuardHostService] },
+  { path: 'edit-profile', component: UserEditProfileComponent, canActivate: [AuthGuardHostService] },
 ];
 
 @NgModule({

@@ -22,6 +22,10 @@ import { SearchBarComponent } from './search-bar/search-bar.component';
 import { LanguageDialogComponent } from './dialogs/language-dialog/language-dialog.component';
 import { UserEditProfileComponent } from './user-edit-profile/user-edit-profile.component';
 import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-panel.component';
+import { UserEditProfileFormComponent } from './user-edit-profile/user-edit-profile-form/user-edit-profile-form.component';
+import { UpdateUserEmailDialogComponent } from './dialogs/update-user-email-dialog/update-user-email-dialog.component';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 
 @NgModule({
     declarations: [
@@ -43,6 +47,8 @@ import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-pan
         UserEditProfileComponent,
         UserWelcomePanelComponent,
         SearchBarComponent,
+        UserEditProfileFormComponent,
+        UpdateUserEmailDialogComponent,
     ],
     imports: [
         CommonModule,
@@ -50,6 +56,9 @@ import { UserWelcomePanelComponent } from './user-welcome-panel/user-welcome-pan
         ReactiveFormsModule,
         MatDialogModule,
         MatSelectModule,
+        MatDatepickerModule,
+        SatDatepickerModule,
+        SatNativeDateModule,
     ],
     exports: [
         ClickOutsideDirective,
