@@ -1,10 +1,14 @@
 <form [formGroup]="form" (ngSubmit)="saveUser()">
 
+    <!-- Profile picture -->
     <div class="edit-profile-picture">
-        <figure>
-            <img src="" alt="user profile picture">
+        <figure class="profile-picture">
+            <img [src]="profilePictureSrc" alt="user profile picture">
         </figure>
-        <input type="file" id="profile-picture">
+        <input 
+        type="file"
+        (change)="setProfilePicture($event)" 
+        id="profile-picture">
         <label for="profile-picture">Update picture</label>
     </div>
     
@@ -38,7 +42,7 @@
         <div class="form-field">
             <h4 class="label-title">Email</h4>
             <div class="user-email-container">
-                <p class="user-email-value">email</p>
+                <p class="user-email-value">{{email.value}}</p>
                 <span
                 (click)="updateEmail()"
                 class="user-update-email-button">Update</span>

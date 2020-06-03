@@ -9,10 +9,10 @@ export interface User {
     lastname: string;
     email: string;
     phone: string | null;
-    age: number | null;
+    date_of_birth: string | null;
     description: string | null;
     city: string | null;
-    country: string | null;
+    country_alpha3: string | null;
     profile_picture_url: string | null;
     recently_online: number | null;
     response_rate?: number;
