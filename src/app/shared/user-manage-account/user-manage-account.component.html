@@ -1,0 +1,53 @@
+<main>
+    <div class="page-title">
+        <h1 class="wrapper">Manage my account</h1>
+    </div>
+    <div class="breadcrumb">
+        <div class="wrapper"><a routerLink="/account">Dashboard</a><span>></span>Manage my account</div>
+    </div>
+    <div class="container-with-page-title">
+        <div class="wrapper">
+            <div class="manage-options-container">
+
+                <!-- Premium -->
+                <div 
+                *ngIf="user.is_helper"
+                class="manage-option premium box-shadow">
+                    <h2>Premium</h2>
+                    <div *ngIf="!isPremium" class="text">
+                        <span class="emoji">🏝</span>
+                        <p>You are not a premium member. You can't contact hosts and apply to experiences.</p>
+                    </div>
+                    <div *ngIf="isPremium" class="text">
+                        <span class="emoji">🎉</span>
+                        <p>You are a premium member until {{ user.premium_until | date:'longDate' }}. Enjoy !</p>
+                    </div>
+                    <button
+                    (click)="openBecomePremiumDialog()" 
+                    class="btn btn-success-solid"
+                    [class.btn-success-disabled]="isPremium"
+                    [disabled]="isPremium">Become premium</button>
+                </div>
+
+                <div class="manage-options-wrapper">
+                    <!-- Password -->
+                    <div class="manage-option box-shadow">
+                        <h2>Password</h2>
+                        <button 
+                        (click)="openChangePasswordDialog()" 
+                        class="btn btn-transparent-solid">Change password</button>
+                    </div>
+
+                    <!-- Account -->
+                    <div class="manage-option box-shadow">
+                        <h2>Account</h2>
+                        <button 
+                        (click)="openDeleteAccountDialog()" 
+                        class="btn btn-transparent-solid">Delete account</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</main>

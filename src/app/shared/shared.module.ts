@@ -27,6 +27,7 @@ import { UpdateUserEmailDialogComponent } from './dialogs/update-user-email-dial
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { SeeUserProfileDialogComponent } from './dialogs/see-user-profile-dialog/see-user-profile-dialog.component';
+import { UserManageAccountComponent } from './user-manage-account/user-manage-account.component';
 
 @NgModule({
     declarations: [
@@ -51,6 +52,7 @@ import { SeeUserProfileDialogComponent } from './dialogs/see-user-profile-dialog
         UserEditProfileFormComponent,
         UpdateUserEmailDialogComponent,
         SeeUserProfileDialogComponent,
+        UserManageAccountComponent,
     ],
     imports: [
         CommonModule,
