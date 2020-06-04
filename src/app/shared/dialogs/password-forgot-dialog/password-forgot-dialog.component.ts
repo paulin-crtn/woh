@@ -2,6 +2,7 @@ import { Component, OnInit, Inject } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA } from '@angular/material/dialog';
 
+
 @Component({
   selector: 'app-password-forgot-dialog',
   templateUrl: './password-forgot-dialog.component.html',

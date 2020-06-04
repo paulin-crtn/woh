@@ -1,1 +1,27 @@
-<p>update-user-email-dialog works!</p>
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>Update email address</h2>
+    <p class="sub-title">Your current email address will remain active until you have confirmed the new address via the link that will be sent to you.</p>
+    <mat-dialog-content>
+        <form (ngSubmit)="updateEmail()" [formGroup]="form">
+            <!-- Email -->
+            <input type="email" formControlName="email" placeholder="Email">
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid box-shadow"
+            [class.btn-success-disabled]="form.invalid || submitted"
+            [disabled]="form.invalid || submitted">
+                <div *ngIf="!submitted">Send the confirm link</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+        </form>
+    </mat-dialog-content>
+</div>
