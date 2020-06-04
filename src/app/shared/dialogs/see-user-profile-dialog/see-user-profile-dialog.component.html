@@ -1,0 +1,20 @@
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <div mat-dialog-title class="user-profile-informations">
+        <figure class="profile-picture">
+            <img [src]="user.profile_picture_url" alt="user profile picture">
+        </figure>
+        <div>
+            <h2>{{ user.firstname | titlecase }} {{ user.lastname | titlecase }}</h2>
+            <h3>{{ this.getUserAge() }} <span>years old</span>, {{ this.getUserCountry() }}</h3>
+        </div>
+    </div>
+    <mat-dialog-content>
+        <p class="user-profile-description">
+            {{ user.description }}
+        </p>
+    </mat-dialog-content>
+</div>
