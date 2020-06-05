@@ -30,6 +30,11 @@ button, button:focus {
     border: 1px solid $primary;
 }
 
+.btn-primary-none {
+    color: $primary;
+    cursor: pointer;
+}
+
 .btn-primary-light {
     background-color: $light-1;
     color: #000000;
@@ -53,9 +58,11 @@ button, button:focus {
     border: none;
 }
 
-.link-primary {
-    color: $primary;
-    cursor: pointer;
+.btn-transparent-underline {
+    background-color: transparent;
+    color: #000000;
+    border: none;
+    border-bottom: 1px solid #000000;
 }
 
 // DISABLE

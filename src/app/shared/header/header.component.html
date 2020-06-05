@@ -7,32 +7,32 @@
     </a>
     <nav class="navbar-classic">
         <ul *showAuthed="false" class="public">
-            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
-            <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
-            <li (click)="openDialogLogin()" class="link-primary">Login</li>
+            <li (click)="openDialogLanguage()" class="btn-primary-none">EN</li>
+            <li><a class="btn-primary-none" routerLink="/how-it-works">How it works ?</a></li>
+            <li (click)="openDialogLogin()" class="btn-primary-none">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
         <ul *showAuthed="true">
-            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
-            <li><a class="link-primary" routerLink="/account/{{profil}}">Dashboard</a></li>
-            <li (click)="logout()" class="link-primary">Logout</li>
+            <li (click)="openDialogLanguage()" class="btn-primary-none">EN</li>
+            <li><a class="btn-primary-none" routerLink="/account/{{profil}}">Dashboard</a></li>
+            <li (click)="logout()" class="btn-primary-none">Logout</li>
         </ul>
     </nav>
     <nav class="navbar-mobile" 
     [class.not-active]="!isMenuBurgerOpen && isMenuBurgerClicked"
     [class.active]="isMenuBurgerOpen && isMenuBurgerClicked">
         <ul *showAuthed="false" (click)="closeMenuBurger()" class="protected">
-            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
-            <li><a class="link-primary" routerLink="/how-it-works">How it works ?</a></li>
-            <li (click)="openDialogLogin()" class="link-primary">Login</li>
+            <li (click)="openDialogLanguage()" class="btn-primary-none">EN</li>
+            <li><a class="btn-primary-none" routerLink="/how-it-works">How it works ?</a></li>
+            <li (click)="openDialogLogin()" class="btn-primary-none">Login</li>
             <li><a class="btn btn-primary-outline" routerLink="/become-a-host">Become a host</a></li>
             <li><a class="btn btn-primary-solid" routerLink="/become-a-helper">Become a helper</a></li>
         </ul>
         <ul *showAuthed="true">
-            <li (click)="openDialogLanguage()" class="link-primary">EN</li>
-            <li><a class="link-primary" routerLink="/account/helper">Dashboard</a></li>
-            <li (click)="logout()" class="link-primary">Logout</li>
+            <li (click)="openDialogLanguage()" class="btn-primary-none">EN</li>
+            <li><a class="btn-primary-none" routerLink="/account/helper">Dashboard</a></li>
+            <li (click)="logout()" class="btn-primary-none">Logout</li>
         </ul>
     </nav>
 

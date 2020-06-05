@@ -5,6 +5,10 @@ import { MatDialog } from '@angular/material/dialog';
 import { User } from 'src/app/core/user/user';
 import { UserService } from 'src/app/core/user/user.service';
 
+import { BecomePremiumDialogComponent } from 'src/app/components/account-helper/become-premium-dialog/become-premium-dialog.component';
+import { ChangePasswordDialogComponent } from '../dialogs/change-password-dialog/change-password-dialog.component';
+import { DeleteAccountDialogComponent } from '../dialogs/delete-account-dialog/delete-account-dialog.component';
+
 
 @Component({
   selector: 'app-user-manage-account',
@@ -33,21 +37,30 @@ export class UserManageAccountComponent implements OnInit {
   }
 
   openBecomePremiumDialog() {
-    // const dialogRef = this.dialog.open(SeeUserProfileDialogComponent, {
-    //   width: '450px',
-    //   data: {
-    //     user: this.user,
-    //   },
-    //   autoFocus: false,
-    // });
+    const dialogRef = this.dialog.open(BecomePremiumDialogComponent, {
+      width: '450px',
+      data: {
+        user: this.user,
+      },
+      autoFocus: false,
+    });
   }
 
   openChangePasswordDialog() {
-
+    const dialogRef = this.dialog.open(ChangePasswordDialogComponent, {
+      width: '450px',
+      autoFocus: false,
+    });
   }
 
   openDeleteAccountDialog() {
-
+    const dialogRef = this.dialog.open(DeleteAccountDialogComponent, {
+      width: '450px',
+      data: {
+        user: this.user,
+      },
+      autoFocus: false,
+    });
   }
 
 }

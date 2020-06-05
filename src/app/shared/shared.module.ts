@@ -28,6 +28,8 @@ import { MatDatepickerModule } from '@angular/material/datepicker';
 import { SatDatepickerModule, SatNativeDateModule } from 'saturn-datepicker';
 import { SeeUserProfileDialogComponent } from './dialogs/see-user-profile-dialog/see-user-profile-dialog.component';
 import { UserManageAccountComponent } from './user-manage-account/user-manage-account.component';
+import { DeleteAccountDialogComponent } from './dialogs/delete-account-dialog/delete-account-dialog.component';
+import { ChangePasswordDialogComponent } from './dialogs/change-password-dialog/change-password-dialog.component';
 
 @NgModule({
     declarations: [
@@ -53,6 +55,8 @@ import { UserManageAccountComponent } from './user-manage-account/user-manage-ac
         UpdateUserEmailDialogComponent,
         SeeUserProfileDialogComponent,
         UserManageAccountComponent,
+        DeleteAccountDialogComponent,
+        ChangePasswordDialogComponent,
     ],
     imports: [
         CommonModule,

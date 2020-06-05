@@ -11,7 +11,7 @@
 
                 <!-- Premium -->
                 <div 
-                *ngIf="user.is_helper"
+                *ngIf="user.is_helper || user.is_host"
                 class="manage-option premium box-shadow">
                     <h2>Premium</h2>
                     <div *ngIf="!isPremium" class="text">

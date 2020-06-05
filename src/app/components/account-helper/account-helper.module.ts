@@ -6,12 +6,13 @@ import { SharedModule } from './../../shared/shared.module';
 
 import { AccountHelperComponent } from './account-helper.component';
 import { HomeComponent } from './home/home.component';
+import { BecomePremiumDialogComponent } from './become-premium-dialog/become-premium-dialog.component';
 
 
 @NgModule({
   declarations: [
     AccountHelperComponent, 
-    HomeComponent,
+    HomeComponent, BecomePremiumDialogComponent,
   ],
   imports: [
     CommonModule,

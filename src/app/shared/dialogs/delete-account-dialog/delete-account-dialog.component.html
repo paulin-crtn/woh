@@ -1,0 +1,42 @@
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>Delete account</h2>
+    <ul class="beware sub-title">
+        <li *ngIf="user.is_helper">You'll lose your premium privileges if you are a premium member</li>
+        <li *ngIf="user.is_host">All your experiences will be disabled</li>
+        <li>You won't be able to re-register with the same email address</li>
+        <li>You'll be automatically logged out</li>
+    </ul>
+    <p class="confirm-action">Enter your password to confirm this action.</p>
+    <mat-dialog-content>
+        <form (ngSubmit)="deleteAccount()" [formGroup]="form">
+            <!-- Password -->
+            <input type="password" formControlName="password" placeholder="Password">
+            <div *ngIf="password.invalid && (password.dirty || password.touched)" class="error">
+                <div *ngIf="password.errors.required">
+                    Password is required.
+                </div>
+                <div *ngIf="password.errors.minlength">
+                    Password must be at least 6 characters long.
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button
+            type="submit"
+            class="btn btn-success-solid box-shadow"
+            [class.btn-success-disabled]="form.invalid || submitted"
+            [disabled]="form.invalid || submitted">
+                <div *ngIf="!submitted">Delete account</div>
+                <div *ngIf="submitted" class="spinner">
+                    <div class="bounce1"></div>
+                    <div class="bounce2"></div>
+                    <div class="bounce3"></div>
+                </div>
+            </button>
+        </form>
+    </mat-dialog-content>
+</div>
