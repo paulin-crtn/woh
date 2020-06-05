@@ -1,1 +1,229 @@
-<p>become-premium-dialog works!</p>
+<div mat-dialog-close class="close-container">
+    <img src="assets/icons/cross.svg" alt="">
+</div>
+
+<div class="dialog-container">
+    <h2 mat-dialog-title>Become premium</h2>
+    <mat-dialog-content>
+        <form (ngSubmit)="becomePremium()" [formGroup]="form">
+            <mat-horizontal-stepper labelPosition="bottom" linar>
+
+                <!-- Duration -->
+                <mat-step>
+                    <ng-template matStepLabel>Duration</ng-template>
+                    <div>
+                        <p class="step-description">Choose the best offer according to the duration of your trip.</p>
+                        <div class="container-checkbox">
+                            <!-- 3 month -->
+                            <div class="input-fc-radio">
+                                <input 
+                                type="radio" 
+                                class="checkbox-large"
+                                id="3" 
+                                value="3" 
+                                formControlName="duration"
+                                (click)="selectedOffer='3 month duration for 5 euros'">
+                                <label 
+                                for="3">3 month - 5 €</label>
+                            </div>
+                            <!-- 12 month -->
+                            <div class="input-fc-radio">
+                                <input 
+                                type="radio" 
+                                class="checkbox-large"
+                                id="12" 
+                                value="12" 
+                                formControlName="duration"
+                                (click)="selectedOffer='12 month duration for 9 euros'">
+                                <label 
+                                for="12">12 month - 9 €</label>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+
+                <!-- Payment -->
+                <mat-step>
+                    <ng-template matStepLabel>Payment</ng-template>
+                    <div>
+                        <!-- Card holder -->
+                        <div class="form-field">
+                            <label 
+                            class="card-label" 
+                            for="card_holder">Card holder</label>
+                            <input 
+                            type="text" 
+                            formControlName="card_holder" 
+                            id="card_holder">
+                        </div>
+                        <div *ngIf="card_holder.invalid && (card_holder.dirty || card_holder.touched)" class="error">
+                            <div *ngIf="card_holder.errors.required">
+                                Card holder is required.
+                            </div>
+                            <div *ngIf="card_holder.errors.maxlength">
+                                Card holder must be at most 80 characters long.
+                            </div>
+                        </div>
+
+                        <!-- Card number -->
+                        <div class="form-field">
+                            <label 
+                            class="card_holder" 
+                            for="card_number">Card number</label>
+                            <input
+                            credit-card-format 
+                            type="text" 
+                            formControlName="card_number"
+                            placeholder="1234 5678 9012 3456" 
+                            id="card_number">
+                        </div>
+                        <div *ngIf="card_number.invalid && card_number.touched" class="error">
+                            <div *ngIf="card_number.errors.required">
+                                Card number is required.
+                            </div>
+                            <div *ngIf="card_number.errors.minlength">
+                                Card number must be at least 8 characters long.
+                            </div>
+                            <div *ngIf="card_number.errors.maxlength">
+                                Card number must be at most 19 characters long.
+                            </div>
+                            <div *ngIf="card_number.errors.pattern">
+                                Card number must only contain numbers.
+                            </div>
+                        </div>
+
+                        <!-- Expiration date & CVC -->
+                        <div class="form-fields-container">
+                            <!-- Month -->
+                            <div class="form-field">
+                                <label 
+                                class="card_holder" 
+                                for="card_expiration_month">Expiration date</label>
+                                <input 
+                                type="text" 
+                                formControlName="card_expiration_month" 
+                                placeholder="MM"
+                                id="card_expiration_month">
+                                <input 
+                                type="text" 
+                                formControlName="card_expiration_year"
+                                placeholder="YY" 
+                                id="card_expiration_year">
+                            </div>
+                            <!-- CVC -->
+                            <div class="form-field">
+                                <label 
+                                class="card_holder" 
+                                for="card_cvc">CVC</label>
+                                <input 
+                                type="text" 
+                                formControlName="card_cvc"
+                                placeholder="123" 
+                                id="card_cvc">
+                            </div>
+                        </div>
+                        <div class="form-fiels-container-errors">
+                            <div *ngIf="card_expiration_month.invalid && card_expiration_month.touched" class="error">
+                                <div *ngIf="card_expiration_month.errors.required">
+                                    Card expiration month is required.
+                                </div>
+                                <div *ngIf="card_expiration_month.errors.minlength">
+                                    Card expiration month must be at least 2 characters long.
+                                </div>
+                                <div *ngIf="card_expiration_month.errors.maxlength">
+                                    Card expiration month must be at most 2 characters long.
+                                </div>
+                                <div *ngIf="card_expiration_month.errors.pattern">
+                                    Card expiration month must only contain numbers.
+                                </div>
+                            </div>
+                            <div *ngIf="card_expiration_year.invalid && card_expiration_year.touched" class="error">
+                                <div *ngIf="card_expiration_year.errors.required">
+                                    Card expiration year is required.
+                                </div>
+                                <div *ngIf="card_expiration_year.errors.minlength">
+                                    Card expiration year must be at least 2 characters long.
+                                </div>
+                                <div *ngIf="card_expiration_year.errors.maxlength">
+                                    Card expiration year must be at most 2 characters long.
+                                </div>
+                                <div *ngIf="card_expiration_year.errors.pattern">
+                                    Card expiration year must only contain numbers.
+                                </div>
+                            </div>
+                            <div *ngIf="card_cvc.invalid && card_cvc.touched" class="error">
+                                <div *ngIf="card_cvc.errors.required">
+                                    Card verification code is required.
+                                </div>
+                                <div *ngIf="card_cvc.errors.minlength">
+                                    Card verification code must be at least 3 characters long.
+                                </div>
+                                <div *ngIf="card_cvc.errors.maxlength">
+                                    Card verification code must be at most 4 characters long.
+                                </div>
+                                <div *ngIf="card_cvc.errors.pattern">
+                                    Card verification code must only contain numbers.
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="buttons">
+                            <button class="btn btn-success-solid" matStepperNext type="button">Next</button>
+                        </div>
+                    </div>
+                </mat-step>
+
+                <!-- Confirm -->
+                <mat-step>
+                    <ng-template matStepLabel>Confirmation</ng-template>
+                    <div>
+                        <p class="step-description">You've never been so close to live new experiences ! Review and confirm.</p>
+                        <!-- Review -->
+                        <div class="review-chips">
+                            <div class="review-chip">
+                                <span *ngIf="selectedOffer">{{ selectedOffer }}</span>
+                                <span *ngIf="!selectedOffer">No duration selected</span>
+                            </div>
+                            <div class="review-chip">
+                                <span *ngIf="card_holder.value">Payment holder is {{ card_holder.value }}</span>
+                                <span *ngIf="!card_holder.value">No card holder provided</span>
+                            </div>
+                            <div class="review-chip">
+                                <span *ngIf="card_number.value">Payment card end with {{ card_number.value | slice:-4 }}</span>
+                                <span *ngIf="!card_number.value">No payment card provided</span>
+                            </div>
+                        </div>
+                        <!-- Checkbox -->
+                        <div class="checkbox" [class]="checkboxClass">
+                            <input type="checkbox" formControlName="consent" [attr.id]="checkboxClass">
+                            <label [attr.for]="checkboxClass">
+                                <div><span><!-- This span is needed to create the "checkbox" element --></span></div>
+                                <div class="consent">I acknowledge having read and accepted the <a class="btn btn-transparent-underline" href="/conditions-of-sale" target="_blank">General Terms & Conditions of Sale</a></div>
+                            </label>
+                        </div>
+                        <div class="buttons">
+                            <!-- Submit -->
+                            <button
+                            type="submit"
+                            class="btn btn-success-solid box-shadow"
+                            [class.btn-success-disabled]="form.invalid || submitted"
+                            [disabled]="form.invalid || submitted">
+                                <div *ngIf="!submitted">Confirm and become premium</div>
+                                <div *ngIf="submitted" class="spinner">
+                                    <div class="bounce1"></div>
+                                    <div class="bounce2"></div>
+                                    <div class="bounce3"></div>
+                                </div>
+                            </button>
+                        </div>
+                    </div>
+                </mat-step>
+
+            </mat-horizontal-stepper>
+        </form>
+    </mat-dialog-content>
+</div>

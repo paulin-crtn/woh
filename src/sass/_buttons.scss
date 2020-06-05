@@ -62,7 +62,11 @@ button, button:focus {
     background-color: transparent;
     color: #000000;
     border: none;
+    border-radius: 0;
     border-bottom: 1px solid #000000;
+    font-size: inherit;
+    font-weight: 300;
+    padding: 0;
 }
 
 // DISABLE

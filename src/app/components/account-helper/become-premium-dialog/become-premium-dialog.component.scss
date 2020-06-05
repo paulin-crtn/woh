@@ -1,0 +1,56 @@
+@import '../../../../sass/_variables';
+
+
+.dialog-container form {
+    padding: 0;
+    .mat-stepper-horizontal {
+        padding: 0;
+    }
+    .step-description {
+        padding: 0;
+        margin-bottom: 20px;
+    }
+    input {
+        margin-top: 10px;
+        margin-bottom: 15px;
+    }
+    .form-fields-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: flex-start;
+        input {
+            display: inline-block;
+            width: 100px;
+            margin-bottom: 0; // BUG FIX (extra space due to display flex and inline-block)
+        }
+        #card_expiration_month {
+            margin-right: 10px;
+        }
+    }
+    .form-fiels-container-errors {
+        margin-top: 15px; // BUG FIX (extra space due to display flex and inline-block)
+    }
+    .step-description, .card-label {
+        font-family: $text;
+        font-size: 1rem;
+        font-weight: 400;
+    }
+    .review-chips {
+        margin-bottom: 30px;
+        .review-chip {
+            display: inline-block;
+            margin: 4px 0;            
+            padding: 7px 12px;
+            color: #ffffff;
+            background-color: $dark-1;
+            border-radius: 5px;
+        }
+    }
+    .buttons {
+        margin-top: 30px;
+    }
+    .error {
+        margin: -5px 0 15px 0;
+        color: $warn;
+    }
+}
